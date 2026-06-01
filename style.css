@@ -269,18 +269,12 @@ ul { list-style: none; }
 .about-image-wrap {
   position: relative;
 }
-.about-image-placeholder {
+.about-image {
+  width: 100%;
   aspect-ratio: 3 / 4;
-  background: var(--cream-dark);
+  object-fit: cover;
+  object-position: center top;
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  color: var(--bark-mid);
-  opacity: 0.7;
 }
 .about-badge {
   position: absolute;
