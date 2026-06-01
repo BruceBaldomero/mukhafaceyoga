@@ -20,7 +20,7 @@ document.querySelectorAll('.service-card, .about-grid, .contact-grid').forEach(e
 });
 
 // ⬇️ PASTE MONA'S HEALTH INTAKE FORM URL HERE
-const INTAKE_FORM_URL = 'https://www.instagram.com/mukhafaceyoga/';
+const INTAKE_FORM_URL = 'https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400';
 
 // ⬇️ PASTE FORMSPREE ENDPOINT HERE (e.g. https://formspree.io/f/xyzabc123)
 const FORMSPREE_URL = 'YOUR_FORMSPREE_URL_HERE';
