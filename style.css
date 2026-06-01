@@ -164,12 +164,26 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
   padding: 7rem 2.5rem 4rem;
+  background-image: url('images/10.JPEG');
+  background-size: cover;
+  background-position: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(61, 46, 34, 0.45);
+  z-index: 1;
 }
 .hero-inner {
   position: relative;
   z-index: 2;
   max-width: 680px;
 }
+.hero-inner .hero-eyebrow,
+.hero-inner .hero-sub { color: rgba(247,243,238,0.8); }
+.hero-inner .hero-headline,
+.hero-inner .hero-headline em { color: var(--cream); }
 .hero-eyebrow {
   font-family: var(--font-sans);
   font-size: 11px;
