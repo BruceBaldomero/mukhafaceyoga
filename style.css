@@ -88,12 +88,12 @@ ul { list-style: none; }
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: var(--bark-mid);
+  color: var(--cream);
   border-bottom: 1px solid var(--gold);
   padding-bottom: 2px;
   transition: color 0.2s, border-color 0.2s;
 }
-.btn-ghost:hover { color: var(--bark); border-color: var(--bark); }
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
 
 .btn-service {
   display: inline-block;
