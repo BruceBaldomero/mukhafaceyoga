@@ -14,13 +14,13 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-card, .about-grid, .contact-grid').forEach(el => {
+document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-header, .services-category, .quote-strip blockquote, .hero-inner').forEach(el => {
   el.classList.add('reveal');
   observer.observe(el);
 });
 
 // ⬇️ PASTE MONA'S HEALTH INTAKE FORM URL HERE
-const INTAKE_FORM_URL = 'https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400';
+const INTAKE_FORM_URL = 'YOUR_INTAKE_FORM_URL_HERE';
 
 // ⬇️ PASTE FORMSPREE ENDPOINT HERE (e.g. https://formspree.io/f/xyzabc123)
 const FORMSPREE_URL = 'YOUR_FORMSPREE_URL_HERE';
@@ -51,7 +51,7 @@ if (form) {
         <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: #3D2E22; margin-bottom: 0.75rem;">Message received</h3>
         <p style="font-size: 0.9rem; color: #6B4E3D; line-height: 1.75; margin-bottom: 0.5rem;">Thank you for reaching out. Mona will be in touch shortly.</p>
         <p style="font-size: 0.9rem; color: #6B4E3D; line-height: 1.75; margin-bottom: 1.75rem;">In the meantime, please complete your health intake form so Mona can prepare for your treatment.</p>
-        <p style="font-size: 0.8rem; color: #A8C49A; letter-spacing: 0.08em;" id="countdown-text">Opening your health form in <strong id="countdown">10</strong> seconds…</p>
+        <p style="font-size: 0.8rem; color: #A8C49A; letter-spacing: 0.08em;" id="countdown-text">Opening your health form in <strong id="countdown">5</strong> seconds…</p>
         <a href="${INTAKE_FORM_URL}" target="_blank" rel="noopener"
           style="display: inline-block; margin-top: 1.25rem; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #5C7A52; border-bottom: 1px solid #C9A96E; padding-bottom: 2px;">
           Open form now →
@@ -60,7 +60,7 @@ if (form) {
     `;
 
     // Countdown then open in new tab
-    let seconds = 10;
+    let seconds = 5;
     const countdownEl = document.getElementById('countdown');
     const interval = setInterval(() => {
       seconds--;
