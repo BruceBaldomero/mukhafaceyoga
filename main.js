@@ -19,20 +19,33 @@ document.querySelectorAll('.service-card, .about-grid, .contact-grid').forEach(e
   observer.observe(el);
 });
 
-// ⬇️ PASTE MONA'S HEALTH INTAKE FORM URL HERE TOMORROW
-const INTAKE_FORM_URL = 'https://www.instagram.com/mukhafaceyoga/';
+// ⬇️ PASTE MONA'S HEALTH INTAKE FORM URL HERE
+const INTAKE_FORM_URL = 'www.instagram.com/mukhafaceyoga';
 
-// Form submission → redirect to health intake form
+// ⬇️ PASTE FORMSPREE ENDPOINT HERE (e.g. https://formspree.io/f/xyzabc123)
+const FORMSPREE_URL = 'YOUR_FORMSPREE_URL_HERE';
+
+// Form submission → email Mona + open intake form in new tab
 const form = document.querySelector('.contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Redirecting to health form…';
-    btn.style.background = '#5C7A52';
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      window.location.href = INTAKE_FORM_URL;
-    }, 1500);
+
+    try {
+      await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+    } catch (_) {
+      // Still open the intake form even if email fails
+    }
+
+    btn.textContent = 'Sent ✓ Opening health form…';
+    btn.style.background = '#5C7A52';
+    window.open(INTAKE_FORM_URL, '_blank');
   });
 }
