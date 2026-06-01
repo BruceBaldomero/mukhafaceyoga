@@ -19,15 +19,20 @@ document.querySelectorAll('.service-card, .about-grid, .contact-grid').forEach(e
   observer.observe(el);
 });
 
-// Form submission (placeholder — wire to your email provider or Formspree)
+// ⬇️ PASTE MONA'S HEALTH INTAKE FORM URL HERE TOMORROW
+const INTAKE_FORM_URL = 'https://www.instagram.com/mukhafaceyoga/';
+
+// Form submission → redirect to health intake form
 const form = document.querySelector('.contact-form');
 if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Message sent ✓';
+    btn.textContent = 'Redirecting to health form…';
     btn.style.background = '#5C7A52';
     btn.disabled = true;
-    // TODO: replace with fetch() to your chosen form endpoint, e.g. Formspree
+    setTimeout(() => {
+      window.location.href = INTAKE_FORM_URL;
+    }, 1500);
   });
 }
