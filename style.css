@@ -164,7 +164,7 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
   padding: 7rem 2.5rem 4rem;
-  background-image: url('images/edited4.jpeg');
+  background-image: url('images/10.jpeg');
   background-size: cover;
   background-position: center;
 }
@@ -462,6 +462,87 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .services-grid--base,
   .services-grid--addons { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}
+
+/* Service price pill */
+.service-price {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--bark);
+  background: var(--gold-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.service-card--featured .service-price {
+  background: rgba(201,169,110,0.25);
+  color: var(--gold);
+}
+.service-card--addon .service-price {
+  background: var(--cream-dark);
+  color: var(--bark-mid);
+}
+.service-price-saving {
+  font-size: 10px;
+  opacity: 0.7;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+.service-price-period {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* Packages & Subscriptions */
+.services-grid--packages {
+  grid-template-columns: repeat(2, 1fr);
+}
+.service-card--package {
+  background: var(--cream);
+  border: 1px solid var(--gold-light);
+}
+.service-card--subscription {
+  background: var(--sage-deep);
+  color: var(--cream);
+  position: relative;
+}
+.service-card--subscription h3,
+.service-card--subscription p,
+.service-card--subscription .service-type,
+.service-card--subscription .service-subtitle { color: var(--cream); }
+.service-card--subscription .service-type { color: rgba(247,243,238,0.6); }
+.service-card--subscription .service-subtitle { color: rgba(247,243,238,0.55); }
+.service-card--subscription > p { color: rgba(247,243,238,0.8); }
+.service-card--subscription .service-benefits { border-top-color: rgba(247,243,238,0.2); }
+.service-card--subscription .service-benefits li { color: rgba(247,243,238,0.8); }
+.service-card--subscription .service-price--subscription {
+  background: rgba(247,243,238,0.15);
+  color: var(--cream);
+}
+.service-card--subscription .btn-service { color: var(--gold-light); }
+.service-card--subscription .btn-service:hover { color: var(--cream); }
+.service-badge-pkg {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--bark);
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .services-grid--packages { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
 
 /* ── QUOTE STRIP ─────────────────────────────────────────── */
