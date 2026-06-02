@@ -17,19 +17,25 @@
       justify-content: center;
       padding: 2rem 1.5rem;
       background: var(--cream);
-      background-image: url('images/edited7.jpeg');
-      background-size: cover;
-      background-position: center;
       position: relative;
       overflow: hidden;
       text-align: center;
     }
-    .not-found::before {
+    .not-found-bg {
+      position: absolute;
+      inset: -20px;
+      background-image: url('images/edited4.jpeg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(16px);
+      transform: scale(1.05);
+      z-index: 0;
+    }
+    .not-found-bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background: rgba(61, 46, 34, 0.55);
-      z-index: 1;
     }
     .not-found-inner {
       position: relative;
@@ -101,6 +107,7 @@
   </nav>
 
   <section class="not-found">
+    <div class="not-found-bg" aria-hidden="true"></div>
     <div class="not-found-decoration" aria-hidden="true">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
