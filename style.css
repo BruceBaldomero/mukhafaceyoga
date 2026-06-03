@@ -166,7 +166,7 @@ ul { list-style: none; }
   padding: 7rem 2.5rem 4rem;
   background-image: url('images/11.jpeg');
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
 }
 .hero::before {
   content: '';
