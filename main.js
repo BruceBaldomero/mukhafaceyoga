@@ -19,6 +19,46 @@ document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-h
   observer.observe(el);
 });
 
-// Formspree initialisation — runs after the CDN script loads
-window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-formspree('initForm', { formElement: '#contact-form', formId: 'mzdqzgzd' });
+// Contact form — submits to Formspree, replaces form with confirmation
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    let success = false;
+    try {
+      const res = await fetch('https://formspree.io/f/mzdqzgzd', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      success = res.ok;
+    } catch (_) {}
+
+    if (success) {
+      // Replace form with confirmation — prevents resubmission
+      form.outerHTML = `
+        <div class="form-success">
+          <div class="form-success-icon">✦</div>
+          <h3>Message received</h3>
+          <p>Thank you for reaching out. Mona will be in touch shortly.</p>
+          <p>Ready to book? Head to Fresha to choose your treatment, date and time.</p>
+          <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" style="margin-top:1rem; display:inline-block;">
+            Book on Fresha →
+          </a>
+        </div>
+      `;
+    } else {
+      // Show error but re-enable form
+      btn.textContent = 'Get in Touch';
+      btn.disabled = false;
+      const err = form.querySelector('[data-fs-error]');
+      if (err) {
+        err.textContent = 'Something went wrong. Please try again or email mukha.faceyoga@gmail.com directly.';
+      }
+    }
+  });
+}

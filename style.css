@@ -646,9 +646,33 @@ ul { list-style: none; }
 }
 
 /* Formspree states */
-[data-fs-success] { display: none; }
-[data-fs-success].visible { display: block; }
 [data-fs-error]:empty { display: none; }
+
+.form-success {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  border: 1px solid rgba(61,46,34,0.08);
+  text-align: center;
+}
+.form-success-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.form-success h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--bark);
+  margin-bottom: 0.75rem;
+}
+.form-success p {
+  font-size: 0.9rem;
+  color: var(--bark-mid);
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
 
 /* Contact form */
 .contact-form {
