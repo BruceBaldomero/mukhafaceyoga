@@ -307,6 +307,25 @@ ul { list-style: none; }
   margin-bottom: 1.1rem;
   line-height: 1.8;
 }
+.about-highlight {
+  background: var(--cream-dark);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.1rem 0;
+}
+.about-highlight p {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--bark);
+  line-height: 1.8;
+  margin-bottom: 0 !important;
+}
+.about-highlight em {
+  font-weight: 500;
+  color: var(--bark);
+}
+
 .about-text .btn-primary { margin-top: 0.75rem; }
 .about-closing {
   font-family: var(--font-serif);
