@@ -645,6 +645,11 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 
+/* Formspree states */
+[data-fs-success] { display: none; }
+[data-fs-success].visible { display: block; }
+[data-fs-error]:empty { display: none; }
+
 /* Contact form */
 .contact-form {
   background: var(--white);
