@@ -564,6 +564,41 @@ ul { list-style: none; }
   .services-grid--packages { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
 
+/* ── GALLERY PREVIEW ─────────────────────────────────────── */
+.gallery-preview { background: var(--white); }
+
+.gallery-preview-grid {
+  columns: 3;
+  column-gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.gallery-preview-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.gallery-preview-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.gallery-preview-item:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.92);
+}
+.gallery-preview-cta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .gallery-preview-grid { columns: 2; }
+}
+@media (max-width: 600px) {
+  .gallery-preview-grid { columns: 1; }
+}
+
 /* ── QUOTE STRIP ─────────────────────────────────────────── */
 .quote-strip {
   background: var(--bark);
