@@ -540,6 +540,10 @@ ul { list-style: none; }
 .service-card--subscription > p { color: rgba(247,243,238,0.8); }
 .service-card--subscription .service-benefits { border-top-color: rgba(247,243,238,0.2); }
 .service-card--subscription .service-benefits li { color: rgba(247,243,238,0.8); }
+.service-card--subscription .service-note {
+  color: var(--gold-light) !important;
+  opacity: 1;
+}
 .service-card--subscription .service-price--subscription {
   background: rgba(247,243,238,0.15);
   color: var(--cream);
