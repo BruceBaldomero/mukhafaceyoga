@@ -378,18 +378,31 @@
             </ul>
           </div>
         </div>
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" id="contact-form">
+          <div data-fs-success style="display:none; text-align:center; padding: 2rem 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">✦</div>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: #3D2E22; margin-bottom: 0.75rem;">Message received</h3>
+            <p style="font-size: 0.9rem; color: #6B4E3D; line-height: 1.75; margin-bottom: 0.5rem;">Thank you for reaching out. Mona will be in touch shortly.</p>
+            <p style="font-size: 0.9rem; color: #6B4E3D; line-height: 1.75; margin-bottom: 1.75rem;">Ready to book? Head to Fresha to choose your treatment, date and time.</p>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener"
+              style="display: inline-block; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #5C7A52; border-bottom: 1px solid #C9A96E; padding-bottom: 2px;">
+              Book on Fresha →
+            </a>
+          </div>
+          <div data-fs-error style="display:none; font-size: 0.85rem; color: #c0392b; margin-bottom: 1rem; padding: 0.75rem 1rem; background: #fdf2f2; border-radius: 6px; border-left: 3px solid #c0392b;"></div>
           <div class="form-row">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <input type="text" id="name" name="name" placeholder="Your name" required data-fs-field />
+            <span data-fs-error="name" style="font-size:0.78rem; color:#c0392b;"></span>
           </div>
           <div class="form-row">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <input type="email" id="email" name="email" placeholder="your@email.com" required data-fs-field />
+            <span data-fs-error="email" style="font-size:0.78rem; color:#c0392b;"></span>
           </div>
           <div class="form-row">
             <label for="service">Interested in</label>
-            <select id="service" name="service">
+            <select id="service" name="service" data-fs-field>
               <option value="">Select a service…</option>
               <optgroup label="Base Treatments">
                 <option>MOKSHA — Myofascial Release Massage (60 min · 70)</option>
@@ -408,9 +421,10 @@
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell me a little about yourself and what you're hoping for…"></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me a little about yourself and what you're hoping for…" data-fs-field></textarea>
+            <span data-fs-error="message" style="font-size:0.78rem; color:#c0392b;"></span>
           </div>
-          <button type="submit" class="btn-primary btn-full">Get in Touch</button>
+          <button type="submit" class="btn-primary btn-full" data-fs-submit-btn>Get in Touch</button>
         </form>
       </div>
     </div>
@@ -431,5 +445,6 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
