@@ -426,13 +426,17 @@ ul { list-style: none; }
 .divider-wave svg {
   display: block;
   width: 100%;
-  height: 60px;
+  height: 70px;
 }
 .divider-wave { background: var(--white); }
 .divider-wave--sage-to-dark { background: var(--sage); }
 .divider-wave--dark-to-white { background: var(--bark); }
 .divider-wave--white-to-sage { background: var(--white); }
 .divider-wave--sage-to-cream { background: var(--sage); }
+
+@media (max-width: 600px) {
+  .divider-wave svg { height: 40px; }
+}
 
 /* ── SERVICES ───────────────────────────────────────────── */
 .services { background: var(--sage); }
