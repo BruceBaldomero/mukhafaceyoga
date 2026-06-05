@@ -427,8 +427,9 @@ ul { list-style: none; }
   display: block;
   width: 100%;
   height: 70px;
+  margin-bottom: -2px;
 }
-.divider-wave { background: var(--white); }
+.divider-wave { background: var(--white); line-height: 0; font-size: 0; }
 .divider-wave--sage-to-dark { background: var(--sage); }
 .divider-wave--dark-to-white { background: var(--bark); }
 .divider-wave--white-to-sage { background: var(--white); }
