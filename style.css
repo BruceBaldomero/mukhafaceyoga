@@ -434,6 +434,7 @@ ul { list-style: none; }
 .divider-wave--dark-to-white { background: var(--bark); }
 .divider-wave--white-to-sage { background: var(--white); }
 .divider-wave--sage-to-cream { background: var(--sage); }
+.divider-wave--sage-to-white { background: var(--sage); }
 
 @media (max-width: 600px) {
   .divider-wave svg { height: 40px; }
