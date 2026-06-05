@@ -427,8 +427,12 @@ ul { list-style: none; }
   display: block;
   width: 100%;
   height: 60px;
-  background: var(--white);
 }
+.divider-wave { background: var(--white); }
+.divider-wave--sage-to-dark { background: var(--sage); }
+.divider-wave--dark-to-white { background: var(--bark); }
+.divider-wave--white-to-sage { background: var(--white); }
+.divider-wave--sage-to-cream { background: var(--sage); }
 
 /* ── SERVICES ───────────────────────────────────────────── */
 .services { background: var(--sage); }
