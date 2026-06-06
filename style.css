@@ -149,12 +149,13 @@ ul { list-style: none; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--bark);
-  border: 1px solid var(--bark);
+  border: 1px solid var(--gold);
+  background: var(--gold);
   padding: 0.55rem 1.25rem;
   border-radius: 2px;
   transition: background 0.2s, color 0.2s;
 }
-.btn-nav:hover { background: var(--bark); color: var(--cream); }
+.btn-nav:hover { background: var(--gold-light); color: var(--bark); }
 
 /* Hamburger button */
 .nav-hamburger {
