@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery — Mukha Face Yoga | Holistic Facial Therapy Surbiton</title>
   <meta name="description" content="See inside the Mukha Face Yoga space. Photos of myofascial release treatments, buccal massage, face yoga sessions and holistic facial rituals in Surbiton, Surrey." />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3P3RFG4P5"></script>
+  <!-- Google tag (gtag.js) — loads only after cookie consent -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-H3P3RFG4P5');
+    if (localStorage.getItem('mukha_cookie_consent') === 'accepted') {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);};
+      gtag('js', new Date());
+      gtag('config', 'G-H3P3RFG4P5');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H3P3RFG4P5';
+      document.head.appendChild(s);
+    }
   </script>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -385,5 +390,15 @@
       });
     }
   </script>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <p class="cookie-banner-text">This site uses cookies to understand visitor traffic. <a href="policies.html">Learn more</a>.</p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn cookie-btn--decline" id="cookie-decline">Decline</button>
+      <button class="cookie-btn cookie-btn--accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+  <script src="cookie.js"></script>
 </body>
 </html>
