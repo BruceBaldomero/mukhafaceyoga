@@ -68,11 +68,14 @@ if (carouselTrack && carouselPrev && carouselNext) {
 
   // Touch swipe support
   let touchStartX = 0;
-  carouselTrack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  carouselTrack.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) goToSlide(diff > 0 ? current + 1 : current - 1);
-  }, { passive: true });
+  const carouselWrap = document.querySelector('.carousel-track-wrap');
+  if (carouselWrap) {
+    carouselWrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    carouselWrap.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 30) goToSlide(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  }
 }
 
 // Contact form — submits to Formspree, replaces form with confirmation
