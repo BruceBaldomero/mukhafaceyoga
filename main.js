@@ -46,6 +46,35 @@ document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-h
   observer.observe(el);
 });
 
+// Testimonials carousel
+const carouselTrack = document.getElementById('carousel-track');
+const carouselPrev = document.getElementById('carousel-prev');
+const carouselNext = document.getElementById('carousel-next');
+const carouselDots = document.querySelectorAll('.carousel-dot');
+
+if (carouselTrack && carouselPrev && carouselNext) {
+  let current = 0;
+  const total = carouselTrack.children.length;
+
+  function goToSlide(index) {
+    current = (index + total) % total;
+    carouselTrack.style.transform = `translateX(-${current * 100}%)`;
+    carouselDots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  carouselPrev.addEventListener('click', () => goToSlide(current - 1));
+  carouselNext.addEventListener('click', () => goToSlide(current + 1));
+  carouselDots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+
+  // Touch swipe support
+  let touchStartX = 0;
+  carouselTrack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carouselTrack.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goToSlide(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+}
+
 // Contact form — submits to Formspree, replaces form with confirmation
 const form = document.getElementById('contact-form');
 if (form) {
