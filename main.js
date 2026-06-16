@@ -41,7 +41,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-header, .services-category, .quote-strip blockquote, .hero-inner').forEach(el => {
+document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-header, .services-category, .quote-strip blockquote, .hero-inner, .insight-post').forEach(el => {
   el.classList.add('reveal');
   observer.observe(el);
 });
@@ -77,6 +77,35 @@ if (carouselTrack && carouselPrev && carouselNext) {
     }, { passive: true });
   }
 }
+
+// Insight post carousels
+document.querySelectorAll('.insight-post').forEach(post => {
+  const track = post.querySelector('.insight-slides');
+  const wrap = post.querySelector('.insight-slides-wrap');
+  const prevBtn = post.querySelector('.insight-btn--prev');
+  const nextBtn = post.querySelector('.insight-btn--next');
+  const counter = post.querySelector('.insight-counter');
+  if (!track) return;
+
+  const total = track.children.length;
+  let current = 0;
+
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    if (counter) counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  let startX = 0;
+  wrap?.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  wrap?.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 30) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+});
 
 // Contact form — submits to Formspree, replaces form with confirmation
 const form = document.getElementById('contact-form');
