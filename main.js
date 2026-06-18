@@ -41,7 +41,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-header, .services-category, .quote-strip blockquote, .hero-inner, .insight-post').forEach(el => {
+document.querySelectorAll('.service-card, .about-grid, .contact-grid, .section-header, .services-category, .quote-strip blockquote, .hero-inner').forEach(el => {
   el.classList.add('reveal');
   observer.observe(el);
 });
@@ -78,34 +78,128 @@ if (carouselTrack && carouselPrev && carouselNext) {
   }
 }
 
-// Insight post carousels
-document.querySelectorAll('.insight-post').forEach(post => {
-  const track = post.querySelector('.insight-slides');
-  const wrap = post.querySelector('.insight-slides-wrap');
-  const prevBtn = post.querySelector('.insight-btn--prev');
-  const nextBtn = post.querySelector('.insight-btn--next');
-  const counter = post.querySelector('.insight-counter');
-  if (!track) return;
+// Journal magazine scatter — modal
+(function () {
+  const modal = document.getElementById('journal-modal');
+  if (!modal) return;
 
-  const total = track.children.length;
-  let current = 0;
+  const backdrop = document.getElementById('journal-modal-backdrop');
+  const closeBtn = document.getElementById('journal-modal-close');
+  const mediaEl  = document.getElementById('journal-modal-media');
+  const titleEl  = document.getElementById('journal-modal-title');
+  const captionEl = document.getElementById('journal-modal-caption');
+  const disclaimerEl = document.getElementById('journal-modal-disclaimer');
+  const dateEl   = document.getElementById('journal-modal-date');
 
-  function goTo(index) {
-    current = (index + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    if (counter) counter.textContent = `${current + 1} / ${total}`;
+  function openModal(cover) {
+    const type       = cover.dataset.type;
+    const title      = cover.dataset.title || '';
+    const caption    = cover.dataset.caption || '';
+    const disclaimer = cover.dataset.disclaimer || '';
+    const date       = cover.dataset.date || '';
+
+    titleEl.textContent   = title;
+    captionEl.textContent = caption;
+    dateEl.textContent    = date;
+    disclaimerEl.textContent = disclaimer;
+    disclaimerEl.style.display = disclaimer ? '' : 'none';
+
+    mediaEl.innerHTML = '';
+
+    if (type === 'video') {
+      const video = document.createElement('video');
+      video.src = cover.dataset.video || '';
+      video.controls = true;
+      video.muted = true;
+      video.loop = true;
+      video.setAttribute('playsinline', '');
+      video.className = 'journal-modal-video';
+      mediaEl.appendChild(video);
+    } else {
+      const slidesData = cover.querySelector('.journal-cover-slides');
+      if (!slidesData) return;
+      const imgs  = Array.from(slidesData.querySelectorAll('img'));
+      const total = imgs.length;
+      let current = 0;
+
+      const wrap  = document.createElement('div');
+      wrap.className = 'journal-modal-slides-wrap';
+
+      const track = document.createElement('div');
+      track.className = 'journal-modal-slides';
+
+      imgs.forEach(img => {
+        const slide = document.createElement('div');
+        slide.className = 'journal-modal-slide';
+        const newImg = new Image();
+        newImg.src = img.src;
+        newImg.alt = img.alt;
+        newImg.loading = 'lazy';
+        slide.appendChild(newImg);
+        track.appendChild(slide);
+      });
+
+      wrap.appendChild(track);
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'insight-btn insight-btn--prev';
+      prevBtn.innerHTML = '<i class="fa fa-chevron-left"></i>';
+      prevBtn.setAttribute('aria-label', 'Previous slide');
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'insight-btn insight-btn--next';
+      nextBtn.innerHTML = '<i class="fa fa-chevron-right"></i>';
+      nextBtn.setAttribute('aria-label', 'Next slide');
+
+      const counter = document.createElement('span');
+      counter.className = 'insight-counter';
+      counter.textContent = `1 / ${total}`;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        counter.textContent = `${current + 1} / ${total}`;
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      let startX = 0;
+      wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      wrap.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 30) goTo(diff > 0 ? current + 1 : current - 1);
+      }, { passive: true });
+
+      mediaEl.appendChild(wrap);
+      mediaEl.appendChild(prevBtn);
+      mediaEl.appendChild(nextBtn);
+      mediaEl.appendChild(counter);
+    }
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
-  prevBtn?.addEventListener('click', () => goTo(current - 1));
-  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    const video = mediaEl.querySelector('video');
+    if (video) { video.pause(); video.src = ''; }
+  }
 
-  let startX = 0;
-  wrap?.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  wrap?.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 30) goTo(diff > 0 ? current + 1 : current - 1);
-  }, { passive: true });
-});
+  document.querySelectorAll('.journal-cover').forEach(cover => {
+    cover.addEventListener('click', () => openModal(cover));
+  });
+
+  backdrop?.addEventListener('click', closeModal);
+  closeBtn?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+})();
 
 // Contact form — submits to Formspree, replaces form with confirmation
 const form = document.getElementById('contact-form');
