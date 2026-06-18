@@ -78,6 +78,11 @@ if (carouselTrack && carouselPrev && carouselNext) {
   }
 }
 
+// Seek video cover thumbnails to a good frame
+document.querySelectorAll('.journal-cover-video').forEach(v => {
+  v.addEventListener('loadedmetadata', () => { v.currentTime = 2; });
+});
+
 // Journal magazine scatter — modal
 (function () {
   const modal = document.getElementById('journal-modal');

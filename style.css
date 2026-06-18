@@ -1278,18 +1278,12 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-.journal-cover-poster {
+.journal-cover-video {
   width: 100%;
   height: 100%;
-  background: var(--bark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.journal-cover-play-icon {
-  color: rgba(247,243,238,0.45);
-  font-size: 2rem;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
 }
 
 .journal-cover-label {
