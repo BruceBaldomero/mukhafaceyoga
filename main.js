@@ -110,6 +110,7 @@ document.querySelectorAll('.journal-cover-video').forEach(v => {
     disclaimerEl.style.display = disclaimer ? '' : 'none';
 
     mediaEl.innerHTML = '';
+    mediaEl.classList.toggle('journal-modal-media--video', type === 'video');
 
     if (type === 'video') {
       const video = document.createElement('video');
