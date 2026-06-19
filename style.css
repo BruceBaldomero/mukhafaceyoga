@@ -178,6 +178,15 @@ ul { list-style: none; }
   border-radius: 16px;
   transition: all 0.2s ease;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.lang-btn .fi {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 .lang-btn:hover { color: var(--bark); }
 .lang-btn.active {
