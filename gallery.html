@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="animations.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
   <style>
     .gallery-hero {
       padding: 8rem 2.5rem 4rem;
@@ -173,12 +174,27 @@
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#services">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html#insights">Journal</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
-    <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-nav">Book Now</a>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-globe-btn" id="lang-globe-btn" aria-label="Select language" aria-expanded="false">
+          <i class="fa-solid fa-globe"></i>
+          <span class="lang-current" id="lang-current">EN</span>
+          <i class="fa-solid fa-chevron-down lang-chevron"></i>
+        </button>
+        <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox">
+          <button class="lang-option active" data-lang="en" role="option"><span class="fi fi-gb"></span><span>English</span></button>
+          <button class="lang-option" data-lang="fr" role="option"><span class="fi fi-fr"></span><span>Français</span></button>
+          <button class="lang-option" data-lang="tl" role="option"><span class="fi fi-ph"></span><span>Filipino</span></button>
+        </div>
+      </div>
+      <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-nav">Book Now</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- MOBILE MENU -->
@@ -187,8 +203,14 @@
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#services">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html#insights">Journal</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
+    <div class="lang-switcher--mobile">
+      <button class="lang-btn-mobile" data-lang="en"><span class="fi fi-gb"></span> English</button>
+      <button class="lang-btn-mobile" data-lang="fr"><span class="fi fi-fr"></span> Français</button>
+      <button class="lang-btn-mobile" data-lang="tl"><span class="fi fi-ph"></span> Filipino</button>
+    </div>
     <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary">Book Now</a>
   </div>
 
@@ -399,6 +421,7 @@
       <button class="cookie-btn cookie-btn--accept" id="cookie-accept">Accept</button>
     </div>
   </div>
+  <script src="i18n.js"></script>
   <script src="cookie.js"></script>
 </body>
 </html>
