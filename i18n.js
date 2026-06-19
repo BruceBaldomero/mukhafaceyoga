@@ -119,7 +119,7 @@
       'service.urdvha.b5': 'Take-home knowledge',
       'service.reset.type': 'Package · 4 Sessions',
       'service.reset.desc': 'While one session works wonders and provides immediate relief, four consecutive treatments lead to longer-lasting benefits. Perfect for those preparing for a special occasion or committing to their wellbeing.',
-      'service.reset.saving': 'Save £30 vs individual sessions',
+      'service.reset.saving': 'Save 30 vs individual sessions',
       'service.reset.b1': 'Personalised treatment each session',
       'service.reset.b2': 'Holistic facial mask included',
       'service.reset.b3': 'Aftercare & self-care guidance',
