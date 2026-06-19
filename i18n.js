@@ -73,6 +73,19 @@
 
       'footer.policies': 'Client Policies',
 
+      'gallery.cta.prompt': 'Ready to experience Mukha for yourself?',
+
+      'policies.label': 'Important Information',
+      'policies.title': 'Client Policies<br /><em>&amp; Disclaimer</em>',
+      'policies.intro': 'At MUKHA, client safety, wellbeing, and comfort are our highest priorities. Please take a moment to read the following before booking your appointment.',
+      'policies.cta.prompt': "Questions before booking? We're happy to help.",
+
+      '404.eyebrow': 'Page not found',
+      '404.title': 'This page has<br /><em>drifted away</em>',
+      '404.text': "Like a moment of stillness that passes, this page doesn't seem to exist.<br />Let's guide you back to where you need to be.",
+      '404.btn.home': 'Return home',
+      '404.btn.consult': 'Book a consultation',
+
       'cookie.text': 'This site uses cookies to understand visitor traffic.',
       'cookie.decline': 'Decline',
       'cookie.accept': 'Accept',
@@ -150,6 +163,19 @@
       'form.submit': 'Prendre contact',
 
       'footer.policies': 'Politiques Clients',
+
+      'gallery.cta.prompt': 'Prête à découvrir Mukha ?',
+
+      'policies.label': 'Informations importantes',
+      'policies.title': 'Politiques Clients<br /><em>&amp; Mentions légales</em>',
+      'policies.intro': 'Chez MUKHA, la sécurité, le bien-être et le confort de nos clientes sont nos priorités absolues. Veuillez prendre un moment pour lire ce qui suit avant de réserver votre rendez-vous.',
+      'policies.cta.prompt': 'Des questions avant de réserver ? Nous sommes là pour vous aider.',
+
+      '404.eyebrow': 'Page introuvable',
+      '404.title': 'Cette page a<br /><em>disparu</em>',
+      '404.text': "Comme un moment de calme qui passe, cette page ne semble pas exister.<br />Laissez-nous vous guider là où vous devez être.",
+      '404.btn.home': "Retour à l'accueil",
+      '404.btn.consult': 'Réserver une consultation',
 
       'cookie.text': 'Ce site utilise des cookies pour analyser le trafic des visiteurs.',
       'cookie.decline': 'Refuser',
@@ -229,6 +255,19 @@
 
       'footer.policies': 'Mga Patakaran para sa Kliyente',
 
+      'gallery.cta.prompt': 'Handa na kayong maranasan ang Mukha?',
+
+      'policies.label': 'Mahalagang Impormasyon',
+      'policies.title': 'Mga Patakaran para sa Kliyente<br /><em>&amp; Disclaimer</em>',
+      'policies.intro': 'Sa MUKHA, ang kaligtasan, kagalingan, at kaginhawahan ng kliyente ang aming pinakamataas na priyoridad. Mangyaring maglaan ng sandali upang basahin ang sumusunod bago mag-book ng appointment.',
+      'policies.cta.prompt': 'May mga katanungan bago mag-book? Narito kami para tumulong.',
+
+      '404.eyebrow': 'Hindi nahanap ang pahina',
+      '404.title': 'Ang pahinang ito ay<br /><em>nawala na</em>',
+      '404.text': 'Tulad ng isang sandali ng katahimikan na lumilipas, ang pahinang ito ay tila hindi umiiral.<br />Hayaan kaming gabayan kayo pabalik sa kinakailangan ninyo.',
+      '404.btn.home': 'Bumalik sa simula',
+      '404.btn.consult': 'Mag-book ng konsultasyon',
+
       'cookie.text': 'Gumagamit ang site na ito ng cookies upang maunawaan ang trapiko ng bisita.',
       'cookie.decline': 'Tanggihan',
       'cookie.accept': 'Tanggapin',
@@ -240,6 +279,7 @@
     'services.title', 'services.packages', 'gallery.title',
     'testimonials.title', 'journal.title', 'contact.title',
     'contact.female', 'contact.policies',
+    'policies.title', '404.title', '404.text',
   ]);
 
   const LANG_LABELS = { en: 'EN', fr: 'FR', tl: 'TL' };
