@@ -235,13 +235,14 @@
     },
   };
 
-  // Keys whose values contain HTML tags
   const HTML_KEYS = new Set([
     'hero.headline', 'about.title', 'about.highlight',
     'services.title', 'services.packages', 'gallery.title',
     'testimonials.title', 'journal.title', 'contact.title',
     'contact.female', 'contact.policies',
   ]);
+
+  const LANG_LABELS = { en: 'EN', fr: 'FR', tl: 'TL' };
 
   function applyLang(lang) {
     const dict = T[lang];
@@ -265,20 +266,65 @@
     document.documentElement.lang = lang;
     document.body.classList.toggle('lang-non-en', lang !== 'en');
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    // Update globe button label
+    const langCurrent = document.getElementById('lang-current');
+    if (langCurrent) langCurrent.textContent = LANG_LABELS[lang] || lang.toUpperCase();
+
+    // Update active state in dropdown options
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.lang === lang);
+    });
+
+    // Update active state in mobile buttons
+    document.querySelectorAll('.lang-btn-mobile').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
     localStorage.setItem('mukha_lang', lang);
   }
 
-  document.querySelectorAll('.lang-switcher').forEach(sw => {
-    sw.addEventListener('click', e => {
-      const btn = e.target.closest('.lang-btn');
-      if (btn) applyLang(btn.dataset.lang);
+  // Desktop dropdown
+  const dropdown = document.getElementById('lang-dropdown');
+  const globeBtn = document.getElementById('lang-globe-btn');
+  const dropdownMenu = document.getElementById('lang-dropdown-menu');
+
+  if (dropdown && globeBtn && dropdownMenu) {
+    globeBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      globeBtn.setAttribute('aria-expanded', isOpen);
     });
+
+    dropdownMenu.addEventListener('click', e => {
+      const opt = e.target.closest('.lang-option');
+      if (!opt) return;
+      applyLang(opt.dataset.lang);
+      dropdown.classList.remove('open');
+      globeBtn.setAttribute('aria-expanded', false);
+    });
+
+    document.addEventListener('click', e => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        globeBtn.setAttribute('aria-expanded', false);
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        globeBtn.setAttribute('aria-expanded', false);
+        globeBtn.focus();
+      }
+    });
+  }
+
+  // Mobile switcher
+  document.querySelectorAll('.lang-btn-mobile').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
 
+  // Apply saved or default language on load
   const saved = localStorage.getItem('mukha_lang') || 'en';
   applyLang(saved);
 })();
