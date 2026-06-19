@@ -1534,6 +1534,7 @@ body.lang-non-en .price-val::before {
   background: var(--cream-dark);
 }
 
+
 .journal-modal-slides-wrap {
   position: absolute;
   inset: 0;
@@ -1614,6 +1615,18 @@ body.lang-non-en .price-val::before {
   .journal-modal-text {
     max-height: none;
     overflow-y: visible;
+  }
+  .insight-btn {
+    top: auto;
+    bottom: 8px;
+    transform: none;
+    background: rgba(255,255,255,0.82);
+  }
+  .insight-counter {
+    left: 50%;
+    right: auto;
+    bottom: 12px;
+    transform: translateX(-50%);
   }
 }
 
