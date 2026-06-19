@@ -263,6 +263,7 @@
     });
 
     document.documentElement.lang = lang;
+    document.body.classList.toggle('lang-non-en', lang !== 'en');
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);

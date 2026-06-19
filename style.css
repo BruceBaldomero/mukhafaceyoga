@@ -192,6 +192,11 @@ ul { list-style: none; }
 .lang-switcher--mobile .lang-btn { color: var(--bark-mid); }
 .lang-switcher--mobile .lang-btn.active { background: var(--cream); }
 
+/* Show £ on prices when language is not English */
+body.lang-non-en .price-val::before {
+  content: '£';
+}
+
 /* Hamburger button */
 .nav-hamburger {
   display: none;
