@@ -240,10 +240,9 @@ ul { list-style: none; }
 /* Mobile language switcher (inside hamburger menu) */
 .lang-switcher--mobile {
   display: flex;
-  gap: 6px;
-  margin: 0.75rem 0;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(61, 46, 34, 0.1);
+  gap: 8px;
+  padding: 0.75rem 2rem 0;
+  border-top: 1px solid rgba(61, 46, 34, 0.06);
 }
 .lang-btn-mobile {
   display: flex;
@@ -260,11 +259,12 @@ ul { list-style: none; }
   cursor: pointer;
   transition: all 0.2s;
 }
-.lang-btn-mobile:hover { background: rgba(61,46,34,0.06); color: var(--bark); }
+.lang-btn-mobile:hover { background: var(--cream-dark); color: var(--bark); }
 .lang-btn-mobile.active {
-  background: var(--bark);
-  color: var(--cream);
-  border-color: var(--bark);
+  background: var(--cream-dark);
+  color: var(--bark);
+  border-color: rgba(61, 46, 34, 0.3);
+  font-weight: 500;
 }
 .lang-btn-mobile .fi {
   width: 16px;
