@@ -112,9 +112,9 @@ ul { list-style: none; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 1.25rem 2.5rem;
   background: rgba(247, 243, 238, 0.85);
   backdrop-filter: blur(12px);
@@ -129,10 +129,12 @@ ul { list-style: none; }
   font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--bark);
+  justify-self: start;
 }
 .nav-links {
   display: flex;
   gap: 2.5rem;
+  justify-self: center;
 }
 .nav-links a {
   font-size: 12px;
@@ -143,6 +145,12 @@ ul { list-style: none; }
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--bark); }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-self: end;
+}
 .btn-nav {
   font-size: 12px;
   font-weight: 500;
@@ -351,8 +359,11 @@ body.lang-non-en .price-val::before {
 }
 
 @media (max-width: 900px) {
+  .nav { grid-template-columns: 1fr auto; }
+  .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .btn-nav { display: none; }
+  .lang-dropdown { display: none; }
 }
 
 /* ── HERO ────────────────────────────────────────────────── */
