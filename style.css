@@ -1107,6 +1107,23 @@ body.lang-non-en .price-val::before {
   color: var(--bark-mid);
   opacity: 0.7;
 }
+.testimonial-return {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--sage-mid);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--bark-mid);
+  opacity: 0.8;
+  font-family: var(--font-sans);
+}
+.testimonial-return-stars {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
 .testimonials-cta { text-align: center; }
 .testimonials-note {
   font-size: 0.82rem;
