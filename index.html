@@ -81,17 +81,32 @@
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+  <!-- Preload hero image so LCP isn't blocked by CSS discovery -->
+  <link rel="preload" as="image" href="images/edited21.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Critical styles — render-blocking is acceptable for these -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="animations.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
+
+  <!-- Non-critical styles loaded asynchronously -->
+  <link rel="preload" href="animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="animations.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
+  </noscript>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="#" class="nav-logo">Mukha</a>
+    <a href="/" class="nav-logo" aria-label="Mukha Face Yoga — home">Mukha</a>
     <ul class="nav-links">
       <li><a href="#about" data-i18n="nav.about">About</a></li>
       <li><a href="#services" data-i18n="nav.services">Services</a></li>
@@ -159,7 +174,10 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image-wrap">
-          <img src="images/mona.jpeg" alt="Mona, founder of Mukha Face Yoga — Registered Nurse and Holistic Facial Therapist in Surbiton, Surrey" class="about-image" />
+          <picture>
+            <source srcset="images/mona.webp" type="image/webp" />
+            <img src="images/mona.jpeg" alt="Mona, founder of Mukha Face Yoga — Registered Nurse and Holistic Facial Therapist in Surbiton, Surrey" class="about-image" />
+          </picture>
           <div class="about-badge">
             <span data-i18n="about.badge">Founded by</span>
             <strong>Mona<br />RN &amp; Holistic<br />Facial Therapist</strong>
@@ -342,22 +360,40 @@
       </div>
       <div class="gallery-preview-grid">
         <div class="gallery-preview-item">
-          <img src="images/edited14.jpeg" alt="Mukha holistic facial therapy treatment Surbiton Surrey" loading="lazy" />
+          <picture>
+            <source srcset="images/edited14.webp" type="image/webp" />
+            <img src="images/edited14.jpeg" alt="Mukha holistic facial therapy treatment Surbiton Surrey" loading="lazy" />
+          </picture>
         </div>
         <div class="gallery-preview-item">
-          <img src="images/ba9.jpeg" alt="Mukha client before and after facial therapy Surbiton Surrey" loading="lazy" />
+          <picture>
+            <source srcset="images/ba9.webp" type="image/webp" />
+            <img src="images/ba9.jpeg" alt="Mukha client before and after facial therapy Surbiton Surrey" loading="lazy" />
+          </picture>
         </div>
         <div class="gallery-preview-item">
-          <img src="images/edited13.jpeg" alt="Mukha holistic facial therapy treatment Surbiton Surrey" loading="lazy" />
+          <picture>
+            <source srcset="images/edited13.webp" type="image/webp" />
+            <img src="images/edited13.jpeg" alt="Mukha holistic facial therapy treatment Surbiton Surrey" loading="lazy" />
+          </picture>
         </div>
         <div class="gallery-preview-item">
-          <img src="images/ba3.jpeg" alt="Mukha client before and after facial therapy Surbiton Surrey" loading="lazy" />
+          <picture>
+            <source srcset="images/ba3.webp" type="image/webp" />
+            <img src="images/ba3.jpeg" alt="Mukha client before and after facial therapy Surbiton Surrey" loading="lazy" />
+          </picture>
         </div>
         <div class="gallery-preview-item">
-          <img src="images/edited9.jpeg" alt="Mukha holistic facial therapy treatment Surbiton Surrey" loading="lazy" />
+          <picture>
+            <source srcset="images/edited9.webp" type="image/webp" />
+            <img src="images/edited9.jpeg" alt="Mukha holistic facial therapy treatment Surbiton Surrey" loading="lazy" />
+          </picture>
         </div>
         <div class="gallery-preview-item">
-          <img src="images/ba1.jpeg" alt="Mukha client before and after myofascial buccal massage Surbiton Surrey" loading="lazy" />
+          <picture>
+            <source srcset="images/ba1.webp" type="image/webp" />
+            <img src="images/ba1.jpeg" alt="Mukha client before and after myofascial buccal massage Surbiton Surrey" loading="lazy" />
+          </picture>
         </div>
       </div>
       <div class="gallery-preview-cta">
