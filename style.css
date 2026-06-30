@@ -788,6 +788,129 @@ body.lang-non-en .price-val::before {
   .services-grid--packages { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
 
+/* ── SUMMER PACKAGE CARD ─────────────────────────────────── */
+.services-category--summer { margin-top: 1rem; }
+
+.summer-card {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bark);
+  box-shadow: 0 12px 40px rgba(61,46,34,0.18);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.summer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 56px rgba(61,46,34,0.22);
+}
+
+.summer-card__image {
+  position: relative;
+  overflow: hidden;
+}
+.summer-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.summer-card:hover .summer-card__image img {
+  transform: scale(1.03);
+}
+
+.summer-card__badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--bark);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+}
+
+.summer-card__body {
+  padding: 2.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.summer-card__body .service-type { color: rgba(247,243,238,0.6); }
+.summer-card__body h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--cream);
+  margin: 0.4rem 0 0.3rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+.summer-card__body .service-subtitle {
+  color: rgba(247,243,238,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+.service-price--summer {
+  background: rgba(201,169,110,0.18);
+  border: 1px solid rgba(201,169,110,0.35);
+  color: var(--gold);
+  padding: 0.6rem 1.1rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  align-self: flex-start;
+}
+.service-price--summer .price-val {
+  font-size: 1.9rem;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--gold);
+}
+.service-price--summer .price-val::before { content: '£'; font-size: 1rem; vertical-align: super; }
+.summer-card__per {
+  font-size: 0.78rem;
+  color: rgba(201,169,110,0.75);
+  letter-spacing: 0.04em;
+}
+.summer-card__body > p {
+  color: rgba(247,243,238,0.8);
+  font-size: 0.93rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.summer-card__body .service-benefits {
+  border-top-color: rgba(247,243,238,0.15);
+}
+.summer-card__body .service-benefits li { color: rgba(247,243,238,0.8); }
+.summer-card__body .btn-service {
+  color: var(--gold);
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+.summer-card__body .btn-service:hover { color: var(--gold-light); letter-spacing: 0.14em; }
+
+@media (max-width: 900px) {
+  .summer-card {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .summer-card__image {
+    height: 320px;
+  }
+  .summer-card__body { padding: 2rem 1.75rem; }
+  .summer-card__body h3 { font-size: 2rem; }
+}
+
 /* ── GALLERY PREVIEW ─────────────────────────────────────── */
 .gallery-preview { background: var(--white); }
 .gallery-preview-grid {
