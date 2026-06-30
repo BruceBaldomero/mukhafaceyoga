@@ -875,7 +875,7 @@ body.lang-non-en .price-val::before {
   font-weight: 400;
   color: var(--gold);
 }
-.service-price--summer .price-val::before { content: '£'; font-size: 1rem; vertical-align: super; }
+.service-price--summer .price-val::before { font-size: 1rem; vertical-align: super; }
 .summer-card__per {
   font-size: 0.78rem;
   color: rgba(201,169,110,0.75);
