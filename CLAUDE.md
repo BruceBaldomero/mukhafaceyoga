@@ -44,9 +44,15 @@ Repo: `BruceBaldomero/mukhafaceyoga`
 ## House Rules
 - **Always ask before merging to main** — this deploys to the live website
 - Do not change any real business content (prices, services, descriptions) without being explicitly told to
-- When adding reviews, add them to the testimonials carousel in `index.html` and update the review count
+- When adding reviews, add them to the testimonials carousel in `index.html` and update the review count — **always update i18n.js too**, as it overrides the HTML for all languages
 - Keep the site's tone calm, elegant and minimal — no aggressive CTAs or pushy language
 - The site serves **female clients only** — keep this reflected in any new copy
+
+## Image Handling — IMPORTANT
+- **Always rename image files** to clean, descriptive names before committing (e.g. `lymphatic-01.jpg`, `ba1.jpeg`) — never leave WhatsApp, Instagram or auto-generated filenames in the repo
+- **Always remove the originals** after renaming so there are no duplicates
+- When adding images to the journal, use `object-fit: contain` in the modal so images are never cropped
+- When users commit images directly to `main` via GitHub Desktop, pull from `main` and bring them into the working branch — don't assume filenames
 
 ---
 
