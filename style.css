@@ -1375,6 +1375,8 @@ body.lang-non-en .price-val::before {
   text-align: center;
   margin-top: 3rem;
 }
+.insights-more .btn-ghost { color: var(--bark); }
+.insights-more .btn-ghost:hover { color: var(--gold); }
 
 /* Journal scatter layout */
 .journal-scatter {
