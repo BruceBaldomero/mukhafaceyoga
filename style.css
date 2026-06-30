@@ -374,7 +374,7 @@ body.lang-non-en .price-val::before {
   position: relative;
   overflow: hidden;
   padding: 7rem 2.5rem 4rem;
-  background-image: url('images/edited21.jpeg');
+  background-image: image-set(url('images/edited21.webp') type('image/webp'), url('images/edited21.jpeg') type('image/jpeg'));
   background-size: cover;
   background-position: center;
 }
@@ -937,7 +937,7 @@ body.lang-non-en .price-val::before {
   outline: none;
 }
 .contact-form input::placeholder,
-.contact-form textarea::placeholder { color: rgba(107,78,61,0.45); }
+.contact-form textarea::placeholder { color: rgba(61,46,34,0.5); }
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
@@ -1272,7 +1272,14 @@ body.lang-non-en .price-val::before {
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
   transition: background 0.25s, transform 0.25s;
+}
+/* Extend touch target to 24×24px without changing visual size */
+.carousel-dot::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
 }
 .carousel-dot.active {
   background: var(--gold);
