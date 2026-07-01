@@ -105,18 +105,6 @@ ul { list-style: none; }
 }
 .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
 
-.btn-service {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--sage-deep);
-  margin-top: 1.25rem;
-  transition: letter-spacing 0.2s, color 0.2s;
-}
-.btn-service:hover { letter-spacing: 0.14em; color: var(--bark); }
-
 /* ── NAV ────────────────────────────────────────────────── */
 .nav {
   position: fixed;
@@ -200,7 +188,6 @@ ul { list-style: none; }
   color: var(--bark);
   border-color: rgba(61, 46, 34, 0.3);
 }
-.lang-globe-btn .fa-globe { font-size: 12px; }
 .lang-chevron {
   font-size: 8px;
   transition: transform 0.2s ease;
@@ -565,8 +552,6 @@ body.lang-non-en .price-val::before {
   margin-bottom: -2px;
 }
 .divider-wave { background: var(--white); line-height: 0; font-size: 0; }
-.divider-wave--sage-to-dark { background: var(--sage); }
-.divider-wave--dark-to-white { background: var(--bark); }
 .divider-wave--white-to-sage { background: var(--white); }
 .divider-wave--sage-to-cream { background: var(--sage); }
 .divider-wave--sage-to-white { background: var(--sage); }
@@ -1177,16 +1162,6 @@ body.lang-non-en .price-val::before {
   letter-spacing: 0.1em;
   color: var(--bark-mid);
   text-transform: uppercase;
-}
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  align-items: start;
-}
-@media (max-width: 900px) {
-  .testimonials-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
 }
 .testimonial-card {
   background: var(--white);
