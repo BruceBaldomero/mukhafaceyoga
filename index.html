@@ -93,12 +93,10 @@
   <!-- Non-critical styles loaded asynchronously -->
   <link rel="preload" href="animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
     <link rel="stylesheet" href="animations.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
   </noscript>
 </head>
@@ -117,9 +115,9 @@
     <div class="nav-right">
       <div class="lang-dropdown" id="lang-dropdown">
         <button class="lang-globe-btn" id="lang-globe-btn" aria-label="Select language" aria-expanded="false">
-          <i class="fa-solid fa-globe"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.5 26.1 20.9 58.3 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.5-26.1-20.9-58.3-27-94.6H344.3c-6.1 36.3-15.5 68.5-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>
           <span class="lang-current" id="lang-current">EN</span>
-          <i class="fa-solid fa-chevron-down lang-chevron"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon lang-chevron" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
         <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox">
           <button class="lang-option active" data-lang="en" role="option"><span class="fi fi-gb"></span><span>English</span></button>
@@ -534,8 +532,8 @@
             </div>
           </div>
         </div>
-        <button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Previous review"><i class="fa fa-chevron-left"></i></button>
-        <button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Next review"><i class="fa fa-chevron-right"></i></button>
+        <button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Previous review"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon" aria-hidden="true"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg></button>
+        <button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Next review"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon" aria-hidden="true"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></button>
         <div class="carousel-dots">
           <button class="carousel-dot active" data-index="0" aria-label="Review 1"></button>
           <button class="carousel-dot" data-index="1" aria-label="Review 2"></button>
@@ -585,15 +583,15 @@
           data-caption="Long-term healing can also involve softer, holistic approaches that help you feel more regulated, supported, and connected to your body."
           data-disclaimer="✦ I am a registered nurse, but Mukha Face Yoga is a holistic wellness service, not a medical treatment. Always consult your GP or specialist for chronic migraines or any medical concerns. I am here to support your body's natural healing, not replace medical advice."
           data-date="June 2026">
-          <img src="images/journal/stress-body-01.jpg" alt="Stress lives in the body" loading="lazy" />
+          <picture><source srcset="images/journal/stress-body-01.webp" type="image/webp" /><img src="images/journal/stress-body-01.jpg" alt="Stress lives in the body" loading="lazy" /></picture>
           <div class="journal-cover-slides" hidden>
-            <img src="images/journal/stress-body-01.jpg" alt="Stress lives in the body" loading="lazy" />
-            <img src="images/journal/stress-body-02.jpg" alt="Modern life keeps many of us in constant tension" loading="lazy" />
-            <img src="images/journal/stress-body-03.jpg" alt="The body keeps the score" loading="lazy" />
-            <img src="images/journal/stress-body-04.jpg" alt="This can show up as jaw tightness and facial tension" loading="lazy" />
-            <img src="images/journal/stress-body-05.jpg" alt="The face is deeply connected to the nervous system" loading="lazy" />
-            <img src="images/journal/stress-body-06.jpg" alt="These treatments are about wellness" loading="lazy" />
-            <img src="images/journal/stress-body-07.jpg" alt="When the nervous system softens" loading="lazy" />
+            <picture><source srcset="images/journal/stress-body-01.webp" type="image/webp" /><img src="images/journal/stress-body-01.jpg" alt="Stress lives in the body" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-02.webp" type="image/webp" /><img src="images/journal/stress-body-02.jpg" alt="Modern life keeps many of us in constant tension" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-03.webp" type="image/webp" /><img src="images/journal/stress-body-03.jpg" alt="The body keeps the score" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-04.webp" type="image/webp" /><img src="images/journal/stress-body-04.jpg" alt="This can show up as jaw tightness and facial tension" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-05.webp" type="image/webp" /><img src="images/journal/stress-body-05.jpg" alt="The face is deeply connected to the nervous system" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-06.webp" type="image/webp" /><img src="images/journal/stress-body-06.jpg" alt="These treatments are about wellness" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-07.webp" type="image/webp" /><img src="images/journal/stress-body-07.jpg" alt="When the nervous system softens" loading="lazy" /></picture>
           </div>
           <div class="journal-cover-label">
             <span class="journal-cover-date">June 2026</span>
@@ -607,17 +605,17 @@
           data-title="A little about me"
           data-caption="My journey as a nurse shaped everything I do today — from understanding pain and tension to creating a space where people feel safe to unwind, soften and heal."
           data-date="June 2026">
-          <img src="images/journal/about-mona-01.png" alt="Hello I'm Mona Béa — 8 years as a nurse" loading="lazy" />
+          <picture><source srcset="images/journal/about-mona-01.webp" type="image/webp" /><img src="images/journal/about-mona-01.png" alt="Hello I'm Mona Béa — 8 years as a nurse" loading="lazy" /></picture>
           <div class="journal-cover-slides" hidden>
-            <img src="images/journal/about-mona-01.png" alt="Hello I'm Mona Béa — 8 years as a nurse" loading="lazy" />
-            <img src="images/journal/about-mona-02.png" alt="Operating theatres nurse" loading="lazy" />
-            <img src="images/journal/about-mona-03.png" alt="Maxillo facial surgery" loading="lazy" />
-            <img src="images/journal/about-mona-04.png" alt="Recovery nurse" loading="lazy" />
-            <img src="images/journal/about-mona-05.png" alt="Chronic conditions" loading="lazy" />
-            <img src="images/journal/about-mona-06.png" alt="Chronic pain is complex" loading="lazy" />
-            <img src="images/journal/about-mona-07.png" alt="That's why I created Mukha" loading="lazy" />
-            <img src="images/journal/about-mona-08.png" alt="Today my work focuses on" loading="lazy" />
-            <img src="images/journal/about-mona-09.png" alt="Welcome to Mukha" loading="lazy" />
+            <picture><source srcset="images/journal/about-mona-01.webp" type="image/webp" /><img src="images/journal/about-mona-01.png" alt="Hello I'm Mona Béa — 8 years as a nurse" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-02.webp" type="image/webp" /><img src="images/journal/about-mona-02.png" alt="Operating theatres nurse" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-03.webp" type="image/webp" /><img src="images/journal/about-mona-03.png" alt="Maxillo facial surgery" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-04.webp" type="image/webp" /><img src="images/journal/about-mona-04.png" alt="Recovery nurse" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-05.webp" type="image/webp" /><img src="images/journal/about-mona-05.png" alt="Chronic conditions" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-06.webp" type="image/webp" /><img src="images/journal/about-mona-06.png" alt="Chronic pain is complex" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-07.webp" type="image/webp" /><img src="images/journal/about-mona-07.png" alt="That's why I created Mukha" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-08.webp" type="image/webp" /><img src="images/journal/about-mona-08.png" alt="Today my work focuses on" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-09.webp" type="image/webp" /><img src="images/journal/about-mona-09.png" alt="Welcome to Mukha" loading="lazy" /></picture>
           </div>
           <div class="journal-cover-label">
             <span class="journal-cover-date">June 2026</span>
@@ -647,16 +645,16 @@
           data-title="Lymphatic therapy — preventative care, not luxury"
           data-caption="Lymphatic therapy isn't a luxury. It's one of the kindest forms of preventative care you can give your face, your nervous system, and yourself. Curious what releasing facial tension could do for you? Book your treatment today."
           data-date="June 2026">
-          <img src="images/journal/lymphatic-01.jpg" alt="Lymphatic facial therapy at Mukha" loading="lazy" />
+          <picture><source srcset="images/journal/lymphatic-01.webp" type="image/webp" /><img src="images/journal/lymphatic-01.jpg" alt="Lymphatic facial therapy at Mukha" loading="lazy" /></picture>
           <div class="journal-cover-slides" hidden>
-            <img src="images/journal/lymphatic-01.jpg" alt="Lymphatic facial therapy at Mukha" loading="lazy" />
-            <img src="images/journal/lymphatic-02.jpg" alt="Lymphatic drainage treatment Surbiton" loading="lazy" />
-            <img src="images/journal/lymphatic-03.jpg" alt="Facial tension release Mukha" loading="lazy" />
-            <img src="images/journal/lymphatic-04.jpg" alt="Holistic facial therapy nervous system" loading="lazy" />
-            <img src="images/journal/lymphatic-05.jpg" alt="Preventative facial care Surbiton" loading="lazy" />
-            <img src="images/journal/lymphatic-06.jpg" alt="Mukha lymphatic facial treatment" loading="lazy" />
-            <img src="images/journal/lymphatic-07.jpg" alt="Mukha face yoga lymphatic drainage" loading="lazy" />
-            <img src="images/journal/lymphatic-08.jpg" alt="Book facial therapy Mukha Surbiton" loading="lazy" />
+            <picture><source srcset="images/journal/lymphatic-01.webp" type="image/webp" /><img src="images/journal/lymphatic-01.jpg" alt="Lymphatic facial therapy at Mukha" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-02.webp" type="image/webp" /><img src="images/journal/lymphatic-02.jpg" alt="Lymphatic drainage treatment Surbiton" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-03.webp" type="image/webp" /><img src="images/journal/lymphatic-03.jpg" alt="Facial tension release Mukha" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-04.webp" type="image/webp" /><img src="images/journal/lymphatic-04.jpg" alt="Holistic facial therapy nervous system" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-05.webp" type="image/webp" /><img src="images/journal/lymphatic-05.jpg" alt="Preventative facial care Surbiton" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-06.webp" type="image/webp" /><img src="images/journal/lymphatic-06.jpg" alt="Mukha lymphatic facial treatment" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-07.webp" type="image/webp" /><img src="images/journal/lymphatic-07.jpg" alt="Mukha face yoga lymphatic drainage" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-08.webp" type="image/webp" /><img src="images/journal/lymphatic-08.jpg" alt="Book facial therapy Mukha Surbiton" loading="lazy" /></picture>
           </div>
           <div class="journal-cover-label">
             <span class="journal-cover-date">June 2026</span>
@@ -671,17 +669,17 @@
           data-caption="By reducing fascial restrictions, supporting healthy tissue mobility, and calming areas of chronic tension, we can help create conditions that may reduce pain, improve movement, support lymphatic circulation, ease tension headaches and jaw discomfort, and help the body shift into a state where deeper healing becomes possible."
           data-disclaimer="✦ Myofascial massage can be a valuable complementary therapy, but is not a replacement for medical care, mental health treatment, or diagnosis of underlying conditions."
           data-date="June 2026">
-          <img src="images/journal/myofascial-01.png" alt="How myofascial release helps your body" loading="lazy" />
+          <picture><source srcset="images/journal/myofascial-01.webp" type="image/webp" /><img src="images/journal/myofascial-01.png" alt="How myofascial release helps your body" loading="lazy" /></picture>
           <div class="journal-cover-slides" hidden>
-            <img src="images/journal/myofascial-01.png" alt="How myofascial release helps your body" loading="lazy" />
-            <img src="images/journal/myofascial-02.png" alt="What is fascia" loading="lazy" />
-            <img src="images/journal/myofascial-03.png" alt="Why tension happens" loading="lazy" />
-            <img src="images/journal/myofascial-04.png" alt="Fascia and the nervous system" loading="lazy" />
-            <img src="images/journal/myofascial-05.png" alt="How myofascial release works" loading="lazy" />
-            <img src="images/journal/myofascial-06.png" alt="More than muscle deep" loading="lazy" />
-            <img src="images/journal/myofascial-07.png" alt="Is trauma stored in the fascia" loading="lazy" />
-            <img src="images/journal/myofascial-08.png" alt="Why people feel emotional after treatment" loading="lazy" />
-            <img src="images/journal/myofascial-09.png" alt="Your body is always communicating" loading="lazy" />
+            <picture><source srcset="images/journal/myofascial-01.webp" type="image/webp" /><img src="images/journal/myofascial-01.png" alt="How myofascial release helps your body" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-02.webp" type="image/webp" /><img src="images/journal/myofascial-02.png" alt="What is fascia" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-03.webp" type="image/webp" /><img src="images/journal/myofascial-03.png" alt="Why tension happens" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-04.webp" type="image/webp" /><img src="images/journal/myofascial-04.png" alt="Fascia and the nervous system" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-05.webp" type="image/webp" /><img src="images/journal/myofascial-05.png" alt="How myofascial release works" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-06.webp" type="image/webp" /><img src="images/journal/myofascial-06.png" alt="More than muscle deep" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-07.webp" type="image/webp" /><img src="images/journal/myofascial-07.png" alt="Is trauma stored in the fascia" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-08.webp" type="image/webp" /><img src="images/journal/myofascial-08.png" alt="Why people feel emotional after treatment" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-09.webp" type="image/webp" /><img src="images/journal/myofascial-09.png" alt="Your body is always communicating" loading="lazy" /></picture>
           </div>
           <div class="journal-cover-label">
             <span class="journal-cover-date">June 2026</span>
@@ -700,7 +698,7 @@
             <div class="journal-modal-meta">
               <span class="insight-date" id="journal-modal-date"></span>
               <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="insight-ig">
-                <i class="fa-brands fa-instagram"></i> @mukhafaceyoga
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> @mukhafaceyoga
               </a>
             </div>
             <h3 class="insight-title" id="journal-modal-title"></h3>
@@ -712,7 +710,7 @@
 
       <div class="insights-more">
         <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="btn-ghost">
-          <i class="fa-brands fa-instagram"></i>&nbsp; <span data-i18n="journal.ig">Follow on Instagram for more</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>&nbsp; <span data-i18n="journal.ig">Follow on Instagram for more</span>
         </a>
       </div>
     </div>
@@ -737,7 +735,7 @@
               mukha.faceyoga@gmail.com
             </a>
             <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="contact-link">
-              <span class="contact-link-icon"><i class="fa-brands fa-instagram"></i></span>
+              <span class="contact-link-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
               @mukhafaceyoga
             </a>
           </div>
@@ -797,7 +795,7 @@
         <p class="footer-copy">© 2026 Mukha Face Yoga. All rights reserved.<br /><span style="opacity:0.4; font-size:11px;">Designed &amp; built by <a href="https://iskostudio.com" target="_blank" rel="noopener" style="color:var(--gold); opacity:1; border-bottom: 1px solid rgba(201,169,110,0.3);">ISKO Studio</a></span></p>
         <div class="footer-links">
           <a href="policies.html" class="footer-policy" data-i18n="footer.policies">Client Policies</a>
-          <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="footer-ig"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="footer-ig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagram</a>
         </div>
       </div>
     </div>

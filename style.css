@@ -19,6 +19,16 @@
   --radius:       12px;
 }
 
+/* ── SVG ICONS (replaces Font Awesome) ──────────────────── */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+}
+
 /* ── RESET ──────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -1060,7 +1070,7 @@ body.lang-non-en .price-val::before {
   outline: none;
 }
 .contact-form input::placeholder,
-.contact-form textarea::placeholder { color: rgba(61,46,34,0.5); }
+.contact-form textarea::placeholder { color: var(--bark-mid); }
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
