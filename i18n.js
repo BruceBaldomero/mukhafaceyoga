@@ -38,7 +38,7 @@
 
       'testimonials.label': 'Reviews',
       'testimonials.title': 'What clients<br /><em>are saying</em>',
-      'testimonials.score': '5.0 · 9 reviews',
+      'testimonials.score': '5.0 · 10 reviews',
       'testimonials.note': "Enjoyed your treatment? We'd love to hear from you.",
       'testimonials.review.btn': 'Leave a Google Review',
 
@@ -185,7 +185,7 @@
 
       'testimonials.label': 'Avis',
       'testimonials.title': 'Ce que disent<br /><em>nos clientes</em>',
-      'testimonials.score': '5.0 · 9 avis',
+      'testimonials.score': '5.0 · 10 avis',
       'testimonials.note': 'Votre soin vous a plu ? Nous serions ravis de vous lire.',
       'testimonials.review.btn': 'Laisser un avis Google',
 
@@ -332,7 +332,7 @@
 
       'testimonials.label': 'Mga Pagsusuri',
       'testimonials.title': 'Ano ang sinasabi<br /><em>ng mga kliyente</em>',
-      'testimonials.score': '5.0 · 9 pagsusuri',
+      'testimonials.score': '5.0 · 10 pagsusuri',
       'testimonials.note': 'Nagustuhan ang inyong paggamot? Ibahagi ang inyong karanasan.',
       'testimonials.review.btn': 'Mag-iwan ng Google Review',
 
