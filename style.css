@@ -1152,6 +1152,7 @@ body.lang-non-en .price-val::before {
   color: var(--bark-mid);
   line-height: 1.7;
 }
+.female-only-notice p + p { margin-top: 0.5rem; }
 .female-only-notice strong { color: var(--bark); }
 
 /* ── FOOTER ──────────────────────────────────────────────── */
