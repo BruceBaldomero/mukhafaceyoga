@@ -759,6 +759,7 @@ body.lang-non-en .price-val::before {
   color: var(--gold-light) !important;
   opacity: 1;
 }
+.service-card--featured .service-badge-pkg { color: var(--bark); }
 .service-card--subscription .service-price--subscription {
   background: rgba(247,243,238,0.15);
   color: var(--cream);
@@ -779,9 +780,9 @@ body.lang-non-en .price-val::before {
   font-weight: 500;
 }
 
-/* Recovery Care — single full-width card */
-.services-grid--recovery { grid-template-columns: 1fr; }
-.services-grid--recovery .service-benefits {
+/* Single full-width card (Combinations, Recovery Care) */
+.services-grid--single { grid-template-columns: 1fr; }
+.services-grid--single .service-benefits {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
@@ -796,8 +797,8 @@ body.lang-non-en .price-val::before {
 }
 
 @media (max-width: 900px) {
-  .services-grid--recovery { max-width: 480px; margin: 0 auto; }
-  .services-grid--recovery .service-benefits { grid-template-columns: 1fr; }
+  .services-grid--single { max-width: 480px; margin: 0 auto; }
+  .services-grid--single .service-benefits { grid-template-columns: 1fr; }
   .services-grid--packages { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
 

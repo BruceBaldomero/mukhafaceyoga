@@ -215,16 +215,38 @@
         <p class="section-intro" data-i18n="services.intro">Each treatment is rooted in intentional touch, nervous system care and natural restoration.</p>
       </div>
 
+      <!-- Combinations -->
+      <div class="services-category">
+        <p class="services-category-label" data-i18n="services.combo">Combinations</p>
+        <div class="services-grid services-grid--single">
+
+          <div class="service-card service-card--featured">
+            <div class="service-badge-pkg" data-i18n="service.combo.badge">Most Popular</div>
+            <div class="service-type" data-i18n="service.combo.type">Combination</div>
+            <h3>MOKSHA or SAVASANA + ANTAR</h3>
+            <p class="service-subtitle" data-i18n="service.combo.subtitle">Facial Treatment with Buccal Release</p>
+            <div class="service-price">1 hr 30 min &nbsp;·&nbsp; <span class="price-val">90</span></div>
+            <p data-i18n="service.combo.desc">Discover the combined benefits of our myofascial or relaxation techniques with ANTAR buccal release. Our most popular and most effective treatment, for complete facial and jaw tension release.</p>
+            <ul class="service-benefits">
+              <li data-i18n="service.combo.b1">MOKSHA + ANTAR — myofascial release with buccal therapy</li>
+              <li data-i18n="service.combo.b2">SAVASANA + ANTAR — relaxation &amp; lifting with buccal massage</li>
+            </ul>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
+          </div>
+
+        </div>
+      </div>
+
       <!-- Base Treatments -->
       <div class="services-category">
         <p class="services-category-label" data-i18n="services.base">Base Treatments</p>
         <div class="services-grid services-grid--base">
 
-          <div class="service-card service-card--featured">
+          <div class="service-card">
             <div class="service-type">Myofascial Release</div>
             <h3>MOKSHA</h3>
             <p class="service-subtitle">Myofascial Release Massage</p>
-            <div class="service-price">60 min &nbsp;·&nbsp; <span class="price-val">70</span></div>
+            <div class="service-price">1 hr 10 min &nbsp;·&nbsp; <span class="price-val">75</span></div>
             <p data-i18n="service.moksha.desc">Signature all-hands myofascial release treatment. MOKSHA means "liberation" in yoga philosophy — a release from tension and restriction. Using gentle, targeted pressure across the face, neck, shoulders and jaw to release tension held within the fascia and restore natural flow throughout the body.</p>
             <p class="service-note" data-i18n="service.moksha.note1">Includes a complimentary 10 minute plant-based, organic facial mask.</p>
             <p class="service-note" data-i18n="service.moksha.note2">✦ Best paired with ANTAR for the full facial and jaw tension release.</p>
@@ -307,7 +329,8 @@
             <div class="service-type" data-i18n="service.reset.type">Package · 4 Sessions</div>
             <h3>MOKSHA RESET</h3>
             <p class="service-subtitle">Myofascial Release Package</p>
-            <div class="service-price service-price--package">4 x 1 hr 10 min &nbsp;·&nbsp; <span class="price-val">250</span> <span class="service-price-saving" data-i18n="service.reset.saving">Save £50 vs individual sessions</span></div>
+            <div class="service-price service-price--package">4 x 1 hr 10 min &nbsp;·&nbsp; <span class="price-val">290</span></div>
+            <div class="service-price service-price--package">4 x 1 hr 30 min <span data-i18n="service.reset.withantar">with ANTAR</span> &nbsp;·&nbsp; <span class="price-val">350</span></div>
             <p data-i18n="service.reset.desc">While one session works wonders and provides immediate relief, four consecutive treatments lead to longer-lasting benefits. Perfect for those preparing for a special occasion or committing to their wellbeing.</p>
             <ul class="service-benefits">
               <li data-i18n="service.reset.b1">Personalised treatment each session</li>
@@ -343,7 +366,7 @@
       <!-- Recovery Care -->
       <div class="services-category">
         <p class="services-category-label" data-i18n="services.recovery">Recovery Care</p>
-        <div class="services-grid services-grid--recovery">
+        <div class="services-grid services-grid--single">
 
           <div class="service-card service-card--package">
             <div class="service-type" data-i18n="service.postop.type">Package · 4 Home Visits</div>
@@ -357,7 +380,7 @@
               <li data-i18n="service.postop.b3">Gentle, personalised manual lymphatic techniques</li>
               <li data-i18n="service.postop.b4">Convenient home visits</li>
             </ul>
-            <a href="#contact" class="btn-service" data-i18n="service.enquire">Enquire →</a>
+            <a href="mailto:mukha.faceyoga@gmail.com?subject=Post-Op%20Recovery%20Package" class="btn-service" data-i18n="service.enquire">Email to Enquire →</a>
           </div>
 
         </div>
@@ -832,8 +855,12 @@
             <label for="service" data-i18n="form.interest">Interested in</label>
             <select id="service" name="service">
               <option value="" data-i18n="form.select">Select a service…</option>
+              <optgroup label="Combinations">
+                <option>MOKSHA + ANTAR — Combination (1 hr 30 min · 90)</option>
+                <option>SAVASANA + ANTAR — Combination (1 hr 30 min · 90)</option>
+              </optgroup>
               <optgroup label="Base Treatments">
-                <option>MOKSHA — Myofascial Release Massage (60 min · 70)</option>
+                <option>MOKSHA — Myofascial Release Massage (1 hr 10 min · 75)</option>
                 <option>SAVASANA — Deep Rest Facial Ritual (1 hr 10 min · 75)</option>
               </optgroup>
               <optgroup label="Add-ons">
@@ -841,7 +868,8 @@
                 <option>ANTAR — Buccal Release (30 min · 40)</option>
               </optgroup>
               <optgroup label="Packages &amp; Subscriptions">
-                <option>MOKSHA RESET — 4 Session Package (4 x 1 hr 10 min · 250)</option>
+                <option>MOKSHA RESET — 4 Session Package (4 x 1 hr 10 min · 290)</option>
+                <option>MOKSHA RESET with ANTAR — 4 Session Package (4 x 1 hr 30 min · 350)</option>
                 <option>MUKHA RITUAL — Subscription (1 hr 40 min · 90/session)</option>
               </optgroup>
               <optgroup label="Recovery Care">
