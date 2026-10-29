@@ -26,6 +26,15 @@
   --on-deep-muted: rgba(247, 243, 238, 0.68);
   --nav-h:        76px;
   --line-gold:    rgba(201, 169, 110, 0.35);
+  --wave-line:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='6' viewBox='0 0 32 6'%3E%3Cpath d='M0 3 Q8 0 16 3 T32 3' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E");
+  --wave-edge:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z'/%3E%3C/svg%3E");
+  --wave-edge-2:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,55 C360,0 1080,70 1440,20 L1440,70 L0,70 Z'/%3E%3C/svg%3E");
+  --wall-1: #F3E4CF;
+  --wall-2: #E6CFAF;
+  --wall-3: #CFAE87;
+  --wall-light: #FFF7EA;
+  --wall-shadow: rgba(96, 62, 36, 0.32);
+  --wall-leaf: #4F6B46;
   --nav-top:      0px;
   --nav-bg:       rgba(247, 243, 238, 0.85);
   --nav-bg-solid: rgba(247, 243, 238, 0.97);
@@ -51,6 +60,12 @@
     --bark-mid:   #CDBEAC;
     --gold-light: #4A3A27;
     --deep:       #120D0A;
+    --wall-1: #4A3829;
+    --wall-2: #3A2B20;
+    --wall-3: #241A14;
+    --wall-light: #F2C98A;
+    --wall-shadow: rgba(10, 6, 4, 0.5);
+    --wall-leaf: #2F4229;
     --nav-bg:     rgba(28, 21, 18, 0.85);
     --nav-bg-solid: rgba(28, 21, 18, 0.97);
     --line:       rgba(241, 233, 222, 0.08);
@@ -69,6 +84,12 @@
   --bark-mid:   #CDBEAC;
   --gold-light: #4A3A27;
   --deep:       #120D0A;
+  --wall-1: #4A3829;
+  --wall-2: #3A2B20;
+  --wall-3: #241A14;
+  --wall-light: #F2C98A;
+  --wall-shadow: rgba(10, 6, 4, 0.5);
+  --wall-leaf: #2F4229;
   --nav-bg:   rgba(28, 21, 18, 0.85);
   --nav-bg-solid: rgba(28, 21, 18, 0.97);
   --line:     rgba(241, 233, 222, 0.08);
@@ -363,7 +384,7 @@ ul { list-style: none; }
   display: flex;
   gap: 8px;
   padding: 0.75rem 2rem 0;
-  border-top: 1px solid var(--line);
+  position: relative;
 }
 .lang-btn-mobile {
   display: flex;
@@ -465,7 +486,7 @@ body.lang-non-en .price-val::before {
   text-transform: uppercase;
   color: var(--bark-mid);
   padding: 0.9rem 2rem;
-  border-bottom: 1px solid var(--line);
+  position: relative;
   transition: color 0.2s, background 0.2s;
 }
 @media (hover: hover) {
@@ -486,129 +507,134 @@ body.lang-non-en .price-val::before {
 }
 
 /* ── HERO ────────────────────────────────────────────────── */
-/* The room fills the first screen with the headline over it. */
-.hero { position: relative; background: #2B211A; }
-.hero-pin {
+/* Sunlight falls through a window onto a warm plaster wall; palm-leaf
+   shadows sway across it. Drawn in SVG, so it is crisp at every size
+   and costs no photo download. */
+.hero {
   position: relative;
   min-height: 100svh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 8rem 2.5rem 3.5rem;
+  text-align: center;
   overflow: hidden;
+  padding: 8rem 1.5rem 7rem;
+  background: radial-gradient(ellipse 80% 70% at 66% 34%, var(--wall-1) 0%, var(--wall-2) 46%, var(--wall-3) 100%);
 }
-.hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.hero-media picture, .hero-media img { display: block; width: 100%; height: 100%; }
-.hero-media img { object-fit: cover; object-position: 50% 50%; }
-.hero-media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(61, 46, 34, 0.45);
+.hero-scene { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hs-light rect, .hs-floor { fill: var(--wall-light); }
+.hs-light rect { opacity: 0.68; }
+:root[data-theme="dark"] .hs-light rect { opacity: 0.22; }
+:root[data-theme="dark"] .hs-floor { opacity: 0.12; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hs-light rect { opacity: 0.22; }
+  :root:not([data-theme="light"]) .hs-floor { opacity: 0.12; }
 }
-.hero-inner { position: relative; z-index: 2; max-width: 680px; }
-.hero-eyebrow,
-.hero-sub { color: rgba(247, 243, 238, 0.82); }
-.hero-headline,
-.hero-headline em { color: #F7F3EE; }
+.hs-floor { opacity: 0.35; }
+.hs-shadow { fill: var(--wall-shadow); }
+.hs-leaf { fill: var(--wall-leaf); opacity: 0.9; }
+.hs-grain { opacity: 0.09; mix-blend-mode: multiply; }
+/* the breeze: each frond sways from its stem at its own pace */
+.hs-sway { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 8s ease-in-out infinite alternate; }
+.hs-sway--b { animation-duration: 9.5s; animation-delay: -3s; }
+.hs-sway--c { transform-origin: 0% 100%; animation-duration: 7.5s; animation-delay: -5s; }
+.hs-sway--d { transform-origin: 0% 100%; animation-duration: 6.5s; animation-delay: -2s; }
+@keyframes sway { from { transform: rotate(-2deg) skewX(1deg); } to { transform: rotate(2.4deg) skewX(-1deg); } }
+.hs-light { animation: drift 18s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: translateX(-8px); opacity: 0.88; } to { transform: translateX(10px); opacity: 1; } }
+
+.hero-inner { position: relative; z-index: 2; max-width: 760px; }
 .hero-eyebrow {
   font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--sage-deep);
   margin-bottom: 1.5rem;
 }
 .hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(2.8rem, 6.4vw, 5.4rem);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.08;
+  color: var(--bark);
   margin-bottom: 1.5rem;
   text-wrap: balance;
 }
-.hero-headline em { font-style: italic; }
-.hero-sub { font-size: 1.05rem; max-width: 480px; margin-bottom: 2.5rem; line-height: 1.8; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
-.hero .btn-ghost { color: #F7F3EE; }
+.hero-headline em { font-style: italic; color: var(--bark-mid); }
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--bark-mid);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: center; }
+.hero .btn-ghost { color: var(--bark); }
 
-/* A quiet line of facts, set like a caption in her serif */
+/* Small fact cards that float gently in the light */
 .hero-facts {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0;
-  margin-top: 3rem;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 3.25rem;
   list-style: none;
+}
+.hero-fact {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: rgba(247, 243, 238, 0.9);
+  font-size: 1.05rem;
+  color: var(--bark);
+  background: color-mix(in srgb, var(--cream) 82%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line-gold);
+  padding: 0.6rem 1.15rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px -14px rgba(61, 46, 34, 0.35);
+  animation: float 6s ease-in-out infinite alternate;
 }
-.hero-facts li { display: inline-flex; align-items: center; }
-.hero-facts li + li::before {
-  content: '';
-  width: 4px; height: 4px; border-radius: 50%;
-  background: var(--gold);
-  margin: 0 0.9rem;
-}
-.hero-stars { font-style: normal; color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; margin-right: 0.4rem; }
+.hero-fact:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+.hero-fact:nth-child(3) { animation-delay: -4s; animation-duration: 6.5s; }
+@keyframes float { from { transform: translateY(0); } to { transform: translateY(-7px); } }
+.hero-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; margin-right: 0.3rem; }
 
-/* Wide screens with motion allowed: scrolling walks you into the room.
-   The view pushes in towards the arched mirror while the headline drifts
-   up and fades, then the facts settle along the bottom. CSS scroll-driven,
-   so it runs off the main thread. */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 900px) and (min-height: 620px) {
-    .scene-hero { height: 210svh; view-timeline: --walk-in block; }
-    .scene-hero .hero-pin { position: sticky; top: 0; height: 100svh; min-height: 0; }
-    .scene-hero .hero-media img,
-    .scene-hero .hero-media::after,
-    .scene-hero .hero-inner,
-    .scene-hero .hero-facts {
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: --walk-in;
-      animation-range: contain 0% contain 100%;
-    }
-    .scene-hero .hero-media img { animation-name: walk-in; transform-origin: 46% 46%; will-change: transform; }
-    .scene-hero .hero-media::after { animation-name: walk-light; }
-    .scene-hero .hero-inner { animation-name: walk-past; }
-    .scene-hero .hero-facts {
-      position: absolute;
-      left: 2.5rem; bottom: 2.75rem;
-      margin: 0;
-      font-size: 1.4rem;
-      animation-name: walk-facts;
-    }
-    /* a soft neutral scrim under the facts so they read over the bright room */
-    .scene-hero .hero-pin::after {
-      content: '';
-      position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
-      z-index: 1; pointer-events: none;
-      background: linear-gradient(to top, rgba(43, 33, 26, 0.6), rgba(43, 33, 26, 0));
-      animation: walk-facts linear both;
-      animation-timeline: --walk-in;
-      animation-range: contain 0% contain 100%;
-    }
-    @keyframes walk-in {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.45); }
-    }
-    @keyframes walk-light {
-      0% { opacity: 1; }
-      60%, 100% { opacity: 0.8; }
-    }
-    @keyframes walk-past {
-      0%, 8% { opacity: 1; transform: none; filter: blur(0); }
-      45%, 100% { opacity: 0; transform: translateY(-10svh); filter: blur(6px); visibility: hidden; }
-    }
-    @keyframes walk-facts {
-      0%, 50% { opacity: 0; transform: translateY(14px); }
-      72%, 100% { opacity: 1; transform: none; }
-    }
-  }
+/* the wall ends in a soft wave into the treatments */
+.hero::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 70px; z-index: 3;
+  background: var(--sage);
+  -webkit-mask: var(--wave-edge) 0 0 / 100% 100% no-repeat;
+          mask: var(--wave-edge) 0 0 / 100% 100% no-repeat;
 }
+@media (prefers-reduced-motion: reduce) {
+  .hs-sway, .hs-light, .hero-fact { animation: none; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 7rem 1.25rem 6rem; }
+  .hero::after { height: 40px; }
+  .hero-fact { font-size: 0.95rem; }
+}
+
+/* A faint leaf shadow drifting across calmer sections */
+.leaf-shade {
+  position: absolute;
+  top: 2rem; right: -4%;
+  width: min(46vw, 520px);
+  aspect-ratio: 8 / 9;
+  background: url('images/leaf-shadow.svg') no-repeat center / contain;
+  opacity: 0.09;
+  pointer-events: none;
+  transform-origin: 90% 100%;
+  animation: sway 10s ease-in-out infinite alternate;
+}
+.contact .leaf-shade { right: auto; left: -6%; top: auto; bottom: 1rem; transform: scaleX(-1); animation-name: sway-mirror; }
+@keyframes sway-mirror { from { transform: scaleX(-1) rotate(-2deg); } to { transform: scaleX(-1) rotate(2.4deg); } }
+:root[data-theme="dark"] .leaf-shade { opacity: 0.2; filter: brightness(0.3); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .leaf-shade { opacity: 0.2; filter: brightness(0.3); } }
+@media (prefers-reduced-motion: reduce) { .leaf-shade { animation: none; } }
+.about, .contact { position: relative; overflow: hidden; }
+.about > .container, .contact > .container { position: relative; z-index: 1; }
 
 /* ── CONTAINER ──────────────────────────────────────────── */
 .container {
@@ -729,7 +755,7 @@ body.lang-non-en .price-val::before {
   color: var(--sage-deep);
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(92,122,82,0.3);
+  position: relative;
 }
 
 .services-grid {
@@ -806,13 +832,13 @@ body.lang-non-en .price-val::before {
 .service-benefits {
   margin-top: auto;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(61,46,34,0.1);
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   margin-bottom: 1.25rem;
 }
-.service-card--featured .service-benefits { border-top-color: rgba(247,243,238,0.15); }
+.service-card--featured .service-benefits::before { background: rgba(247,243,238,0.25); }
 .service-benefits li {
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -1127,7 +1153,7 @@ body.lang-non-en .price-val::before {
 .opening-hours {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--cream-dark);
+  position: relative;
 }
 .opening-hours-title {
   font-size: 11px;
@@ -1203,7 +1229,7 @@ body.lang-non-en .price-val::before {
   align-items: center;
   gap: 0.75rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--cream-dark);
+  position: relative;
 }
 .testimonial-avatar {
   width: 38px;
@@ -1231,7 +1257,7 @@ body.lang-non-en .price-val::before {
 .testimonial-return {
   margin-top: 0.85rem;
   padding-top: 0.75rem;
-  border-top: 1px solid var(--sage-mid);
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1852,8 +1878,6 @@ body.lang-non-en .price-val::before {
   .hero-pin { padding: 7rem 1.25rem 3rem; }
   .nav { left: 10px; right: 10px; top: 10px; height: 58px; padding: 0 0.5rem 0 1.25rem; }
   .mobile-menu { top: 76px; left: 10px; right: 10px; }
-  .hero-facts { font-size: 1rem; flex-direction: column; align-items: flex-start; gap: 0.2rem; }
-  .hero-facts li + li::before { display: none; }
   .service-card .combo-title { font-size: clamp(1.2rem, 5.6vw, 1.4rem); letter-spacing: 0.02em; line-height: 1.25; }
   .services-grid--single .service-card { padding: 2rem 1.5rem; }
   .btn-nav { display: none; }
@@ -2120,3 +2144,38 @@ body.lang-non-en .price-val::before {
     corner-shape: squircle;
   }
 }
+
+/* ── WAVY LINES in place of straight dividers ───────────── */
+.lang-switcher--mobile::before,
+.mobile-menu ul li a::after,
+.services-category-label::after,
+.service-benefits::before,
+.opening-hours::before,
+.testimonial-author::before,
+.testimonial-return::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 6px;
+  background: var(--line-strong);
+  -webkit-mask: var(--wave-line) 0 50% / 32px 6px repeat-x;
+          mask: var(--wave-line) 0 50% / 32px 6px repeat-x;
+  pointer-events: none;
+}
+.lang-switcher--mobile::before, .service-benefits::before, .opening-hours::before,
+.testimonial-author::before, .testimonial-return::before { top: -3px; }
+.mobile-menu ul li a::after, .services-category-label::after { bottom: -3px; }
+.mobile-menu ul li a::after { left: 2rem; right: 2rem; background: var(--line); }
+.services-category-label::after { background: rgba(92, 122, 82, 0.45); }
+
+/* the footer rises out of the page on a wave */
+.footer { position: relative; }
+.footer::before {
+  content: '';
+  position: absolute; left: 0; right: 0; top: -69px; height: 70px;
+  background: var(--deep);
+  -webkit-mask: var(--wave-edge-2) 0 0 / 100% 100% no-repeat;
+          mask: var(--wave-edge-2) 0 0 / 100% 100% no-repeat;
+  pointer-events: none;
+}
+@media (max-width: 600px) { .footer::before { top: -39px; height: 40px; } }

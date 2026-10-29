@@ -43,7 +43,7 @@
       padding: 8rem 2.5rem 3rem;
       background: var(--cream);
       text-align: center;
-      border-bottom: 1px solid var(--cream-dark);
+      position: relative;
     }
     .policies-hero .section-label { margin-bottom: 0.75rem; }
     .policies-hero .section-title { margin-bottom: 1rem; }
@@ -66,12 +66,17 @@
     .policy-section {
       margin-bottom: 3rem;
       padding-bottom: 3rem;
-      border-bottom: 1px solid var(--cream-dark);
+      position: relative;
     }
-    .policy-section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
+    .policy-section:last-child { margin-bottom: 0; }
+    /* soft wavy lines between sections, like the rest of the site */
+    .policies-hero::after, .policy-section:not(:last-child)::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 6px;
+      background: var(--line-strong);
+      -webkit-mask: var(--wave-line) 0 50% / 32px 6px repeat-x;
+              mask: var(--wave-line) 0 50% / 32px 6px repeat-x;
     }
+    .policies-hero::after { left: 2.5rem; right: 2.5rem; }
 
     .policy-section-label {
       font-family: var(--font-sans);
