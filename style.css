@@ -31,7 +31,7 @@
   --wave-edge-2:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,55 C360,0 1080,70 1440,20 L1440,70 L0,70 Z'/%3E%3C/svg%3E");
   --wall-1: #F3E4CF;
   --wall-2: #E6CFAF;
-  --wall-3: #CFAE87;
+  --wall-3: #C59D72;
   --wall-light: #FFF7EA;
   --wall-shadow: rgba(96, 62, 36, 0.46);
   --wall-leaf: #4F6B46;
@@ -570,47 +570,76 @@ body.lang-non-en .price-val::before {
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: center; }
 .hero .btn-ghost { color: var(--bark); }
 
-/* Small fact cards that float gently in the light */
-.hero-facts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 3.25rem;
-  list-style: none;
+/* Two of her own photographs in arch frames, echoing the arched mirror
+   in her room, with fact cards floating over their corners */
+.hero-arch {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  width: clamp(190px, 16vw, 270px);
+  aspect-ratio: 3 / 4.2;
+  border-radius: 999px 999px 22px 22px;
+  overflow: hidden;
+  box-shadow: 0 34px 60px -30px rgba(61, 46, 34, 0.6);
+  outline: 6px solid color-mix(in srgb, var(--cream) 70%, transparent);
+  animation: float 9s ease-in-out infinite alternate;
 }
+.hero-arch picture, .hero-arch img { display: block; width: 100%; height: 100%; }
+.hero-arch img { object-fit: cover; }
+.hero-arch--left { left: 6vw; top: 27%; }
+.hero-arch--left img { object-position: 55% 30%; }
+.hero-arch--right { right: 6vw; top: 17%; animation-delay: -4s; animation-duration: 10s; }
+
+.hero-facts { list-style: none; position: static; }
 .hero-fact {
+  position: absolute;
+  z-index: 3;
   font-family: var(--font-serif);
   font-size: 1.05rem;
   color: var(--bark);
-  background: color-mix(in srgb, var(--cream) 82%, transparent);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--cream) 88%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--line-gold);
   padding: 0.6rem 1.15rem;
   border-radius: 14px;
-  box-shadow: 0 12px 28px -14px rgba(61, 46, 34, 0.35);
+  box-shadow: 0 16px 30px -16px rgba(61, 46, 34, 0.45);
   animation: float 6s ease-in-out infinite alternate;
 }
-.hero-fact:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
-.hero-fact:nth-child(3) { animation-delay: -4s; animation-duration: 6.5s; }
-@keyframes float { from { transform: translateY(0); } to { transform: translateY(-7px); } }
+.hero-fact:nth-child(1) { left: calc(6vw + clamp(120px, 10vw, 175px)); top: calc(27% + clamp(250px, 21vw, 355px)); }
+.hero-fact:nth-child(2) { right: calc(6vw - 18px); top: calc(17% + clamp(275px, 23vw, 390px)); animation-delay: -2s; animation-duration: 7s; }
+.hero-fact:nth-child(3) { right: calc(6vw + clamp(140px, 12vw, 210px)); top: calc(17% - 18px); animation-delay: -4s; animation-duration: 6.5s; }
+@keyframes float { from { transform: translateY(0); } to { transform: translateY(-8px); } }
 .hero-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; margin-right: 0.3rem; }
 
-/* the wall ends in a soft wave into the treatments */
-.hero::after {
-  content: '';
-  position: absolute; left: 0; right: 0; bottom: -1px; height: 70px; z-index: 3;
-  background: var(--sage);
-  -webkit-mask: var(--wave-edge) 0 0 / 100% 100% no-repeat;
-          mask: var(--wave-edge) 0 0 / 100% 100% no-repeat;
-}
+/* the wall settles into the treatments on two soft, layered waves */
+.hero-wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: clamp(60px, 8vw, 120px); z-index: 4; pointer-events: none; }
+.hero-wave-back { fill: var(--sage); opacity: 0.5; }
+.hero-wave-front { fill: var(--sage); }
+
 @media (prefers-reduced-motion: reduce) {
-  .hs-sway, .hs-light, .hero-fact { animation: none; }
+  .hs-sway, .hs-light, .hero-fact, .hero-arch { animation: none; }
+}
+/* narrower screens: the arches step aside and the facts sit in a row */
+@media (max-width: 1100px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "inner inner" "facts facts" "left right";
+    justify-items: center;
+    align-content: center;
+    column-gap: 1rem;
+  }
+  .hero-inner { grid-area: inner; }
+  .hero-facts { grid-area: facts; position: relative; z-index: 3; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin: 2.5rem 0 0; padding: 0; }
+  .hero-fact { position: static; }
+  .hero-arch { position: relative; left: auto; right: auto; top: auto; width: min(36vw, 210px); margin-top: 2.5rem; }
+  .hero-arch--left { grid-area: left; justify-self: end; }
+  .hero-arch--right { grid-area: right; justify-self: start; margin-top: 1.25rem; }
 }
 @media (max-width: 600px) {
   .hero { padding: 7rem 1.25rem 6rem; }
-  .hero::after { height: 40px; }
   .hero-fact { font-size: 0.95rem; }
 }
 
