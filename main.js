@@ -351,11 +351,11 @@ if (form) {
       done.className = 'form-success';
       done.setAttribute('tabindex', '-1');
       done.innerHTML = `
-        <svg class="success-tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/><path d="M20 33l8 8 16-17"/></svg>
+        <div class="form-success-icon">✦</div>
         <h3>${t('form.done.title') || 'Message received'}</h3>
         <p>${t('form.done.p1') || 'Thank you for reaching out. Mona will be in touch shortly.'}</p>
         <p>${t('form.done.p2') || 'Ready to book? Head to Fresha to choose your treatment, date and time.'}</p>
-        <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" style="margin-top:1rem;">
+        <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" style="margin-top:1rem; display:inline-block;">
           ${t('contact.book') || 'Book on Fresha →'}
         </a>`;
       form.replaceWith(done);
