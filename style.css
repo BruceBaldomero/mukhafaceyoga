@@ -33,7 +33,7 @@
   --wall-2: #E6CFAF;
   --wall-3: #CFAE87;
   --wall-light: #FFF7EA;
-  --wall-shadow: rgba(96, 62, 36, 0.32);
+  --wall-shadow: rgba(96, 62, 36, 0.46);
   --wall-leaf: #4F6B46;
   --nav-top:      0px;
   --nav-bg:       rgba(247, 243, 238, 0.85);
@@ -384,7 +384,7 @@ ul { list-style: none; }
   display: flex;
   gap: 8px;
   padding: 0.75rem 2rem 0;
-  position: relative;
+  border-top: 1px solid var(--line);
 }
 .lang-btn-mobile {
   display: flex;
@@ -486,7 +486,7 @@ body.lang-non-en .price-val::before {
   text-transform: uppercase;
   color: var(--bark-mid);
   padding: 0.9rem 2rem;
-  position: relative;
+  border-bottom: 1px solid var(--line);
   transition: color 0.2s, background 0.2s;
 }
 @media (hover: hover) {
@@ -532,13 +532,11 @@ body.lang-non-en .price-val::before {
 }
 .hs-floor { opacity: 0.35; }
 .hs-shadow { fill: var(--wall-shadow); }
-.hs-leaf { fill: var(--wall-leaf); opacity: 0.9; }
 .hs-grain { opacity: 0.09; mix-blend-mode: multiply; }
 /* the breeze: each frond sways from its stem at its own pace */
 .hs-sway { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 8s ease-in-out infinite alternate; }
 .hs-sway--b { animation-duration: 9.5s; animation-delay: -3s; }
 .hs-sway--c { transform-origin: 0% 100%; animation-duration: 7.5s; animation-delay: -5s; }
-.hs-sway--d { transform-origin: 0% 100%; animation-duration: 6.5s; animation-delay: -2s; }
 @keyframes sway { from { transform: rotate(-2deg) skewX(1deg); } to { transform: rotate(2.4deg) skewX(-1deg); } }
 .hs-light { animation: drift 18s ease-in-out infinite alternate; }
 @keyframes drift { from { transform: translateX(-8px); opacity: 0.88; } to { transform: translateX(10px); opacity: 1; } }
@@ -755,7 +753,7 @@ body.lang-non-en .price-val::before {
   color: var(--sage-deep);
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  position: relative;
+  border-bottom: 1px solid rgba(92,122,82,0.3);
 }
 
 .services-grid {
@@ -832,13 +830,13 @@ body.lang-non-en .price-val::before {
 .service-benefits {
   margin-top: auto;
   padding-top: 1.25rem;
-  position: relative;
+  border-top: 1px solid var(--line-strong);
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   margin-bottom: 1.25rem;
 }
-.service-card--featured .service-benefits::before { background: rgba(247,243,238,0.25); }
+.service-card--featured .service-benefits { border-top-color: rgba(247,243,238,0.15); }
 .service-benefits li {
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -1153,7 +1151,7 @@ body.lang-non-en .price-val::before {
 .opening-hours {
   margin-top: 2rem;
   padding-top: 2rem;
-  position: relative;
+  border-top: 1px solid var(--cream-dark);
 }
 .opening-hours-title {
   font-size: 11px;
@@ -1229,7 +1227,7 @@ body.lang-non-en .price-val::before {
   align-items: center;
   gap: 0.75rem;
   padding-top: 1rem;
-  position: relative;
+  border-top: 1px solid var(--cream-dark);
 }
 .testimonial-avatar {
   width: 38px;
@@ -1257,7 +1255,7 @@ body.lang-non-en .price-val::before {
 .testimonial-return {
   margin-top: 0.85rem;
   padding-top: 0.75rem;
-  position: relative;
+  border-top: 1px solid var(--sage-mid);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -2144,29 +2142,6 @@ body.lang-non-en .price-val::before {
     corner-shape: squircle;
   }
 }
-
-/* ── WAVY LINES in place of straight dividers ───────────── */
-.lang-switcher--mobile::before,
-.mobile-menu ul li a::after,
-.services-category-label::after,
-.service-benefits::before,
-.opening-hours::before,
-.testimonial-author::before,
-.testimonial-return::before {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  height: 6px;
-  background: var(--line-strong);
-  -webkit-mask: var(--wave-line) 0 50% / 32px 6px repeat-x;
-          mask: var(--wave-line) 0 50% / 32px 6px repeat-x;
-  pointer-events: none;
-}
-.lang-switcher--mobile::before, .service-benefits::before, .opening-hours::before,
-.testimonial-author::before, .testimonial-return::before { top: -3px; }
-.mobile-menu ul li a::after, .services-category-label::after { bottom: -3px; }
-.mobile-menu ul li a::after { left: 2rem; right: 2rem; background: var(--line); }
-.services-category-label::after { background: rgba(92, 122, 82, 0.45); }
 
 /* the footer rises out of the page on a wave */
 .footer { position: relative; }
