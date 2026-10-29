@@ -728,44 +728,12 @@ body.lang-non-en .price-val::before {
   font-style: italic;
   letter-spacing: 0.04em;
 }
-.service-price-period {
-  font-size: 11px;
-  opacity: 0.7;
-}
 
-/* Packages & Subscriptions */
-.services-grid--packages {
-  grid-template-columns: repeat(2, 1fr);
-}
+/* Packages */
 .service-card--package {
   background: var(--cream);
   border: 1px solid var(--gold-light);
 }
-.service-card--subscription {
-  background: var(--sage-deep);
-  color: var(--cream);
-  position: relative;
-}
-.service-card--subscription h3,
-.service-card--subscription p,
-.service-card--subscription .service-type,
-.service-card--subscription .service-subtitle { color: var(--cream); }
-.service-card--subscription .service-type { color: rgba(247,243,238,0.6); }
-.service-card--subscription .service-subtitle { color: rgba(247,243,238,0.55); }
-.service-card--subscription > p { color: rgba(247,243,238,0.8); }
-.service-card--subscription .service-benefits { border-top-color: rgba(247,243,238,0.2); }
-.service-card--subscription .service-benefits li { color: rgba(247,243,238,0.8); }
-.service-card--subscription .service-note {
-  color: var(--gold-light) !important;
-  opacity: 1;
-}
-.service-card--featured .service-badge-pkg { color: var(--bark); }
-.service-card--subscription .service-price--subscription {
-  background: rgba(247,243,238,0.15);
-  color: var(--cream);
-}
-.service-card--subscription .btn-service { color: var(--gold-light); }
-.service-card--subscription .btn-service:hover { color: var(--cream); }
 .service-badge-pkg {
   position: absolute;
   top: 1.25rem;
@@ -799,7 +767,6 @@ body.lang-non-en .price-val::before {
 @media (max-width: 900px) {
   .services-grid--single { max-width: 480px; margin: 0 auto; }
   .services-grid--single .service-benefits { grid-template-columns: 1fr; }
-  .services-grid--packages { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
 
 /* ── GALLERY PREVIEW ─────────────────────────────────────── */
