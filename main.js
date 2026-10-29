@@ -60,6 +60,22 @@ if (hamburger && mobileMenu) {
   });
 }
 
+// The nav marks the section you are reading with a short gold line
+(function () {
+  const links = [...document.querySelectorAll('.nav-links a')].filter(a => a.hash && document.querySelector(a.hash));
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  const byId = new Map(links.map(a => [a.hash.slice(1), a]));
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.removeAttribute('aria-current'));
+      const link = byId.get(e.target.id);
+      if (link) link.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  byId.forEach((_, id) => spy.observe(document.getElementById(id)));
+})();
+
 // Dark mode: follows the system until the visitor picks, then remembers the choice
 (function () {
   const root = document.documentElement;
