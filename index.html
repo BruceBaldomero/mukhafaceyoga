@@ -26,14 +26,14 @@
     "name": "Mukha Face Yoga",
     "description": "Holistic facial therapy space in Surbiton offering myofascial release, buccal massage, face yoga and facial rituals. Founded by Mona, a Registered Nurse and Holistic Facial Therapist.",
     "url": "https://mukhafaceyoga.com",
-    "email": "mukha.faceyoga@gmail.com",
+    "logo": "https://mukhafaceyoga.com/images/logo.jpeg",
     "image": "https://mukhafaceyoga.com/images/edited21.jpeg",
+    "email": "mukha.faceyoga@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "101 Ewell Road, Flat 2, Richleigh Court",
       "addressLocality": "Surbiton",
       "addressRegion": "Surrey",
-      "postalCode": "KT6 6AH",
       "addressCountry": "GB"
     },
     "geo": {
@@ -41,10 +41,11 @@
       "latitude": 51.39028853776091,
       "longitude": -0.2976158756359416
     },
+    "hasMap": "https://maps.app.goo.gl/kF9NS3uBjA86HEHF8",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
         "opens": "10:00",
         "closes": "19:00"
       },
@@ -78,558 +79,940 @@
       document.head.appendChild(s);
     }
   </script>
+  <meta name="theme-color" content="#F7F3EE" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1C1512" media="(prefers-color-scheme: dark)" />
+  <!-- Theme: follow the system unless the visitor has picked one (set before paint, no flash) -->
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('mukha_theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
   <!-- Preload hero image so LCP isn't blocked by CSS discovery -->
   <link rel="preload" as="image" href="images/edited21.webp" type="image/webp" fetchpriority="high" />
 
-  <link rel="stylesheet" href="site.css" />
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&text=Mukha&display=swap" rel="stylesheet" />
+  <!-- Critical styles — render-blocking is acceptable for these -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Non-critical styles loaded asynchronously -->
+  <link rel="preload" href="animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="animations.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
+  </noscript>
 </head>
 <body>
 
-  <a class="skip" href="#main">Skip to content</a>
-
   <!-- NAV -->
-  <header class="bar" id="bar">
-    <a href="#top" class="bar-mark" aria-label="Mukha Face Yoga — home">Mukha</a>
-    <nav class="bar-links" aria-label="Main">
-      <a href="#treatments" data-i18n="nav.services">Treatments</a>
-      <a href="#mona" data-i18n="nav.about">About</a>
-      <a href="#journal" data-i18n="nav.journal">Journal</a>
-      <a href="#visit" data-i18n="nav.contact">Contact</a>
-    </nav>
-    <div class="bar-end">
-      <div class="lang" role="group" aria-label="Language">
-        <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-        <button class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
-        <button class="lang-btn" data-lang="tl" aria-pressed="false">TL</button>
+  <nav class="nav">
+    <a href="/" class="nav-logo" aria-label="Mukha Face Yoga — home">Mukha<span class="nav-dot" aria-hidden="true"></span></a>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="#insights" data-i18n="nav.journal">Journal</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-globe-btn" id="lang-globe-btn" aria-label="Select language" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.5 26.1 20.9 58.3 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.5-26.1-20.9-58.3-27-94.6H344.3c-6.1 36.3-15.5 68.5-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>
+          <span class="lang-current" id="lang-current">EN</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon lang-chevron" aria-hidden="true"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+        </button>
+        <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox">
+          <button class="lang-option active" data-lang="en" role="option"><span class="fi fi-gb"></span><span>English</span></button>
+          <button class="lang-option" data-lang="fr" role="option"><span class="fi fi-fr"></span><span>Français</span></button>
+          <button class="lang-option" data-lang="tl" role="option"><span class="fi fi-ph"></span><span>Filipino</span></button>
+        </div>
       </div>
-      <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="nav.book">Book Now</a>
-      <button class="bar-menu" id="bar-menu" aria-expanded="false" aria-controls="menu"><span data-i18n="rd.menu">Menu</span></button>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
+        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </button>
+      <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-nav" data-i18n="nav.book">Book Now</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </header>
+  </nav>
 
-  <div class="menu" id="menu" hidden>
-    <nav aria-label="Mobile">
-      <a href="#treatments" data-i18n="nav.services">Treatments</a>
-      <a href="#mona" data-i18n="nav.about">About</a>
-      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
-      <a href="#journal" data-i18n="nav.journal">Journal</a>
-      <a href="#visit" data-i18n="nav.contact">Contact</a>
-    </nav>
-    <div class="lang lang--menu" role="group" aria-label="Language">
-      <button class="lang-btn" data-lang="en" aria-pressed="true">English</button>
-      <button class="lang-btn" data-lang="fr" aria-pressed="false">Français</button>
-      <button class="lang-btn" data-lang="tl" aria-pressed="false">Filipino</button>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="#insights" data-i18n="nav.journal">Journal</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-switcher--mobile">
+      <button class="lang-btn-mobile" data-lang="en"><span class="fi fi-gb"></span> English</button>
+      <button class="lang-btn-mobile" data-lang="fr"><span class="fi fi-fr"></span> Français</button>
+      <button class="lang-btn-mobile" data-lang="tl"><span class="fi fi-ph"></span> Filipino</button>
     </div>
-    <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn btn-full" data-i18n="nav.book">Book Now</a>
+    <button class="theme-toggle theme-toggle--menu" type="button" data-theme-toggle aria-pressed="false">
+        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <span data-i18n="nav.theme">Dark mode</span>
+    </button>
+    <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav.book">Book Now</a>
   </div>
 
-  <main id="main">
-
-    <!-- HERO: her room, then the name -->
-    <section class="hero" id="top">
-      <picture class="hero-photo">
-        <source media="(max-width: 700px)" srcset="images/2.webp" type="image/webp" />
-        <source srcset="images/edited21.webp" type="image/webp" />
-        <img src="images/edited21.jpeg" alt="The Mukha treatment room on Ewell Road: lantern light, an arched mirror and the treatment bed" width="2000" height="1334" fetchpriority="high" />
-      </picture>
-      <div class="hero-band">
-        <div class="hero-row">
-          <p class="hero-sub" data-i18n="rd.hero.sub">Myofascial release, buccal massage and lymphatic care from a registered nurse, in a quiet room in Surbiton. For women.</p>
-          <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn" data-i18n="contact.book">Book on Fresha →</a>
+  <!-- HERO — on wide screens with motion allowed, the headline holds while the room rises to fill the screen -->
+  <section class="hero scene-hero" id="top">
+    <div class="hero-pin">
+      <div class="hero-media">
+        <picture>
+          <source srcset="images/edited21.webp" type="image/webp" />
+          <img src="images/edited21.jpeg" alt="The Mukha treatment room: lantern light, an arched mirror and the treatment bed" width="2000" height="1334" fetchpriority="high" />
+        </picture>
+      </div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Holistic care inspired by yoga philosophy</p>
+        <h1 class="hero-headline" data-i18n="hero.headline">Soften tension, <em>cultivate calm.</em></h1>
+        <p class="hero-sub" data-i18n="hero.sub">Natural, non-invasive techniques rooted in deeper healing &amp; natural beauty — designed to lift, sculpt and bring radiance from within.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary" data-i18n="hero.cta.explore">Explore Services</a>
+          <a href="#about" class="btn-ghost" data-i18n="hero.cta.meet">Meet your practitioner</a>
         </div>
-        <h1 class="hero-name"><span class="wordmark" id="wordmark">Mukha</span><span class="sr" data-i18n="rd.hero.h1">Mukha Face Yoga, holistic facial therapy in Surbiton</span></h1>
       </div>
-    </section>
+      <ul class="hero-facts">
+        <li class="fact-card"><strong data-i18n="hero.fact1">Registered Nurse</strong><span data-i18n="hero.fact1.sub">8 years in nursing</span></li>
+        <li class="fact-card"><strong><span class="fact-stars" aria-hidden="true">★★★★★</span> 5.0</strong><span data-i18n="hero.fact2.sub">14 reviews</span></li>
+        <li class="fact-card"><strong data-i18n="hero.fact3">Women only</strong><span>Surbiton, Surrey</span></li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- THE NAME -->
-    <section class="name" aria-labelledby="name-h">
-      <div class="name-pin">
-        <h2 id="name-h" class="head" data-i18n="rd.name.h">Mukha means face.</h2>
-        <p class="statement" data-i18n="rd.name.p">In Tagalog, the language of the Philippines where Mona is from, and in Sanskrit, the language of yoga. Each treatment carries a Sanskrit word for what it does.</p>
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <picture>
+            <source srcset="images/mona.webp" type="image/webp" />
+            <img src="images/mona.jpeg" alt="Mona, founder of Mukha Face Yoga — Registered Nurse and Holistic Facial Therapist in Surbiton, Surrey" class="about-image" />
+          </picture>
+          <div class="about-badge">
+            <span data-i18n="about.badge">Founded by</span>
+            <strong>Mona<br />RN &amp; Holistic<br />Facial Therapist</strong>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="section-label" data-i18n="about.label">About</p>
+          <h2 class="section-title" data-i18n="about.title">More than a facial —<br /><em>a therapeutic experience</em></h2>
+          <p data-i18n="about.p1">MUKHA is a holistic facial therapy space rooted in intentional touch, nervous system support, and natural restoration.</p>
+          <div class="about-highlight">
+            <p data-i18n="about.highlight">The name <em>Mukha</em> means "face" in both Tagalog — the language of the Philippines, where founder Mona is from — and in Sanskrit, the ancient language from which yoga originates. Reflecting Mona's Filipino heritage and her passion for holistic wellness, MUKHA embodies the connection between outer expression and inner wellbeing.</p>
+          </div>
+          <p data-i18n="about.p2">Blending facial myofascial release, buccal massage, face yoga, and holistic facial rituals, each treatment is designed to release tension held within the face, jaw, and body — while supporting natural sculpting, circulation, and deep relaxation.</p>
+          <p data-i18n="about.p3">Inspired by yoga philosophy and slow wellness practices, MUKHA offers more than a facial. It is a therapeutic experience created to help you slow down, soften, and reconnect with yourself.</p>
+          <p data-i18n="about.p4">Founded by Mona, a Registered Nurse and Holistic Facial Therapist, every treatment is guided by both clinical knowledge and intuitive care — creating a safe, nurturing, and restorative space for each client.</p>
+          <p class="about-closing" data-i18n="about.closing">At MUKHA, beauty and wellness are viewed as deeply interconnected — where relaxation, wellbeing, and facial health exist together in harmony.</p>
+          <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav.book">Book Now</a>
+        </div>
       </div>
-      <div class="name-photos">
-        <figure class="np np-1"><picture><source srcset="images/2.webp" type="image/webp" /><img src="images/2.jpeg" alt="The arched mirror, candles and plants in the treatment room" width="1366" height="2048" loading="lazy" /></picture></figure>
-        <figure class="np np-2"><picture><source srcset="images/edited5.webp" type="image/webp" /><img src="images/edited5.jpeg" alt="Plant-based oils, serums and cooling globes on the treatment tray" width="1600" height="1067" loading="lazy" /></picture></figure>
-        <figure class="np np-3"><picture><source srcset="images/edited18.webp" type="image/webp" /><img src="images/edited18.jpeg" alt="Cooling globes moving over a client's cheeks" width="1600" height="1183" loading="lazy" /></picture></figure>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="var(--sage)" />
+    </svg>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" data-i18n="services.label">Services</p>
+        <h2 class="section-title" data-i18n="services.title">Treatments designed<br /><em>to restore &amp; release</em></h2>
+        <p class="section-intro" data-i18n="services.intro">Each treatment is rooted in intentional touch, nervous system care and natural restoration.</p>
       </div>
-    </section>
 
-    <!-- TREATMENTS: the words -->
-    <section class="treatments" id="treatments" aria-labelledby="tr-h">
-      <div class="tr-photo" aria-hidden="true">
-        <img class="tr-img is-on" data-for="combo" src="images/edited14.webp" alt="" width="1366" height="2048" />
-        <img class="tr-img" data-for="moksha" src="images/edited8.webp" alt="" width="1600" height="1075" loading="lazy" />
-        <img class="tr-img" data-for="savasana" src="images/edited20.webp" alt="" width="1152" height="2048" loading="lazy" />
-        <img class="tr-img" data-for="antar" src="images/edited10.webp" alt="" width="1600" height="1067" loading="lazy" />
-        <img class="tr-img" data-for="urdvha" src="images/edited16.webp" alt="" width="1600" height="1067" loading="lazy" />
-        <img class="tr-img" data-for="reset" src="images/edited9.webp" alt="" width="1600" height="1067" loading="lazy" />
-        <img class="tr-img" data-for="postop" src="images/edited13.webp" alt="" width="1366" height="2048" loading="lazy" />
-      </div>
+      <!-- Combinations -->
+      <div class="services-category">
+        <p class="services-category-label" data-i18n="services.combo">Combinations</p>
+        <div class="services-grid services-grid--single">
 
-      <div class="tr-list">
-        <h2 id="tr-h" class="head" data-i18n="rd.tr.h">Treatments.</h2>
-        <p class="tr-intro" data-i18n="services.intro">Each treatment is rooted in intentional touch, nervous system care and natural restoration.</p>
-
-        <details class="tr" data-key="combo" open>
-          <summary>
-            <span class="tr-name">MOKSHA or SAVASANA + ANTAR</span>
-            <span class="tr-word" data-i18n="rd.tr.combo.word">Most popular · the combination</span>
-            <span class="tr-meta">1 hr 30 min · <span class="price">90</span></span>
-          </summary>
-          <div class="tr-body">
+          <div class="service-card service-card--featured">
+            <div class="service-badge-pkg" data-i18n="service.combo.badge">Most Popular</div>
+            <div class="service-type" data-i18n="service.combo.type">Combination</div>
+            <h3 class="combo-title">MOKSHA or SAVASANA <span class="nowrap">+ ANTAR</span></h3>
+            <p class="service-subtitle" data-i18n="service.combo.subtitle">Facial Treatment with Buccal Release</p>
+            <div class="service-price">1 hr 30 min &nbsp;·&nbsp; <span class="price-val">90</span></div>
             <p data-i18n="service.combo.desc">Discover the combined benefits of our myofascial or relaxation techniques with ANTAR buccal release. Our most popular and most effective treatment, for complete facial and jaw tension release.</p>
-            <ul>
+            <ul class="service-benefits">
               <li data-i18n="service.combo.b1">MOKSHA + ANTAR — myofascial release with buccal therapy</li>
               <li data-i18n="service.combo.b2">SAVASANA + ANTAR — relaxation &amp; lifting with buccal massage</li>
             </ul>
-            <a class="link" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
           </div>
-        </details>
 
-        <details class="tr" data-key="moksha">
-          <summary>
-            <span class="tr-name">MOKSHA</span>
-            <span class="tr-word" data-i18n="rd.tr.moksha.word">Liberation · myofascial release</span>
-            <span class="tr-meta">1 hr 10 min · <span class="price">75</span></span>
-          </summary>
-          <div class="tr-body">
+        </div>
+      </div>
+
+      <!-- Base Treatments -->
+      <div class="services-category">
+        <p class="services-category-label" data-i18n="services.base">Base Treatments</p>
+        <div class="services-grid services-grid--base">
+
+          <div class="service-card">
+            <div class="service-type">Myofascial Release</div>
+            <h3>MOKSHA</h3>
+            <p class="service-subtitle">Myofascial Release Massage</p>
+            <div class="service-price">1 hr 10 min &nbsp;·&nbsp; <span class="price-val">75</span></div>
             <p data-i18n="service.moksha.desc">Signature all-hands myofascial release treatment. MOKSHA means "liberation" in yoga philosophy — a release from tension and restriction. Using gentle, targeted pressure across the face, neck, shoulders and jaw to release tension held within the fascia and restore natural flow throughout the body.</p>
-            <p class="note" data-i18n="service.moksha.note1">Includes a complimentary 10 minute plant-based, organic facial mask.</p>
-            <ul>
+            <p class="service-note" data-i18n="service.moksha.note1">Includes a complimentary 10 minute plant-based, organic facial mask.</p>
+            <p class="service-note" data-i18n="service.moksha.note2">✦ Best paired with ANTAR for the full facial and jaw tension release.</p>
+            <ul class="service-benefits">
               <li data-i18n="service.moksha.b1">Natural lift &amp; reduced puffiness</li>
               <li data-i18n="service.moksha.b2">Relieves facial, jaw &amp; neck tension</li>
               <li data-i18n="service.moksha.b3">Improves circulation &amp; mobility</li>
               <li data-i18n="service.moksha.b4">Supports lymphatic drainage</li>
               <li data-i18n="service.moksha.b5">Encourages deep relaxation</li>
             </ul>
-            <a class="link" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
           </div>
-        </details>
 
-        <details class="tr" data-key="savasana">
-          <summary>
-            <span class="tr-name">SAVASANA</span>
-            <span class="tr-word" data-i18n="rd.tr.savasana.word">Deep rest · lymphatic facial ritual</span>
-            <span class="tr-meta">1 hr 10 min · <span class="price">75</span></span>
-          </summary>
-          <div class="tr-body">
+          <div class="service-card">
+            <div class="service-type">Lymphatic Drainage</div>
+            <h3>SAVASANA</h3>
+            <p class="service-subtitle">Deep Rest Facial Ritual</p>
+            <div class="service-price">1 hr 10 min &nbsp;·&nbsp; <span class="price-val">75</span></div>
             <p data-i18n="service.savasana.desc">SAVASANA translates to "deep rest" in yoga — a state of complete relaxation and restoration for the mind and body. Choose Savasana if you're seeking deep relaxation and stress relief without the focused intensity of the signature MOKSHA Myofascial Release. Rather than working into the fascia with sustained pressure, this treatment offers a lighter, soothing experience that leaves you feeling rested, grounded, and renewed. Inspired by this practice, this slow-paced facial ritual is designed to encourage nervous system reset through therapeutic touch and intentional stillness. Using organic, plant-based skincare alongside facial massage and essential oils, the treatment helps calm tension, restore balance and support healthy, radiant skin.</p>
-            <p class="note" data-i18n="service.savasana.note">Complementary face mask included.</p>
-            <ul>
+            <p class="service-note" data-i18n="service.savasana.note">Complementary face mask included.</p>
+            <ul class="service-benefits">
               <li data-i18n="service.savasana.b1">Deep relaxation &amp; stress relief</li>
               <li data-i18n="service.savasana.b2">Supports nervous system regulation</li>
               <li data-i18n="service.savasana.b3">Improves skin health &amp; circulation</li>
               <li data-i18n="service.savasana.b4">Helps you look lifted and feel restored</li>
             </ul>
-            <a class="link" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
           </div>
-        </details>
 
-        <details class="tr" data-key="antar">
-          <summary>
-            <span class="tr-name">ANTAR</span>
-            <span class="tr-word" data-i18n="rd.tr.antar.word">Inner · buccal release, add-on</span>
-            <span class="tr-meta">30 min · <span class="price">40</span></span>
-          </summary>
-          <div class="tr-body">
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="services-category">
+        <p class="services-category-label" data-i18n="services.addons">Add-ons</p>
+        <div class="services-grid services-grid--addons">
+
+          <div class="service-card service-card--addon">
+            <div class="service-type">Face Massage</div>
+            <h3>ANTAR</h3>
+            <p class="service-subtitle">Buccal Release</p>
+            <div class="service-price">30 min &nbsp;·&nbsp; <span class="price-val">40</span></div>
             <p data-i18n="service.antar.desc">ANTAR translates to "inner" — representing inward awareness and release from within. This focused intra-oral technique works deeply into the cheeks and jaw through careful, precise massage to release stored tension and restore balance to the lower face.</p>
-            <p class="note" data-i18n="service.antar.note">Performed using nitrile gloves. Limited to 30 minutes to ensure comfort.</p>
-            <ul>
+            <p class="service-note" data-i18n="service.antar.note">Performed using nitrile gloves. Limited to 30 minutes to ensure comfort.</p>
+            <ul class="service-benefits">
               <li data-i18n="service.antar.b1">Releases deep jaw &amp; facial tension</li>
               <li data-i18n="service.antar.b2">Helps relieve teeth grinding (bruxism)</li>
               <li data-i18n="service.antar.b3">Slims and sculpts the lower face</li>
               <li data-i18n="service.antar.b4">Supports facial symmetry &amp; relaxation</li>
             </ul>
-            <a class="link" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
           </div>
-        </details>
 
-        <details class="tr" data-key="urdvha">
-          <summary>
-            <span class="tr-name">URDVHA</span>
-            <span class="tr-word" data-i18n="rd.tr.urdvha.word">Upward · at-home gua sha, add-on</span>
-            <span class="tr-meta">30 min video · <span class="price">40</span></span>
-          </summary>
-          <div class="tr-body">
+          <div class="service-card service-card--addon">
+            <div class="service-type">Face Massage</div>
+            <h3>URDVHA</h3>
+            <p class="service-subtitle">At-Home Gua Sha Ritual</p>
+            <div class="service-price">30 min video &nbsp;·&nbsp; <span class="price-val">40</span></div>
             <p data-i18n="service.urdvha.desc">In yoga, Urdvha means "upward" — symbolising lift, expansion, and the continuous flow of energy. It represents growth through consistent, intentional practice. Created to help you maintain the benefits of your MUKHA MOKSHA treatment between sessions, Urdvha is an invitation to continue your ritual at home — with intention and care. Your at-home ritual includes a comprehensive guided video tutorial to support your practice with confidence, and the bespoke MUKHA Gua Sha, designed exclusively for MUKHA to complement your facial ritual and encourage lasting results.</p>
-            <p class="note" data-i18n="service.urdvha.note">Combining healthy lifestyle choices with regular gua sha can extend the effects of Mukha's treatments for up to 4 weeks.</p>
-            <ul>
+            <p class="service-note" data-i18n="service.urdvha.note">Combining healthy lifestyle choices with regular gua sha can extend the effects of Mukha's treatments for up to 4 weeks.</p>
+            <ul class="service-benefits">
               <li data-i18n="service.urdvha.b1">Tones and lifts</li>
               <li data-i18n="service.urdvha.b2">Boosts circulation</li>
               <li data-i18n="service.urdvha.b3">Reduces puffiness</li>
               <li data-i18n="service.urdvha.b4">Supports collagen</li>
+              <li data-i18n="service.urdvha.b5">Knowledge that you can use at home to extend the benefits of Mukha treatments</li>
             </ul>
-            <a class="link" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
           </div>
-        </details>
 
-        <details class="tr" data-key="reset">
-          <summary>
-            <span class="tr-name">MOKSHA RESET</span>
-            <span class="tr-word" data-i18n="service.reset.type">Package · 4 Sessions</span>
-            <span class="tr-meta">4 × 1 hr 10 min · <span class="price">290</span></span>
-          </summary>
-          <div class="tr-body">
+        </div>
+      </div>
+
+      <!-- Packages -->
+      <div class="services-category">
+        <p class="services-category-label" data-i18n="services.packages">Packages</p>
+        <div class="services-grid services-grid--single">
+
+          <div class="service-card service-card--package">
+            <div class="service-type" data-i18n="service.reset.type">Package · 4 Sessions</div>
+            <h3>MOKSHA RESET</h3>
+            <p class="service-subtitle">Myofascial Release Package</p>
+            <div class="service-price service-price--package">4 x 1 hr 10 min &nbsp;·&nbsp; <span class="price-val">290</span></div>
+            <div class="service-price service-price--package">4 x 1 hr 30 min <span data-i18n="service.reset.withantar">with ANTAR</span> &nbsp;·&nbsp; <span class="price-val">350</span></div>
             <p data-i18n="service.reset.desc">While one session works wonders and provides immediate relief, four consecutive treatments lead to longer-lasting benefits. Perfect for those preparing for a special occasion or committing to their wellbeing.</p>
-            <p class="tr-alt">4 × 1 hr 30 min <span data-i18n="service.reset.withantar">with ANTAR</span> · <span class="price">350</span></p>
-            <ul>
+            <ul class="service-benefits">
               <li data-i18n="service.reset.b1">Personalised treatment each session</li>
               <li data-i18n="service.reset.b2">Holistic facial mask included</li>
               <li data-i18n="service.reset.b3">Aftercare &amp; self-care guidance</li>
               <li data-i18n="service.reset.b4">Immediate relief &amp; amplified results</li>
             </ul>
-            <a class="link" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+            <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-service" data-i18n="service.book">Book Now →</a>
           </div>
-        </details>
 
-        <details class="tr" data-key="postop">
-          <summary>
-            <span class="tr-name">POST-OP RECOVERY</span>
-            <span class="tr-word" data-i18n="service.postop.type">Package · 4 Home Visits</span>
-            <span class="tr-meta">4 × 70 min · <span data-i18n="service.postop.price">Price on enquiry</span></span>
-          </summary>
-          <div class="tr-body">
+        </div>
+      </div>
+
+      <!-- Recovery Care -->
+      <div class="services-category">
+        <p class="services-category-label" data-i18n="services.recovery">Recovery Care</p>
+        <div class="services-grid services-grid--single">
+
+          <div class="service-card service-card--package">
+            <div class="service-type" data-i18n="service.postop.type">Package · 4 Home Visits</div>
+            <h3>POST-OP RECOVERY</h3>
+            <p class="service-subtitle" data-i18n="service.postop.subtitle">A Softer Side of Recovery</p>
+            <div class="service-price service-price--package">4 x 70 min &nbsp;·&nbsp; <span class="service-price-saving" data-i18n="service.postop.price">Price on enquiry</span></div>
             <p data-i18n="service.postop.desc">Personalised facial therapy to support your recovery following cosmetic surgery, delivered in the comfort of your home. Drawing on Mona's background as a registered nurse in maxillofacial surgery, tailored lymphatic techniques support fluid movement, help manage post-op swelling and promote comfort during recovery.</p>
-            <ul>
+            <ul class="service-benefits">
               <li data-i18n="service.postop.b1">4 sessions over 4 weeks</li>
               <li data-i18n="service.postop.b2">70 minutes per session</li>
               <li data-i18n="service.postop.b3">Gentle, personalised manual lymphatic techniques</li>
               <li data-i18n="service.postop.b4">Convenient home visits</li>
             </ul>
-            <a class="link" href="mailto:mukha.faceyoga@gmail.com?subject=Post-Op%20Recovery%20Package" data-i18n="service.enquire">Email to Enquire →</a>
+            <a href="mailto:mukha.faceyoga@gmail.com?subject=Post-Op%20Recovery%20Package" class="btn-service" data-i18n="service.enquire">Email to Enquire →</a>
           </div>
-        </details>
 
-        <p class="tr-foot" data-i18n="services.weekend">A 10% premium applies to weekend appointments.</p>
-      </div>
-    </section>
-
-    <!-- THE LIVE THING: where do you hold it? -->
-    <section class="finder" aria-labelledby="fi-h">
-      <div class="fi-ask">
-        <h2 id="fi-h" class="head" data-i18n="rd.fi.h">Where do you hold it?</h2>
-        <p class="lead" data-i18n="rd.fi.p">Choose what you feel most, and see where Mona would usually begin.</p>
-        <div class="fi-choices" role="radiogroup" aria-labelledby="fi-h">
-          <button class="chip" role="radio" aria-checked="true" data-pick="jaw" data-i18n="rd.fi.jaw">Jaw &amp; teeth grinding</button>
-          <button class="chip" role="radio" aria-checked="false" data-pick="tension" data-i18n="rd.fi.tension">Face, neck &amp; shoulders</button>
-          <button class="chip" role="radio" aria-checked="false" data-pick="stress" data-i18n="rd.fi.stress">Stress &amp; poor sleep</button>
-          <button class="chip" role="radio" aria-checked="false" data-pick="puffy" data-i18n="rd.fi.puffy">Puffiness</button>
-          <button class="chip" role="radio" aria-checked="false" data-pick="surgery" data-i18n="rd.fi.surgery">After cosmetic surgery</button>
-          <button class="chip" role="radio" aria-checked="false" data-pick="home" data-i18n="rd.fi.home">Keeping results at home</button>
-        </div>
-      </div>
-      <div class="fi-answer" aria-live="polite">
-        <div class="fi-result is-on" data-result="jaw">
-          <p class="fi-name">MOKSHA + ANTAR</p>
-          <p class="fi-why" data-i18n="rd.fi.jaw.why">Myofascial release for the face, neck and jaw, then ANTAR works inside the cheeks, where grinding tension sits.</p>
-          <p class="fi-meta">1 hr 30 min · <span class="price">90</span></p>
-          <a class="btn" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
-        </div>
-        <div class="fi-result" data-result="tension">
-          <p class="fi-name">MOKSHA</p>
-          <p class="fi-why" data-i18n="rd.fi.tension.why">Gentle, targeted pressure across the face, neck, shoulders and jaw to release tension held within the fascia.</p>
-          <p class="fi-meta">1 hr 10 min · <span class="price">75</span></p>
-          <a class="btn" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
-        </div>
-        <div class="fi-result" data-result="stress">
-          <p class="fi-name">SAVASANA</p>
-          <p class="fi-why" data-i18n="rd.fi.stress.why">A lighter, slow-paced ritual for deep relaxation and stress relief, designed to encourage a nervous system reset.</p>
-          <p class="fi-meta">1 hr 10 min · <span class="price">75</span></p>
-          <a class="btn" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
-        </div>
-        <div class="fi-result" data-result="puffy">
-          <p class="fi-name">MOKSHA</p>
-          <p class="fi-why" data-i18n="rd.fi.puffy.why">Supports lymphatic drainage and circulation, for a natural lift and less puffiness.</p>
-          <p class="fi-meta">1 hr 10 min · <span class="price">75</span></p>
-          <a class="btn" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
-        </div>
-        <div class="fi-result" data-result="surgery">
-          <p class="fi-name">POST-OP RECOVERY</p>
-          <p class="fi-why" data-i18n="rd.fi.surgery.why">Four gentle lymphatic sessions at home over four weeks, drawing on Mona's nursing background in maxillofacial surgery.</p>
-          <p class="fi-meta">4 × 70 min · <span data-i18n="service.postop.price">Price on enquiry</span></p>
-          <a class="btn" href="mailto:mukha.faceyoga@gmail.com?subject=Post-Op%20Recovery%20Package" data-i18n="service.enquire">Email to Enquire →</a>
-        </div>
-        <div class="fi-result" data-result="home">
-          <p class="fi-name">URDVHA</p>
-          <p class="fi-why" data-i18n="rd.fi.home.why">A guided gua sha video and the bespoke MUKHA Gua Sha, to carry the benefits of your treatment between visits.</p>
-          <p class="fi-meta">30 min video · <span class="price">40</span></p>
-          <a class="btn" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
-        </div>
-        <p class="fi-small" data-i18n="rd.fi.small">Not sure? Mona reads every health form before confirming, and will suggest what suits you.</p>
-      </div>
-    </section>
-
-    <!-- MONA -->
-    <section class="mona" id="mona" aria-labelledby="mona-h">
-      <div class="mona-top">
-        <h2 id="mona-h" class="head" data-i18n="rd.mona.h">Mona, registered nurse.</h2>
-        <p class="lead" data-i18n="about.p4">Founded by Mona, a Registered Nurse and Holistic Facial Therapist, every treatment is guided by both clinical knowledge and intuitive care — creating a safe, nurturing, and restorative space for each client.</p>
-      </div>
-      <div class="mona-grid">
-        <figure class="mona-photo">
-          <picture><source srcset="images/edited15.webp" type="image/webp" /><img src="images/edited15.jpeg" alt="Mona working on a client's face in the treatment room" width="1366" height="2048" loading="lazy" /></picture>
-          <p class="mona-card" data-i18n="about.p3">Inspired by yoga philosophy and slow wellness practices, MUKHA offers more than a facial. It is a therapeutic experience created to help you slow down, soften, and reconnect with yourself.</p>
-        </figure>
-        <div class="mona-tile">
-          <picture><source srcset="images/mona.webp" type="image/webp" /><img src="images/mona.jpeg" alt="Mona, founder of Mukha Face Yoga — Registered Nurse and Holistic Facial Therapist in Surbiton, Surrey" width="1066" height="1600" loading="lazy" /></picture>
-          <dl class="facts">
-            <div><dt data-i18n="rd.f.nurse">Nursing</dt><dd data-i18n="rd.f.nurse.v">8 years, registered nurse</dd></div>
-            <div><dt data-i18n="rd.f.bg">Background</dt><dd data-i18n="rd.f.bg.v">Theatres, maxillofacial surgery, recovery</dd></div>
-            <div><dt data-i18n="rd.f.room">The room</dt><dd>101 Ewell Road, Surbiton</dd></div>
-            <div><dt data-i18n="rd.f.who">Clients</dt><dd data-i18n="rd.f.who.v">Women only, by appointment</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews" id="reviews" aria-labelledby="rv-h">
-      <div class="rv-feature">
-        <figure class="rv-photo"><picture><source srcset="images/edited9.webp" type="image/webp" /><img src="images/edited9.jpeg" alt="Mona's hands releasing tension across a client's brow" width="1600" height="1067" loading="lazy" /></picture></figure>
-        <div class="rv-quote">
-          <h2 id="rv-h" class="head head--small"><span data-i18n="rd.rv.h">Reviews</span> · <span data-i18n="testimonials.score">5.0 · 14 reviews</span></h2>
-          <blockquote>
-            <p>"Mona took the time to understand where I was holding tension and tailored the treatment accordingly."</p>
-            <footer>Rosena T. · Google</footer>
-          </blockquote>
         </div>
       </div>
 
-      <div class="rv-row" id="rv-row">
-        <figure class="rv"><blockquote>"Such a fantastic experience with Mona. She is so skilled and creates a wonderful calm atmosphere. I looked and felt like a new woman after my treatment! Will definitely be back!"</blockquote><figcaption>Sarah N. · June 2026 · Fresha</figcaption></figure>
-        <figure class="rv"><blockquote>"I was recommended Mukha by a friend, and it turned out to be exactly what I needed. Mona took the time to understand where I was holding tension and tailored the treatment accordingly. Her approach was skilled and intuitive, and I could feel tightness in my face, neck, and shoulders gradually release throughout the session. What surprised me most were the results afterwards — my face looked visibly lifted, refreshed, and more radiant, with a natural glow I wasn't expecting. I left feeling lighter, calmer, and relaxed. A lovely experience I'd happily recommend."</blockquote><figcaption>Rosena T. · June 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"I had a wonderful myofascial massage with Mona. The session started with a short consultation focused on my skin type but also potential problematic areas. Mona's attentive approach and ability to target areas of tension made the experience both therapeutic and restorative — what I really appreciated was the wide spectrum of powerful facial techniques she was using. By the end of the session, my face felt lifted and plumped and I couldn't believe the result I was seeing in the mirror! Highly recommend and thank you for the great session Mona!"</blockquote><figcaption>Zhuliana I. · June 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"The myofascial and buccal release facial left me feeling completely refreshed and deeply relaxed. Mona's hands are incredibly gentle, and she looks after you with such genuine care from start to finish. A truly soothing experience — and the bonus is walking out feeling like a younger version of yourself!"</blockquote><figcaption>Doreen Contreras · June 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"This was my first Mukha face yoga and it will not be my last. I felt totally relaxed at the end of it and my face looked much fresher too. Mona's touch is confident and reassuring. Heavenly!"</blockquote><figcaption>Peta L. · June 2026 · Fresha</figcaption></figure>
-        <figure class="rv"><blockquote>"Quite amazing. I felt so tense before this first time treatment today and the after results felt amazing — I could feel the tension fall away and the buccal treatment left my jaw feeling more relaxed. The attention to detail is more than I felt with any other facial treatment. I can highly recommend a visit and I will be booking again. I feel it's a real investment in my health. Thank you"</blockquote><figcaption>Susan L. · June 2026 · Fresha</figcaption></figure>
-        <figure class="rv"><blockquote>"Mona has provided an amazing experience. My features feel much softer and lighter. I didn't know this was going to be so transformative, relaxing and uplifting at the same time!! Thank you so much for the treatment!"</blockquote><figcaption>Catia Salazar · June 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"I attended Mukha for a myofascial and buccal release treatment with Mona, and she has been absolutely amazing. From the very beginning, she made me feel comfortable, listened carefully, and provided such a thoughtful and personalised treatment experience. The treatment has been especially beneficial for my postpartum recovery, helping me feel more supported and connected to my body during this period of healing and adjustment. The before and after is absolutely astonishing — I can't believe my facial muscles were that tense. The feeling after is as if my face feels feather light. I would highly recommend Mona and Mukha to anyone considering myofascial or buccal release, particularly as part of postpartum recovery. A truly wonderful experience!"</blockquote><figcaption>Christian Marie G. · July 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"The most magical treatment by Mona. I left the beautiful treatment room feeling calm and felt like I was floating on a cloud. I couldn't believe after one treatment how sculpted my face was! I felt glowing inside which was my aim, and also bonus that I was glowing on the outside. Mona is a natural healer and has the most wonderful, calming aura. Her technique was exceptional! She knows her craft. This was exactly the treatment that I needed, so happy to have found it! Thank you Mona - you are magic!"</blockquote><figcaption>Annisa Whitehall · July 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"I gifted my sister a Moksha Myofascial Release massage and Antar Buccal Release gift card. She was astounded by the noticeable improvement in her facial appearance after just one session. Booking a session or purchasing a gift card is easy on their website, and the information about each procedure is clear, which is great since face yoga is a new concept for me. My sister raved about Mona, the holistic facial therapist, describing her as friendly, professional, and caring. Mona provided a wonderful experience, and my sister is considering signing up for their subscription offer."</blockquote><figcaption>Angelo Pangan · July 2026 · Google</figcaption></figure>
-        <figure class="rv"><blockquote>"What a fantastic service and experience! From start to finish every detail was taken care of. Mona was super caring and professional. I felt really relaxed afterwards and the before and after images of my face reflected this too! Thank you Mona I'm looking forward to using my monthly package with you!"</blockquote><figcaption>Renata S. · July 2026 · Fresha</figcaption></figure>
-        <figure class="rv"><blockquote>"Very friendly caring and knowledgeable practitioner giving a great experience. Highly recommended."</blockquote><figcaption>Penny M. · July 2026 · Fresha</figcaption></figure>
-        <figure class="rv"><blockquote>"Third visit and feeling all the benefits that Mona said I would feel overtime. The treatment is of a continuing high standard with attention and care."</blockquote><figcaption>Susan L. · July 2026 · Fresha · <span data-i18n="rd.rv.third">third visit</span></figcaption></figure>
-      </div>
-      <div class="rv-end">
-        <button class="btn btn-ghost" id="rv-all" aria-controls="rv-row" aria-expanded="false" data-i18n="rd.rv.all">Show all 14 reviews</button>
-        <a class="link" href="https://g.page/r/CYvEYNLLrD5uEAI/review" target="_blank" rel="noopener" data-i18n="testimonials.review.btn">Leave a Google Review</a>
-      </div>
-    </section>
+      <p class="services-footnote" data-i18n="services.weekend">A 10% premium applies to weekend appointments.</p>
 
-    <!-- RESULTS -->
-    <section class="results" id="gallery" aria-labelledby="res-h">
-      <figure class="rp rp-1"><picture><source srcset="images/ba1.webp" type="image/webp" /><img src="images/ba1.jpeg" alt="Client before and after myofascial and buccal release" width="1152" height="2048" loading="lazy" /></picture></figure>
-      <figure class="rp rp-2"><picture><source srcset="images/ba5.webp" type="image/webp" /><img src="images/ba5.jpeg" alt="Client before and after treatment, side by side" width="1200" height="800" loading="lazy" /></picture></figure>
-      <figure class="rp rp-3"><picture><source srcset="images/ba9.webp" type="image/webp" /><img src="images/ba9.jpeg" alt="Client before and after facial therapy" width="1000" height="1000" loading="lazy" /></picture></figure>
-      <div class="res-center">
-        <h2 id="res-h" class="head" data-i18n="rd.res.h">Before and after.</h2>
-        <p data-i18n="rd.res.p">Real clients, photographed in the room before and after one session. Results vary from person to person.</p>
-        <a class="link" href="gallery.html" data-i18n="gallery.cta">View Full Gallery</a>
-      </div>
-      <figure class="rp rp-4"><picture><source srcset="images/ba6.webp" type="image/webp" /><img src="images/ba6.jpeg" alt="Client before and after, front and profile" width="1152" height="2048" loading="lazy" /></picture></figure>
-      <figure class="rp rp-5"><picture><source srcset="images/ba3.webp" type="image/webp" /><img src="images/ba3.jpeg" alt="Client before and after her second session" width="1000" height="1000" loading="lazy" /></picture></figure>
-    </section>
+    </div>
+  </section>
 
-    <!-- JOURNAL -->
-    <section class="journal" id="journal" aria-labelledby="jr-h">
-      <div class="jr-head">
-        <h2 id="jr-h" class="head" data-i18n="rd.jr.h">From the studio.</h2>
-        <p data-i18n="journal.intro">Mona shares knowledge from her practice — exploring the science and philosophy behind each treatment.</p>
+  <!-- DIVIDER -->
+  <div class="divider-wave divider-wave--sage-to-white" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,55 C360,0 1080,70 1440,20 L1440,70 L0,70 Z" fill="var(--white)" />
+    </svg>
+  </div>
+
+  <!-- WHERE DO YOU HOLD IT? -->
+  <section class="finder section" id="finder" aria-labelledby="finder-title">
+    <div class="container finder-grid">
+      <div class="finder-ask">
+        <p class="section-label" data-i18n="finder.label">Not sure where to start?</p>
+        <h2 class="section-title" id="finder-title" data-i18n="finder.title">Where do you <em>hold it?</em></h2>
+        <p class="finder-intro" data-i18n="finder.intro">Choose what you feel most, and see where Mona would usually begin.</p>
+        <div class="finder-choices" role="radiogroup" aria-labelledby="finder-title">
+          <button class="chip" type="button" role="radio" aria-checked="true" data-pick="jaw" data-i18n="finder.jaw">Jaw &amp; teeth grinding</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-pick="tension" data-i18n="finder.tension">Face, neck &amp; shoulders</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-pick="stress" data-i18n="finder.stress">Stress &amp; poor sleep</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-pick="puffy" data-i18n="finder.puffy">Puffiness</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-pick="surgery" data-i18n="finder.surgery">After cosmetic surgery</button>
+          <button class="chip" type="button" role="radio" aria-checked="false" data-pick="home" data-i18n="finder.home">Keeping results at home</button>
+        </div>
       </div>
-      <div class="jr-row">
-        <button class="jr" data-type="video" data-video="images/journal/moksha-intro.mp4"
+      <div class="finder-answer" aria-live="polite">
+        <div class="finder-result is-on" data-result="jaw">
+          <p class="finder-name">MOKSHA + ANTAR</p>
+          <p class="finder-why" data-i18n="finder.jaw.why">Myofascial release for the face, neck and jaw, then ANTAR works inside the cheeks, where grinding tension sits.</p>
+          <p class="finder-meta">1 hr 30 min · <span class="price-val">90</span></p>
+          <a class="btn-primary" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+        </div>
+        <div class="finder-result" data-result="tension">
+          <p class="finder-name">MOKSHA</p>
+          <p class="finder-why" data-i18n="finder.tension.why">Gentle, targeted pressure across the face, neck, shoulders and jaw to release tension held within the fascia.</p>
+          <p class="finder-meta">1 hr 10 min · <span class="price-val">75</span></p>
+          <a class="btn-primary" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+        </div>
+        <div class="finder-result" data-result="stress">
+          <p class="finder-name">SAVASANA</p>
+          <p class="finder-why" data-i18n="finder.stress.why">A lighter, slow-paced ritual for deep relaxation and stress relief, designed to encourage a nervous system reset.</p>
+          <p class="finder-meta">1 hr 10 min · <span class="price-val">75</span></p>
+          <a class="btn-primary" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+        </div>
+        <div class="finder-result" data-result="puffy">
+          <p class="finder-name">MOKSHA</p>
+          <p class="finder-why" data-i18n="finder.puffy.why">Supports lymphatic drainage and circulation, for a natural lift and less puffiness.</p>
+          <p class="finder-meta">1 hr 10 min · <span class="price-val">75</span></p>
+          <a class="btn-primary" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+        </div>
+        <div class="finder-result" data-result="surgery">
+          <p class="finder-name">POST-OP RECOVERY</p>
+          <p class="finder-why" data-i18n="finder.surgery.why">Four gentle lymphatic sessions at home over four weeks, drawing on Mona's nursing background in maxillofacial surgery.</p>
+          <p class="finder-meta">4 x 70 min · <span data-i18n="service.postop.price">Price on enquiry</span></p>
+          <a class="btn-primary" href="mailto:mukha.faceyoga@gmail.com?subject=Post-Op%20Recovery%20Package" data-i18n="service.enquire">Email to Enquire →</a>
+        </div>
+        <div class="finder-result" data-result="home">
+          <p class="finder-name">URDVHA</p>
+          <p class="finder-why" data-i18n="finder.home.why">A guided gua sha video and the bespoke MUKHA Gua Sha, to carry the benefits of your treatment between visits.</p>
+          <p class="finder-meta">30 min video · <span class="price-val">40</span></p>
+          <a class="btn-primary" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="service.book">Book Now →</a>
+        </div>
+        <p class="finder-small" data-i18n="finder.small">Mona reads every health form before confirming, and will always suggest what suits you best.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW BOOKING WORKS — on supporting browsers the section holds while each step takes its turn -->
+  <section class="steps scene-steps" id="booking" aria-labelledby="steps-title">
+    <div class="steps-pin">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label" data-i18n="steps.label">Booking</p>
+          <h2 class="section-title" id="steps-title" data-i18n="steps.title">Four simple <em>steps</em></h2>
+        </div>
+        <ol class="steps-list">
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">1</p>
+              <h3 data-i18n="steps.1.t">Choose your treatment</h3>
+              <p data-i18n="steps.1.p">Pick your treatment, date and time on Fresha.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <div class="sc-row sc-row--on"><span>MOKSHA + ANTAR</span><span>1 hr 30 · <span class="price-val">90</span></span></div>
+              <div class="sc-row"><span>MOKSHA</span><span>1 hr 10 · <span class="price-val">75</span></span></div>
+              <div class="sc-row"><span>SAVASANA</span><span>1 hr 10 · <span class="price-val">75</span></span></div>
+              <div class="sc-chips"><span>Thu</span><span class="on">2:00 pm</span><span>4:30 pm</span></div>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">2</p>
+              <h3 data-i18n="steps.2.t">Fill in your health form</h3>
+              <p data-i18n="steps.2.p">A short health intake form, completed as part of your Fresha booking.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <p class="sc-title" data-i18n="steps.2.card">Health intake</p>
+              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c1">Medical conditions</span></div>
+              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c2">Recent treatments or procedures</span></div>
+              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c3">Pregnancy</span></div>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">3</p>
+              <h3 data-i18n="steps.3.t">Mona confirms</h3>
+              <p data-i18n="steps.3.p">Mona reviews your form and sends a 30 deposit link by WhatsApp or email. It comes off your total on the day.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <p class="sc-bubble" data-i18n="steps.3.card">Your appointment is suitable and confirmed. Here is your deposit link.</p>
+              <p class="sc-meta"><span class="price-val">30</span> <span data-i18n="steps.3.meta">deposit · deducted on the day</span></p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">4</p>
+              <h3 data-i18n="steps.4.t">Arrive and unwind</h3>
+              <p data-i18n="steps.4.p">Come to the studio in Surbiton, settle in and let the tension go. Need to change plans? Give 48 hours' notice.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <p class="sc-title">Mukha</p>
+              <p>Flat 2, Richleigh Court<br />101 Ewell Road, Surbiton</p>
+              <p class="sc-meta" data-i18n="steps.4.meta">Air-conditioned · women only</p>
+            </div>
+          </li>
+        </ol>
+        <div class="steps-cta">
+          <a class="btn-primary" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="contact.book">Book on Fresha →</a>
+          <a class="btn-ghost btn-ghost--dark" href="policies.html" data-i18n="steps.policies">Read the client policies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="gallery-preview section" id="gallery">
+    <div class="container">
+      <div class="ba">
+        <figure class="ba-photo ba-1"><picture><source srcset="images/ba1.webp" type="image/webp" /><img src="images/ba1.jpeg" alt="Client before and after myofascial and buccal release" width="1152" height="2048" loading="lazy" /></picture></figure>
+        <figure class="ba-photo ba-2"><picture><source srcset="images/ba5.webp" type="image/webp" /><img src="images/ba5.jpeg" alt="Client before and after treatment, side by side" width="1200" height="800" loading="lazy" /></picture></figure>
+        <figure class="ba-photo ba-3"><picture><source srcset="images/ba9.webp" type="image/webp" /><img src="images/ba9.jpeg" alt="Client before and after facial therapy" width="1000" height="1000" loading="lazy" /></picture></figure>
+        <div class="ba-center section-header">
+          <p class="section-label" data-i18n="gallery.label">Gallery</p>
+          <h2 class="section-title" data-i18n="ba.title">Before <em>&amp; after</em></h2>
+          <p class="section-intro" data-i18n="ba.intro">Real clients, photographed in the studio before and after one session. Results vary from person to person.</p>
+          <a href="gallery.html" class="btn-primary" data-i18n="gallery.cta">View Full Gallery</a>
+        </div>
+        <figure class="ba-photo ba-4"><picture><source srcset="images/ba6.webp" type="image/webp" /><img src="images/ba6.jpeg" alt="Client before and after, front and profile" width="1152" height="2048" loading="lazy" /></picture></figure>
+        <figure class="ba-photo ba-5"><picture><source srcset="images/ba3.webp" type="image/webp" /><img src="images/ba3.jpeg" alt="Client before and after her second session" width="1000" height="1000" loading="lazy" /></picture></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave divider-wave--white-to-sage" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,55 C360,0 1080,70 1440,20 L1440,70 L0,70 Z" fill="var(--sage)" />
+    </svg>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" data-i18n="testimonials.label">Reviews</p>
+        <h2 class="section-title" data-i18n="testimonials.title">What clients<br /><em>are saying</em></h2>
+        <div class="testimonials-rating">
+          <div class="testimonials-stars">★★★★★</div>
+          <p class="testimonials-score" data-i18n="testimonials.score">5.0 · 14 reviews</p>
+        </div>
+      </div>
+      <div class="testimonials-carousel">
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="carousel-track">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Such a fantastic experience with Mona. She is so skilled and creates a wonderful calm atmosphere. I looked and felt like a new woman after my treatment! Will definitely be back!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">S</div>
+                <div>
+                  <p class="testimonial-name">Sarah N.</p>
+                  <p class="testimonial-date">June 2026 · Fresha</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"I was recommended Mukha by a friend, and it turned out to be exactly what I needed. Mona took the time to understand where I was holding tension and tailored the treatment accordingly. Her approach was skilled and intuitive, and I could feel tightness in my face, neck, and shoulders gradually release throughout the session. What surprised me most were the results afterwards — my face looked visibly lifted, refreshed, and more radiant, with a natural glow I wasn't expecting. I left feeling lighter, calmer, and relaxed. A lovely experience I'd happily recommend."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">R</div>
+                <div>
+                  <p class="testimonial-name">Rosena T.</p>
+                  <p class="testimonial-date">June 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"I had a wonderful myofascial massage with Mona. The session started with a short consultation focused on my skin type but also potential problematic areas. Mona's attentive approach and ability to target areas of tension made the experience both therapeutic and restorative — what I really appreciated was the wide spectrum of powerful facial techniques she was using. By the end of the session, my face felt lifted and plumped and I couldn't believe the result I was seeing in the mirror! Highly recommend and thank you for the great session Mona!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">Z</div>
+                <div>
+                  <p class="testimonial-name">Zhuliana I.</p>
+                  <p class="testimonial-date">June 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"The myofascial and buccal release facial left me feeling completely refreshed and deeply relaxed. Mona's hands are incredibly gentle, and she looks after you with such genuine care from start to finish. A truly soothing experience — and the bonus is walking out feeling like a younger version of yourself!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">D</div>
+                <div>
+                  <p class="testimonial-name">Doreen Contreras</p>
+                  <p class="testimonial-date">June 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"This was my first Mukha face yoga and it will not be my last. I felt totally relaxed at the end of it and my face looked much fresher too. Mona's touch is confident and reassuring. Heavenly!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">P</div>
+                <div>
+                  <p class="testimonial-name">Peta L.</p>
+                  <p class="testimonial-date">June 2026 · Fresha</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Quite amazing. I felt so tense before this first time treatment today and the after results felt amazing — I could feel the tension fall away and the buccal treatment left my jaw feeling more relaxed. The attention to detail is more than I felt with any other facial treatment. I can highly recommend a visit and I will be booking again. I feel it's a real investment in my health. Thank you 🙏"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">S</div>
+                <div>
+                  <p class="testimonial-name">Susan L.</p>
+                  <p class="testimonial-date">June 2026 · Fresha</p>
+                </div>
+              </div>
+              <div class="testimonial-return">
+                <span class="testimonial-return-stars">★★★★★</span>
+                <span>Returned · Mukha Ritual</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Mona has provided an amazing experience. My features feel much softer and lighter. I didn't know this was going to be so transformative, relaxing and uplifting at the same time!! Thank you so much for the treatment!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">C</div>
+                <div>
+                  <p class="testimonial-name">Catia Salazar</p>
+                  <p class="testimonial-date">June 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"I attended Mukha for a myofascial and buccal release treatment with Mona, and she has been absolutely amazing. From the very beginning, she made me feel comfortable, listened carefully, and provided such a thoughtful and personalised treatment experience. The treatment has been especially beneficial for my postpartum recovery, helping me feel more supported and connected to my body during this period of healing and adjustment. The before and after is absolutely astonishing — I can't believe my facial muscles were that tense. The feeling after is as if my face feels feather light. I would highly recommend Mona and Mukha to anyone considering myofascial or buccal release, particularly as part of postpartum recovery. A truly wonderful experience!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">C</div>
+                <div>
+                  <p class="testimonial-name">Christian Marie G.</p>
+                  <p class="testimonial-date">July 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"The most magical treatment by Mona. I left the beautiful treatment room feeling calm and felt like I was floating on a cloud. I couldn't believe after one treatment how sculpted my face was! I felt glowing inside which was my aim, and also bonus that I was glowing on the outside. Mona is a natural healer and has the most wonderful, calming aura. Her technique was exceptional! She knows her craft. This was exactly the treatment that I needed, so happy to have found it! Thank you Mona - you are magic!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">A</div>
+                <div>
+                  <p class="testimonial-name">Annisa Whitehall</p>
+                  <p class="testimonial-date">July 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"I gifted my sister a Moksha Myofascial Release massage and Antar Buccal Release gift card. She was astounded by the noticeable improvement in her facial appearance after just one session. Booking a session or purchasing a gift card is easy on their website, and the information about each procedure is clear, which is great since face yoga is a new concept for me. My sister raved about Mona, the holistic facial therapist, describing her as friendly, professional, and caring. Mona provided a wonderful experience, and my sister is considering signing up for their subscription offer."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">A</div>
+                <div>
+                  <p class="testimonial-name">Angelo Pangan</p>
+                  <p class="testimonial-date">July 2026 · Google</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"What a fantastic service and experience! From start to finish every detail was taken care of. Mona was super caring and professional. I felt really relaxed afterwards and the before and after images of my face reflected this too! Thank you Mona I'm looking forward to using my monthly package with you!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">R</div>
+                <div>
+                  <p class="testimonial-name">Renata S.</p>
+                  <p class="testimonial-date">July 2026 · Fresha</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Very friendly caring and knowledgeable practitioner giving a great experience. Highly recommended."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">P</div>
+                <div>
+                  <p class="testimonial-name">Penny M.</p>
+                  <p class="testimonial-date">July 2026 · Fresha</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Third visit and feeling all the benefits that Mona said I would feel overtime. The treatment is of a continuing high standard with attention and care."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">S</div>
+                <div>
+                  <p class="testimonial-name">Susan L.</p>
+                  <p class="testimonial-date">July 2026 · Fresha</p>
+                </div>
+              </div>
+              <div class="testimonial-return">
+                <span class="testimonial-return-stars">★★★★★</span>
+                <span>Returned · Mukha Ritual</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Previous review"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon" aria-hidden="true"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg></button>
+        <button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Next review"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon" aria-hidden="true"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" data-index="0" aria-label="Review 1"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Review 2"></button>
+          <button class="carousel-dot" data-index="2" aria-label="Review 3"></button>
+          <button class="carousel-dot" data-index="3" aria-label="Review 4"></button>
+          <button class="carousel-dot" data-index="4" aria-label="Review 5"></button>
+          <button class="carousel-dot" data-index="5" aria-label="Review 6"></button>
+          <button class="carousel-dot" data-index="6" aria-label="Review 7"></button>
+        </div>
+      </div>
+      <div class="testimonials-cta">
+        <p class="testimonials-note" data-i18n="testimonials.note">Enjoyed your treatment? We'd love to hear from you.</p>
+        <a href="https://g.page/r/CYvEYNLLrD5uEAI/review" target="_blank" rel="noopener" class="btn-google-review">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48" style="flex-shrink:0">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span data-i18n="testimonials.review.btn">Leave a Google Review</span>
+        </a>
+      </div>
+      <a class="cta-card" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener">
+        <span data-i18n="cta.line">Ready when you are. Book your treatment on Fresha.</span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave divider-wave--sage-to-cream" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--cream)" />
+    </svg>
+  </div>
+
+  <!-- FROM THE STUDIO -->
+  <section class="insights section" id="insights">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label" data-i18n="journal.label">From the Studio</p>
+        <h2 class="section-title" data-i18n="journal.title">Education &amp;<br /><em>Insights</em></h2>
+        <p class="section-intro" data-i18n="journal.intro">Mona shares knowledge from her practice — exploring the science and philosophy behind each treatment.</p>
+      </div>
+      <div class="journal-scatter">
+
+        <!-- POST 1: Stress Lives in the Body -->
+        <article class="journal-cover"
+          data-type="carousel"
+          data-title="From survival mode to softness"
+          data-caption="Long-term healing can also involve softer, holistic approaches that help you feel more regulated, supported, and connected to your body."
+          data-disclaimer="✦ I am a registered nurse, but Mukha Face Yoga is a holistic wellness service, not a medical treatment. Always consult your GP or specialist for chronic migraines or any medical concerns. I am here to support your body's natural healing, not replace medical advice."
+          data-date="June 2026">
+          <picture><source srcset="images/journal/stress-body-01.webp" type="image/webp" /><img src="images/journal/stress-body-01.jpg" alt="Stress lives in the body" loading="lazy" /></picture>
+          <div class="journal-cover-slides" hidden>
+            <picture><source srcset="images/journal/stress-body-01.webp" type="image/webp" /><img src="images/journal/stress-body-01.jpg" alt="Stress lives in the body" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-02.webp" type="image/webp" /><img src="images/journal/stress-body-02.jpg" alt="Modern life keeps many of us in constant tension" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-03.webp" type="image/webp" /><img src="images/journal/stress-body-03.jpg" alt="The body keeps the score" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-04.webp" type="image/webp" /><img src="images/journal/stress-body-04.jpg" alt="This can show up as jaw tightness and facial tension" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-05.webp" type="image/webp" /><img src="images/journal/stress-body-05.jpg" alt="The face is deeply connected to the nervous system" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-06.webp" type="image/webp" /><img src="images/journal/stress-body-06.jpg" alt="These treatments are about wellness" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/stress-body-07.webp" type="image/webp" /><img src="images/journal/stress-body-07.jpg" alt="When the nervous system softens" loading="lazy" /></picture>
+          </div>
+          <div class="journal-cover-label">
+            <span class="journal-cover-date">June 2026</span>
+            <h3 class="journal-cover-title">From survival mode to softness</h3>
+          </div>
+        </article>
+
+        <!-- POST 2: About Mona -->
+        <article class="journal-cover"
+          data-type="carousel"
+          data-title="A little about me"
+          data-caption="My journey as a nurse shaped everything I do today — from understanding pain and tension to creating a space where people feel safe to unwind, soften and heal."
+          data-date="June 2026">
+          <picture><source srcset="images/journal/about-mona-01.webp" type="image/webp" /><img src="images/journal/about-mona-01.png" alt="Hello I'm Mona Béa — 8 years as a nurse" loading="lazy" /></picture>
+          <div class="journal-cover-slides" hidden>
+            <picture><source srcset="images/journal/about-mona-01.webp" type="image/webp" /><img src="images/journal/about-mona-01.png" alt="Hello I'm Mona Béa — 8 years as a nurse" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-02.webp" type="image/webp" /><img src="images/journal/about-mona-02.png" alt="Operating theatres nurse" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-03.webp" type="image/webp" /><img src="images/journal/about-mona-03.png" alt="Maxillo facial surgery" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-04.webp" type="image/webp" /><img src="images/journal/about-mona-04.png" alt="Recovery nurse" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-05.webp" type="image/webp" /><img src="images/journal/about-mona-05.png" alt="Chronic conditions" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-06.webp" type="image/webp" /><img src="images/journal/about-mona-06.png" alt="Chronic pain is complex" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-07.webp" type="image/webp" /><img src="images/journal/about-mona-07.png" alt="That's why I created Mukha" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-08.webp" type="image/webp" /><img src="images/journal/about-mona-08.png" alt="Today my work focuses on" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/about-mona-09.webp" type="image/webp" /><img src="images/journal/about-mona-09.png" alt="Welcome to Mukha" loading="lazy" /></picture>
+          </div>
+          <div class="journal-cover-label">
+            <span class="journal-cover-date">June 2026</span>
+            <h3 class="journal-cover-title">A little about me</h3>
+          </div>
+        </article>
+
+        <!-- POST 3: Moksha Video -->
+        <article class="journal-cover"
+          data-type="video"
+          data-video="images/journal/moksha-intro.mp4"
           data-title="Inside the treatment"
           data-caption="What you're seeing is only the beginning of Mukha Moksha (myofascial release). All Mukha treatments start with breath, awareness and assessment. This video is sped up for Instagram but every movement is performed slowly with intention and precision — always using clinical knowledge of facial anatomy and always mindful of how your body responds. Myofascial work is NEVER rushed."
           data-date="June 2026">
-          <video class="jr-video" muted loop playsinline preload="metadata" poster="images/edited8.webp"><source src="images/journal/moksha-intro.mp4" type="video/mp4"></video>
-          <span class="jr-title">Inside the treatment</span>
-        </button>
-        <button class="jr" data-type="carousel" data-title="From survival mode to softness"
-          data-caption="Long-term healing can also involve softer, holistic approaches that help you feel more regulated, supported, and connected to your body."
-          data-disclaimer="I am a registered nurse, but Mukha Face Yoga is a holistic wellness service, not a medical treatment. Always consult your GP or specialist for chronic migraines or any medical concerns. I am here to support your body's natural healing, not replace medical advice."
-          data-date="June 2026"
-          data-slides="stress-body-01,stress-body-02,stress-body-03,stress-body-04,stress-body-05,stress-body-06,stress-body-07" data-ext="jpg">
-          <picture><source srcset="images/journal/stress-body-01.webp" type="image/webp" /><img src="images/journal/stress-body-01.jpg" alt="" loading="lazy" /></picture>
-          <span class="jr-title">From survival mode to softness</span>
-        </button>
-        <button class="jr" data-type="carousel" data-title="A little about me"
-          data-caption="My journey as a nurse shaped everything I do today — from understanding pain and tension to creating a space where people feel safe to unwind, soften and heal."
-          data-date="June 2026"
-          data-slides="about-mona-01,about-mona-02,about-mona-03,about-mona-04,about-mona-05,about-mona-06,about-mona-07,about-mona-08,about-mona-09" data-ext="png">
-          <picture><source srcset="images/journal/about-mona-01.webp" type="image/webp" /><img src="images/journal/about-mona-01.png" alt="" loading="lazy" /></picture>
-          <span class="jr-title">A little about me</span>
-        </button>
-        <button class="jr" data-type="carousel" data-title="Lymphatic therapy — preventative care, not luxury"
+          <video class="journal-cover-video" muted playsinline preload="metadata">
+            <source src="images/journal/moksha-intro.mp4" type="video/mp4">
+          </video>
+          <div class="journal-cover-label">
+            <span class="journal-cover-date">June 2026</span>
+            <h3 class="journal-cover-title">Inside the treatment</h3>
+          </div>
+        </article>
+
+        <!-- POST 4: Lymphatic Drainage -->
+        <article class="journal-cover"
+          data-type="carousel"
+          data-title="Lymphatic therapy — preventative care, not luxury"
           data-caption="Lymphatic therapy isn't a luxury. It's one of the kindest forms of preventative care you can give your face, your nervous system, and yourself. Curious what releasing facial tension could do for you? Book your treatment today."
-          data-date="June 2026"
-          data-slides="lymphatic-01,lymphatic-02,lymphatic-03,lymphatic-04,lymphatic-05,lymphatic-06,lymphatic-07,lymphatic-08" data-ext="jpg">
-          <picture><source srcset="images/journal/lymphatic-01.webp" type="image/webp" /><img src="images/journal/lymphatic-01.jpg" alt="" loading="lazy" /></picture>
-          <span class="jr-title">Lymphatic therapy, preventative care</span>
-        </button>
-        <button class="jr" data-type="carousel" data-title="How Myofascial Release helps your body"
+          data-date="June 2026">
+          <picture><source srcset="images/journal/lymphatic-01.webp" type="image/webp" /><img src="images/journal/lymphatic-01.jpg" alt="Lymphatic facial therapy at Mukha" loading="lazy" /></picture>
+          <div class="journal-cover-slides" hidden>
+            <picture><source srcset="images/journal/lymphatic-01.webp" type="image/webp" /><img src="images/journal/lymphatic-01.jpg" alt="Lymphatic facial therapy at Mukha" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-02.webp" type="image/webp" /><img src="images/journal/lymphatic-02.jpg" alt="Lymphatic drainage treatment Surbiton" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-03.webp" type="image/webp" /><img src="images/journal/lymphatic-03.jpg" alt="Facial tension release Mukha" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-04.webp" type="image/webp" /><img src="images/journal/lymphatic-04.jpg" alt="Holistic facial therapy nervous system" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-05.webp" type="image/webp" /><img src="images/journal/lymphatic-05.jpg" alt="Preventative facial care Surbiton" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-06.webp" type="image/webp" /><img src="images/journal/lymphatic-06.jpg" alt="Mukha lymphatic facial treatment" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-07.webp" type="image/webp" /><img src="images/journal/lymphatic-07.jpg" alt="Mukha face yoga lymphatic drainage" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/lymphatic-08.webp" type="image/webp" /><img src="images/journal/lymphatic-08.jpg" alt="Book facial therapy Mukha Surbiton" loading="lazy" /></picture>
+          </div>
+          <div class="journal-cover-label">
+            <span class="journal-cover-date">June 2026</span>
+            <h3 class="journal-cover-title">Lymphatic therapy — preventative care, not luxury</h3>
+          </div>
+        </article>
+
+        <!-- POST 5: How Myofascial Release Helps Your Body -->
+        <article class="journal-cover"
+          data-type="carousel"
+          data-title="How Myofascial Release helps your body"
           data-caption="By reducing fascial restrictions, supporting healthy tissue mobility, and calming areas of chronic tension, we can help create conditions that may reduce pain, improve movement, support lymphatic circulation, ease tension headaches and jaw discomfort, and help the body shift into a state where deeper healing becomes possible."
-          data-disclaimer="Myofascial massage can be a valuable complementary therapy, but is not a replacement for medical care, mental health treatment, or diagnosis of underlying conditions."
-          data-date="June 2026"
-          data-slides="myofascial-01,myofascial-02,myofascial-03,myofascial-04,myofascial-05,myofascial-06,myofascial-07,myofascial-08,myofascial-09" data-ext="png">
-          <picture><source srcset="images/journal/myofascial-01.webp" type="image/webp" /><img src="images/journal/myofascial-01.png" alt="" loading="lazy" /></picture>
-          <span class="jr-title">How myofascial release helps</span>
-        </button>
+          data-disclaimer="✦ Myofascial massage can be a valuable complementary therapy, but is not a replacement for medical care, mental health treatment, or diagnosis of underlying conditions."
+          data-date="June 2026">
+          <picture><source srcset="images/journal/myofascial-01.webp" type="image/webp" /><img src="images/journal/myofascial-01.png" alt="How myofascial release helps your body" loading="lazy" /></picture>
+          <div class="journal-cover-slides" hidden>
+            <picture><source srcset="images/journal/myofascial-01.webp" type="image/webp" /><img src="images/journal/myofascial-01.png" alt="How myofascial release helps your body" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-02.webp" type="image/webp" /><img src="images/journal/myofascial-02.png" alt="What is fascia" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-03.webp" type="image/webp" /><img src="images/journal/myofascial-03.png" alt="Why tension happens" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-04.webp" type="image/webp" /><img src="images/journal/myofascial-04.png" alt="Fascia and the nervous system" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-05.webp" type="image/webp" /><img src="images/journal/myofascial-05.png" alt="How myofascial release works" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-06.webp" type="image/webp" /><img src="images/journal/myofascial-06.png" alt="More than muscle deep" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-07.webp" type="image/webp" /><img src="images/journal/myofascial-07.png" alt="Is trauma stored in the fascia" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-08.webp" type="image/webp" /><img src="images/journal/myofascial-08.png" alt="Why people feel emotional after treatment" loading="lazy" /></picture>
+            <picture><source srcset="images/journal/myofascial-09.webp" type="image/webp" /><img src="images/journal/myofascial-09.png" alt="Your body is always communicating" loading="lazy" /></picture>
+          </div>
+          <div class="journal-cover-label">
+            <span class="journal-cover-date">June 2026</span>
+            <h3 class="journal-cover-title">How Myofascial Release helps your body</h3>
+          </div>
+        </article>
+
       </div>
-      <a class="link jr-ig" href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" data-i18n="journal.ig">Follow on Instagram for more</a>
 
-      <dialog class="jr-modal" id="jr-modal" aria-labelledby="jr-modal-title">
-        <div class="jr-modal-media" id="jr-modal-media"></div>
-        <div class="jr-modal-text">
-          <p class="small" id="jr-modal-date"></p>
-          <h3 id="jr-modal-title"></h3>
-          <p id="jr-modal-caption"></p>
-          <p class="small" id="jr-modal-disclaimer"></p>
-          <button class="btn" id="jr-modal-close" data-i18n="rd.close">Close</button>
-        </div>
-      </dialog>
-    </section>
-
-    <!-- QUESTIONS -->
-    <section class="faq" id="faq" aria-labelledby="faq-h">
-      <div class="faq-col">
-        <h2 id="faq-h" class="head" data-i18n="rd.faq.h">Before you book.</h2>
-        <ul class="faq-facts">
-          <li>Flat 2, Richleigh Court, 101 Ewell Road, Surbiton KT6 6AH</li>
-          <li data-i18n="rd.faq.f2">Women only. The room is air-conditioned.</li>
-          <li data-i18n="rd.faq.f3">A 30 deposit secures your booking.</li>
-        </ul>
-        <details class="q">
-          <summary data-i18n="rd.q1">How do I book?</summary>
-          <p data-i18n="rd.a1">Choose your treatment, date and time on Fresha and fill in the health form. Mona reviews it, confirms your appointment is suitable, then sends a 30 deposit link by WhatsApp or email. The deposit comes off the total on the day.</p>
-        </details>
-        <details class="q">
-          <summary data-i18n="rd.q2">What if I need to cancel?</summary>
-          <p data-i18n="rd.a2">Give at least 48 hours' notice and your deposit can move to a new appointment. Cancelling with less notice, or missing the appointment, loses the deposit.</p>
-        </details>
-        <details class="q">
-          <summary data-i18n="rd.q3">Do weekends cost more?</summary>
-          <p data-i18n="rd.a3">Yes, a 10% premium applies to weekend appointments. Saturdays are 11am to 6pm, and Sundays are by request only.</p>
-        </details>
-        <details class="q">
-          <summary data-i18n="rd.q4">Is it suitable for me?</summary>
-          <p data-i18n="rd.a4">Treatment may not be suitable within 4 weeks of Botox, after recent fillers, surgery or dental work, with active cold sores or skin infections, or in the first trimester of pregnancy. If you are unsure, ask before booking.</p>
-        </details>
-        <details class="q">
-          <summary data-i18n="rd.q5">Why women only?</summary>
-          <p data-i18n="rd.a5">Mona works alone from a private home studio, so the policy keeps both client and practitioner safe and comfortable.</p>
-        </details>
-        <details class="q">
-          <summary data-i18n="rd.q6">Is this a medical treatment?</summary>
-          <p data-i18n="rd.a6">No. Mona is a registered nurse, but Mukha treatments are complementary wellness therapies. They do not replace advice from your doctor, dentist or specialist.</p>
-        </details>
-        <div class="faq-end">
-          <a class="btn" href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" data-i18n="contact.book">Book on Fresha →</a>
-          <a class="link" href="policies.html" data-i18n="rd.faq.policies">Read the client policies</a>
+      <div class="journal-modal" id="journal-modal" aria-hidden="true">
+        <div class="journal-modal-backdrop" id="journal-modal-backdrop"></div>
+        <div class="journal-modal-box" role="dialog" aria-modal="true">
+          <button class="journal-modal-close" id="journal-modal-close" aria-label="Close">×</button>
+          <div class="journal-modal-media" id="journal-modal-media"></div>
+          <div class="journal-modal-text">
+            <div class="journal-modal-meta">
+              <span class="insight-date" id="journal-modal-date"></span>
+              <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="insight-ig">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> @mukhafaceyoga
+              </a>
+            </div>
+            <h3 class="insight-title" id="journal-modal-title"></h3>
+            <p class="insight-caption" id="journal-modal-caption"></p>
+            <p class="insight-disclaimer" id="journal-modal-disclaimer"></p>
+          </div>
         </div>
       </div>
-      <div class="faq-photos">
-        <figure class="fq-tall"><picture><source srcset="images/edited20.webp" type="image/webp" /><img src="images/edited20.jpeg" alt="A soft brush applying a plant-based mask" width="1152" height="2048" loading="lazy" /></picture></figure>
-        <figure class="fq-sq"><picture><source srcset="images/edited16.webp" type="image/webp" /><img src="images/edited16.jpeg" alt="The jade MUKHA gua sha along a client's neck" width="1600" height="1067" loading="lazy" /></picture></figure>
-      </div>
-    </section>
 
-    <!-- VISIT -->
-    <section class="visit" id="visit" aria-labelledby="visit-h">
-      <picture class="visit-photo"><source srcset="images/7.webp" type="image/webp" /><img src="images/7.jpeg" alt="The treatment room in the evening, the arch and lanterns lit" width="1366" height="2048" loading="lazy" /></picture>
-      <div class="visit-card">
-        <h2 id="visit-h" class="head head--small" data-i18n="rd.visit.h">Visit the room.</h2>
-        <p>Flat 2, Richleigh Court<br />101 Ewell Road, Surbiton KT6 6AH</p>
-        <dl class="hours">
-          <div><dt data-i18n="contact.hours.mon">Monday – Friday</dt><dd data-i18n="contact.hours.mon.t">10am – 7pm</dd></div>
-          <div><dt data-i18n="contact.hours.sat">Saturday</dt><dd data-i18n="contact.hours.sat.t">11am – 6pm</dd></div>
-          <div><dt data-i18n="contact.hours.sun">Sunday</dt><dd data-i18n="contact.hours.sun.t">By request only</dd></div>
-        </dl>
-        <p><a class="link" href="mailto:mukha.faceyoga@gmail.com">mukha.faceyoga@gmail.com</a><br /><a class="link" href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener">@mukhafaceyoga</a></p>
-        <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn btn-full" data-i18n="contact.book">Book on Fresha →</a>
+      <div class="insights-more">
+        <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>&nbsp; <span data-i18n="journal.ig">Follow on Instagram for more</span>
+        </a>
       </div>
-    </section>
-
-    <!-- WRITE -->
-    <section class="write" id="contact" aria-labelledby="write-h">
-      <div class="write-text">
-        <h2 id="write-h" class="head" data-i18n="rd.write.h">Write to Mona.</h2>
-        <p class="lead" data-i18n="contact.intro">Have a question or not sure which treatment is right for you? Send a message and Mona will get back to you personally.</p>
-      </div>
-      <form class="form" id="contact-form">
-        <p class="form-error" data-fs-error role="alert"></p>
-        <label for="name" data-i18n="form.name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" data-i18n-ph="form.name.ph" autocomplete="name" required />
-        <label for="email" data-i18n="form.email">Email</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" data-i18n-ph="form.email.ph" autocomplete="email" required />
-        <label for="service" data-i18n="form.interest">Interested in</label>
-        <select id="service" name="service">
-          <option value="" data-i18n="form.select">Select a service…</option>
-          <optgroup label="Combinations">
-            <option>MOKSHA + ANTAR — Combination (1 hr 30 min · 90)</option>
-            <option>SAVASANA + ANTAR — Combination (1 hr 30 min · 90)</option>
-          </optgroup>
-          <optgroup label="Base Treatments">
-            <option>MOKSHA — Myofascial Release Massage (1 hr 10 min · 75)</option>
-            <option>SAVASANA — Deep Rest Facial Ritual (1 hr 10 min · 75)</option>
-          </optgroup>
-          <optgroup label="Add-ons">
-            <option>URDVHA — At-Home Gua Sha Ritual (30 min video · 40)</option>
-            <option>ANTAR — Buccal Release (30 min · 40)</option>
-          </optgroup>
-          <optgroup label="Packages">
-            <option>MOKSHA RESET — 4 Session Package (4 x 1 hr 10 min · 290)</option>
-            <option>MOKSHA RESET with ANTAR — 4 Session Package (4 x 1 hr 30 min · 350)</option>
-          </optgroup>
-          <optgroup label="Recovery Care">
-            <option>POST-OP RECOVERY — 4 Session Home Visit Package (4 x 70 min)</option>
-          </optgroup>
-          <option>Not sure yet — help me choose</option>
-        </select>
-        <label for="message" data-i18n="form.msg">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Tell me a little about yourself and what you're hoping for…" data-i18n-ph="form.msg.ph"></textarea>
-        <button type="submit" class="btn btn-full" data-i18n="form.submit">Get in Touch</button>
-      </form>
-    </section>
-
-  </main>
-
-  <!-- FOOTER: the back of the card -->
-  <footer class="foot">
-    <div class="card-back">
-      <div class="cb-left">
-        <p class="cb-sign" data-i18n="rd.foot.sign">Slow down, soften.</p>
-        <p data-i18n="about.closing">At MUKHA, beauty and wellness are viewed as deeply interconnected — where relaxation, wellbeing, and facial health exist together in harmony.</p>
-      </div>
-      <div class="cb-right">
-        <img class="cb-stamp" src="images/edited16.webp" alt="" width="1600" height="1067" loading="lazy" />
-        <a href="mailto:mukha.faceyoga@gmail.com">mukha.faceyoga@gmail.com</a>
-        <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener">Instagram @mukhafaceyoga</a>
-        <a href="https://maps.google.com/?q=51.39028853776091,-0.2976158756359416" target="_blank" rel="noopener">101 Ewell Road, Surbiton</a>
-        <a href="policies.html" data-i18n="footer.policies">Client Policies</a>
-      </div>
-      <p class="cb-imprint">© 2026 Mukha Face Yoga · <a href="https://iskostudio.com" target="_blank" rel="noopener">Designed &amp; built by ISKO Studio</a></p>
     </div>
-    <p class="foot-name" aria-hidden="true">Mukha</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p class="section-label" data-i18n="contact.label">Contact</p>
+          <h2 class="section-title" data-i18n="contact.title">Begin your<br /><em>journey</em></h2>
+          <p data-i18n="contact.intro">Have a question or not sure which treatment is right for you? Send a message and Mona will get back to you personally.</p>
+          <div class="female-only-notice">
+            <p data-i18n="contact.female">✦ MUKHA currently welcomes <strong>female clients only</strong>. As a solo practitioner working from a private home studio, this policy is in place to ensure the safety and comfort of both client and practitioner.</p>
+            <p data-i18n="contact.aircon">✦ The studio is fully air-conditioned for your comfort.</p>
+          </div>
+          <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" style="margin-bottom: 0.4rem; display: inline-block;" data-i18n="contact.book">Book on Fresha →</a>
+          <p class="contact-policies-link" data-i18n="contact.policies">Once your Fresha booking and health intake form are complete, Mona will review and confirm your appointment — a 30 deposit will then be requested to secure your spot. Please read our <a href="policies.html">Client Policies &amp; Disclaimer</a> before booking.</p>
+          <div class="contact-links">
+            <a href="mailto:mukha.faceyoga@gmail.com" class="contact-link">
+              <span class="contact-link-icon">✉</span>
+              mukha.faceyoga@gmail.com
+            </a>
+            <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
+              @mukhafaceyoga
+            </a>
+          </div>
+          <div class="opening-hours">
+            <p class="opening-hours-title" data-i18n="contact.hours.title">Opening Hours</p>
+            <ul>
+              <li><span data-i18n="contact.hours.mon">Monday – Friday</span><span data-i18n="contact.hours.mon.t">10am – 7pm</span></li>
+              <li><span data-i18n="contact.hours.sat">Saturday</span><span data-i18n="contact.hours.sat.t">11am – 6pm</span></li>
+              <li><span data-i18n="contact.hours.sun">Sunday</span><span data-i18n="contact.hours.sun.t">By request only</span></li>
+            </ul>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <p class="form-summary" id="form-summary" role="alert" data-fs-error></p>
+          <div class="form-row">
+            <label for="name" data-i18n="form.name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" data-i18n-ph="form.name.ph" autocomplete="name" required aria-describedby="name-error" />
+            <p class="field-error" id="name-error" data-i18n="form.err.name">Please add your name.</p>
+          </div>
+          <div class="form-row">
+            <label for="email" data-i18n="form.email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" data-i18n-ph="form.email.ph" autocomplete="email" required aria-describedby="email-error" />
+            <p class="field-error" id="email-error" data-i18n="form.err.email">Please add an email address Mona can reply to.</p>
+          </div>
+          <fieldset class="form-row form-pills">
+            <legend data-i18n="form.interest">Interested in</legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="service" value="MOKSHA or SAVASANA + ANTAR (Combination)" /><span data-i18n="form.p.combo">Combination</span></label>
+              <label class="pill"><input type="radio" name="service" value="MOKSHA" /><span>MOKSHA</span></label>
+              <label class="pill"><input type="radio" name="service" value="SAVASANA" /><span>SAVASANA</span></label>
+              <label class="pill"><input type="radio" name="service" value="ANTAR" /><span>ANTAR</span></label>
+              <label class="pill"><input type="radio" name="service" value="URDVHA" /><span>URDVHA</span></label>
+              <label class="pill"><input type="radio" name="service" value="MOKSHA RESET" /><span>MOKSHA RESET</span></label>
+              <label class="pill"><input type="radio" name="service" value="POST-OP RECOVERY" /><span data-i18n="form.p.postop">Post-op recovery</span></label>
+              <label class="pill"><input type="radio" name="service" value="Not sure yet" /><span data-i18n="form.p.unsure">Not sure yet</span></label>
+            </div>
+          </fieldset>
+          <details class="optional-details">
+            <summary data-i18n="form.optional">Add a message or phone number (optional)</summary>
+            <div class="form-row">
+              <label for="message" data-i18n="form.msg">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me a little about yourself and what you're hoping for…" data-i18n-ph="form.msg.ph"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="phone" data-i18n="form.phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
+            </div>
+          </details>
+          <div class="hp" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+          <button type="submit" class="btn-primary btn-full" data-i18n="form.submit">Get in Touch</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-logo">Mukha</p>
+        <p class="footer-copy">© 2026 Mukha Face Yoga. All rights reserved.<br /><span style="opacity:0.4; font-size:11px;">Designed &amp; built by <a href="https://iskostudio.com" target="_blank" rel="noopener" style="color:var(--gold); opacity:1; border-bottom: 1px solid rgba(201,169,110,0.3);">ISKO Studio</a></span></p>
+        <div class="footer-links">
+          <a href="policies.html" class="footer-policy" data-i18n="footer.policies">Client Policies</a>
+          <a href="https://www.instagram.com/mukhafaceyoga/" target="_blank" rel="noopener" class="footer-ig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagram</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Cookie Consent Banner -->
   <div class="cookie-banner" id="cookie-banner">
-    <p><span data-i18n="cookie.text">This site uses cookies to understand visitor traffic.</span> <a href="policies.html">Learn more</a>.</p>
-    <div class="cookie-actions">
-      <button class="btn btn-ghost btn-sm" id="cookie-decline" data-i18n="cookie.decline">Decline</button>
-      <button class="btn btn-sm" id="cookie-accept" data-i18n="cookie.accept">Accept</button>
+    <p class="cookie-banner-text"><span data-i18n="cookie.text">This site uses cookies to understand visitor traffic.</span> <a href="policies.html">Learn more</a>.</p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn cookie-btn--decline" id="cookie-decline" data-i18n="cookie.decline">Decline</button>
+      <button class="cookie-btn cookie-btn--accept" id="cookie-accept" data-i18n="cookie.accept">Accept</button>
     </div>
   </div>
   <script src="i18n.js"></script>
-  <script src="site.js"></script>
+  <script src="main.js"></script>
   <script src="cookie.js"></script>
 </body>
 </html>
