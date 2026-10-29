@@ -779,7 +779,25 @@ body.lang-non-en .price-val::before {
   font-weight: 500;
 }
 
+/* Recovery Care — single full-width card */
+.services-grid--recovery { grid-template-columns: 1fr; }
+.services-grid--recovery .service-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+}
+
+.services-footnote {
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--bark-mid);
+  margin-top: -1.5rem;
+}
+
 @media (max-width: 900px) {
+  .services-grid--recovery { max-width: 480px; margin: 0 auto; }
+  .services-grid--recovery .service-benefits { grid-template-columns: 1fr; }
   .services-grid--packages { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
 }
 
