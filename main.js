@@ -171,11 +171,21 @@ if (carouselTrack && carouselPrev && carouselNext) {
   let current = 0;
   const total = carouselTrack.children.length;
 
+  // the window takes the height of the review on show, so short reviews leave no gap
+  const fitHeight = () => {
+    const card = carouselTrack.children[current];
+    if (card) carouselTrack.parentElement.style.height = card.offsetHeight + 'px';
+  };
+
   function goToSlide(index) {
     current = (index + total) % total;
     carouselTrack.style.transform = `translateX(-${current * 100}%)`;
     carouselDots.forEach((d, i) => d.classList.toggle('active', i === current));
+    fitHeight();
   }
+  window.addEventListener('resize', fitHeight, { passive: true });
+  document.addEventListener('mukha:lang', fitHeight);
+  fitHeight();
 
   carouselPrev.addEventListener('click', () => goToSlide(current - 1));
   carouselNext.addEventListener('click', () => goToSlide(current + 1));
