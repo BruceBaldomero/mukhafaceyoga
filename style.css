@@ -72,7 +72,7 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
@@ -448,19 +448,19 @@ body.lang-non-en .price-val::before {
   padding: 8rem 1.5rem 7rem;
   background: radial-gradient(ellipse 80% 70% at 66% 34%, var(--wall-1) 0%, var(--wall-2) 46%, var(--wall-3) 100%);
 }
-.hero-scene { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.hs-light rect, .hs-floor { fill: var(--wall-light); }
-.hs-light rect { opacity: 0.26; }
-.hs-floor { opacity: 0.12; }
-.hs-shadow { fill: var(--wall-shadow); }
-.hs-grain { opacity: 0.09; mix-blend-mode: multiply; }
-/* the breeze: each frond sways from its stem at its own pace */
-.hs-sway { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 8s ease-in-out infinite alternate; }
-.hs-sway--b { animation-duration: 9.5s; animation-delay: -3s; }
-.hs-sway--c { transform-origin: 0% 100%; animation-duration: 7.5s; animation-delay: -5s; }
-@keyframes sway { from { transform: rotate(-2deg) skewX(1deg); } to { transform: rotate(2.4deg) skewX(-1deg); } }
-.hs-light { animation: drift 18s ease-in-out infinite alternate; }
-@keyframes drift { from { transform: translateX(-8px); opacity: 0.88; } to { transform: translateX(10px); opacity: 1; } }
+.hero-scene { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.hero-scene picture, .hero-scene img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-scene img { object-fit: cover; object-position: 50% 50%; }
+.hs-frond { display: none; }
+/* Desktops: the shadows sway from their stems. Each is its own image layer
+   and only its transform changes, so the graphics chip does the work. */
+@media (min-width: 901px) and (hover: hover) {
+  .hs-frond { display: block; will-change: transform; animation: sway 8s ease-in-out infinite alternate; }
+  .hs-frond--a { transform-origin: 95% 115%; }
+  .hs-frond--b { transform-origin: 106% 86%; animation-duration: 9.5s; animation-delay: -3s; }
+  .hs-frond--c { transform-origin: 2.5% 118%; animation-duration: 7.5s; animation-delay: -5s; }
+}
+@keyframes sway { from { transform: rotate(-1.6deg); } to { transform: rotate(1.9deg); } }
 
 .hero-inner { position: relative; z-index: 2; max-width: 760px; }
 .hero-eyebrow {
@@ -523,7 +523,7 @@ body.lang-non-en .price-val::before {
 .hero-wave-front { fill: var(--sage); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hs-sway, .hs-light { animation: none; }
+  .hs-frond { animation: none; }
 }
 @media (max-width: 600px) {
   .hero { padding: 7rem 1.25rem 6rem; }
@@ -535,14 +535,17 @@ body.lang-non-en .price-val::before {
   top: 2rem; right: -4%;
   width: min(46vw, 520px);
   aspect-ratio: 8 / 9;
-  background: url('images/leaf-shadow.svg') no-repeat center / contain;
+  background: url('images/leaf-shadow.webp') no-repeat center / contain;
   opacity: 0.22;
-  filter: brightness(0.35);
   pointer-events: none;
   transform-origin: 90% 100%;
-  animation: sway 10s ease-in-out infinite alternate;
 }
-.contact .leaf-shade { right: auto; left: -6%; top: auto; bottom: 1rem; transform: scaleX(-1); animation-name: sway-mirror; }
+.contact .leaf-shade { right: auto; left: -6%; top: auto; bottom: 1rem; transform: scaleX(-1); }
+/* they drift only on desktops; phones keep them still */
+@media (min-width: 901px) and (hover: hover) {
+  .leaf-shade { will-change: transform; animation: sway 10s ease-in-out infinite alternate; }
+  .contact .leaf-shade { animation-name: sway-mirror; }
+}
 @keyframes sway-mirror { from { transform: scaleX(-1) rotate(-2deg); } to { transform: scaleX(-1) rotate(2.4deg); } }
 @media (prefers-reduced-motion: reduce) { .leaf-shade { animation: none; } }
 .about, .contact { position: relative; overflow: hidden; }
@@ -2169,4 +2172,10 @@ body.lang-non-en .price-val::before {
 /* phones: the "Most popular" badge sits above the card's label instead of over it */
 @media (max-width: 600px) {
   .service-badge-pkg { position: static; display: inline-block; margin-bottom: 0.9rem; }
+}
+
+/* Phones and tablets: no live blur behind the nav or menu (costly while scrolling);
+   a near-solid fill reads the same */
+@media (max-width: 900px), (hover: none) {
+  .nav, .mobile-menu { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--nav-bg-solid); }
 }

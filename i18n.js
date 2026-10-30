@@ -89,7 +89,7 @@
 
       "cookie.title": "A small note on cookies",
       "cookie.text": "We'd like to use analytics cookies to see how visitors find the site. You can say no and everything still works.",
-      "cookie.more": "Learn more",
+      "cookie.more": "How we use cookies",
       "cookie.decline": "No thanks",
       "service.details": "View details",
       'cookie.accept': 'Accept',
@@ -288,7 +288,7 @@
 
       "cookie.title": "Un petit mot sur les cookies",
       "cookie.text": "Nous aimerions utiliser des cookies d'analyse pour comprendre comment les visiteurs trouvent le site. Vous pouvez refuser, tout fonctionnera quand même.",
-      "cookie.more": "En savoir plus",
+      "cookie.more": "Notre usage des cookies",
       "cookie.decline": "Non merci",
       "service.details": "Voir les détails",
       'cookie.accept': 'Accepter',
@@ -487,7 +487,7 @@
 
       "cookie.title": "Isang maikling paalala tungkol sa cookies",
       "cookie.text": "Gusto naming gumamit ng analytics cookies para malaman kung paano nahahanap ng mga bisita ang site. Puwede kang tumanggi at gagana pa rin ang lahat.",
-      "cookie.more": "Alamin pa",
+      "cookie.more": "Paano namin ginagamit ang cookies",
       "cookie.decline": "Hindi, salamat",
       "service.details": "Tingnan ang detalye",
       'cookie.accept': 'Tanggapin',
