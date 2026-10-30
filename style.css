@@ -1834,63 +1834,163 @@ body.lang-non-en .price-val::before {
 }
 
 /* ── COOKIE BANNER ───────────────────────────────────────── */
+/* A small card that settles into the corner, in the site's own colours */
 .cookie-banner {
   display: none;
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  left: 20px;
+  bottom: 20px;
   z-index: 999;
-  background: var(--deep);
-  padding: 1rem 2rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  box-shadow: 0 -4px 24px rgba(61,46,34,0.15);
+  width: min(380px, calc(100vw - 40px));
+  background: var(--cream);
+  color: var(--bark);
+  border: 1px solid var(--line-gold);
+  border-radius: 18px;
+  padding: 1.35rem 1.4rem 1.25rem;
+  box-shadow: 0 24px 48px -20px rgba(61, 46, 34, 0.35);
+  flex-direction: column;
+  gap: 0.6rem;
 }
-.cookie-banner.visible { display: flex; }
+.cookie-banner.visible {
+  display: flex;
+  animation: cookie-in 0.35s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+.cookie-banner.leaving { animation: cookie-out 0.2s ease-in both; }
+@keyframes cookie-in { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes cookie-out { to { opacity: 0; transform: translateY(8px); } }
+.cookie-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}
 .cookie-banner-text {
   font-size: 0.85rem;
-  color: rgba(247,243,238,0.8);
-  line-height: 1.6;
+  color: var(--bark-mid);
+  line-height: 1.65;
   margin: 0;
 }
 .cookie-banner-text a {
-  color: var(--gold);
-  border-bottom: 1px solid rgba(201,169,110,0.4);
-  transition: opacity 0.2s;
+  color: var(--bark);
+  border-bottom: 1px solid var(--gold);
+  white-space: nowrap;
 }
-.cookie-banner-text a:hover { opacity: 0.8; }
 .cookie-banner-actions {
   display: flex;
-  gap: 0.75rem;
-  flex-shrink: 0;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
 }
 .cookie-btn {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  min-height: 42px;
+  padding: 0 1.1rem;
+  border-radius: var(--pill);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.15s var(--ease);
+}
+.cookie-btn--accept { background: var(--bark); color: var(--cream); border: 1px solid var(--bark); }
+.cookie-btn--decline { background: transparent; color: var(--bark); border: 1px solid var(--line-strong); }
+@media (hover: hover) {
+  .cookie-btn--accept:hover { background: var(--bark-mid); border-color: var(--bark-mid); }
+  .cookie-btn--decline:hover { background: var(--cream-dark); }
+}
+@media (max-width: 600px) {
+  .cookie-banner { left: 12px; right: 12px; bottom: 12px; width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner.visible, .cookie-banner.leaving { animation: none; }
+}
+
+/* ── SERVICE DETAILS ─────────────────────────────────────── */
+.service-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.service-actions .btn-service { margin-top: 0; }
+.btn-details {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  padding: 0 1.25rem;
-  min-height: 40px;
+  color: var(--bark);
+  background: var(--cream-dark);
+  border: none;
   border-radius: var(--pill);
+  min-height: 38px;
+  padding: 0 1.1rem;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, transform 0.15s var(--ease);
 }
-.cookie-btn--accept {
-  background: var(--gold);
-  color: #3D2E22;
-  border: 1px solid var(--gold);
+.btn-details:active { transform: scale(0.97); }
+@media (hover: hover) { .btn-details:hover { background: var(--gold-light); } }
+.service-card--featured .btn-details { background: rgba(247, 243, 238, 0.12); color: var(--on-deep); }
+@media (hover: hover) { .service-card--featured .btn-details:hover { background: rgba(247, 243, 238, 0.2); } }
+.service-card--addon .btn-details { background: var(--cream); }
+
+.service-dialog {
+  margin: auto;
+  width: min(620px, calc(100vw - 32px));
+  max-height: min(86svh, 760px);
+  padding: 0;
+  border: none;
+  border-radius: 22px;
+  background: var(--cream);
+  color: var(--bark);
+  box-shadow: 0 40px 80px -30px rgba(20, 12, 8, 0.5);
+  overflow: auto;
+  overscroll-behavior: contain;
 }
-@media (hover: hover) { .cookie-btn--accept:hover { background: #E8D5B0; border-color: #E8D5B0; } }
-.cookie-btn--decline {
-  background: transparent;
-  color: rgba(247,243,238,0.6);
-  border: 1px solid rgba(247,243,238,0.25);
+.service-dialog::backdrop { background: rgba(43, 33, 26, 0.45); }
+.service-dialog[open] { animation: sd-in 0.28s cubic-bezier(0.23, 1, 0.32, 1) both; }
+.service-dialog[open]::backdrop { animation: sd-fade 0.28s ease both; }
+@keyframes sd-in { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes sd-fade { from { opacity: 0; } to { opacity: 1; } }
+.sd-inner { position: relative; padding: 2.5rem 2.25rem 2rem; display: flex; flex-direction: column; }
+.sd-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%;
+  background: var(--cream-dark); color: var(--bark);
+  font-size: 18px; cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s var(--ease);
 }
-@media (hover: hover) { .cookie-btn--decline:hover { color: var(--on-deep); border-color: rgba(247,243,238,0.5); } }
+.sd-close:active { transform: scale(0.94); }
+@media (hover: hover) { .sd-close:hover { background: var(--gold-light); } }
+.sd-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  margin: 0 3rem 0.25rem 0;
+}
+.sd-body p { font-size: 0.95rem; color: var(--bark-mid); line-height: 1.8; margin-bottom: 0.9rem; }
+.sd-body .service-note { font-size: 0.85rem !important; }
+.service-dialog .service-benefits { margin-top: 0.5rem; }
+.sd-actions { margin-top: 0.5rem; }
+.sd-actions .btn-service {
+  display: inline-flex; align-items: center; min-height: 46px; padding: 0 1.75rem;
+  background: var(--bark); color: var(--cream); border-radius: var(--pill); letter-spacing: 0.08em;
+}
+@media (hover: hover) { .sd-actions .btn-service:hover { background: var(--bark-mid); color: var(--cream); letter-spacing: 0.08em; } }
 @media (max-width: 600px) {
-  .cookie-banner { padding: 1rem 1.25rem; }
-  .cookie-banner-text { font-size: 0.8rem; }
+  /* a sheet that rises from the bottom on phones */
+  .service-dialog { width: 100vw; max-width: 100vw; margin: auto 0 0; border-radius: 22px 22px 0 0; max-height: 88svh; }
+  .service-dialog[open] { animation-name: sd-sheet; }
+  @keyframes sd-sheet { from { transform: translateY(100%); } to { transform: none; } }
+  .sd-inner { padding: 2rem 1.4rem 1.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-dialog[open], .service-dialog[open]::backdrop { animation: none; }
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */

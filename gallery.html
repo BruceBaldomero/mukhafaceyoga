@@ -432,11 +432,12 @@
   </script>
 
   <!-- Cookie Consent Banner -->
-  <div class="cookie-banner" id="cookie-banner">
-    <p class="cookie-banner-text">This site uses cookies to understand visitor traffic. <a href="policies.html">Learn more</a>.</p>
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie preferences">
+    <p class="cookie-title" data-i18n="cookie.title">A small note on cookies</p>
+    <p class="cookie-banner-text"><span data-i18n="cookie.text">We'd like to use analytics cookies to see how visitors find the site. You can say no and everything still works.</span> <a href="policies.html" data-i18n="cookie.more">Learn more</a></p>
     <div class="cookie-banner-actions">
-      <button class="cookie-btn cookie-btn--decline" id="cookie-decline">Decline</button>
-      <button class="cookie-btn cookie-btn--accept" id="cookie-accept">Accept</button>
+      <button class="cookie-btn cookie-btn--accept" id="cookie-accept" data-i18n="cookie.accept">Accept</button>
+      <button class="cookie-btn cookie-btn--decline" id="cookie-decline" data-i18n="cookie.decline">No thanks</button>
     </div>
   </div>
   <script src="i18n.js"></script>

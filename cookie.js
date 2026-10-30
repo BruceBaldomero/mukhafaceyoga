@@ -23,14 +23,20 @@
   if (!banner) return;
   banner.classList.add('visible');
 
+  // the card slips away rather than vanishing
+  function dismiss() {
+    banner.classList.add('leaving');
+    setTimeout(function () { banner.classList.remove('visible', 'leaving'); }, 200);
+  }
+
   document.getElementById('cookie-accept').addEventListener('click', function () {
     localStorage.setItem(CONSENT_KEY, 'accepted');
-    banner.classList.remove('visible');
+    dismiss();
     loadGA();
   });
 
   document.getElementById('cookie-decline').addEventListener('click', function () {
     localStorage.setItem(CONSENT_KEY, 'declined');
-    banner.classList.remove('visible');
+    dismiss();
   });
 })();

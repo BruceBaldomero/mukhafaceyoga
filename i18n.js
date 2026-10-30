@@ -87,8 +87,11 @@
       '404.btn.home': 'Return home',
       '404.btn.consult': 'Book a consultation',
 
-      'cookie.text': 'This site uses cookies to understand visitor traffic.',
-      'cookie.decline': 'Decline',
+      "cookie.title": "A small note on cookies",
+      "cookie.text": "We'd like to use analytics cookies to see how visitors find the site. You can say no and everything still works.",
+      "cookie.more": "Learn more",
+      "cookie.decline": "No thanks",
+      "service.details": "View details",
       'cookie.accept': 'Accept',
 
       'service.moksha.desc': 'Signature all-hands myofascial release treatment. MOKSHA means "liberation" in yoga philosophy — a release from tension and restriction. Using gentle, targeted pressure across the face, neck, shoulders and jaw to release tension held within the fascia and restore natural flow throughout the body.',
@@ -283,8 +286,11 @@
       '404.btn.home': "Retour à l'accueil",
       '404.btn.consult': 'Réserver une consultation',
 
-      'cookie.text': 'Ce site utilise des cookies pour analyser le trafic des visiteurs.',
-      'cookie.decline': 'Refuser',
+      "cookie.title": "Un petit mot sur les cookies",
+      "cookie.text": "Nous aimerions utiliser des cookies d'analyse pour comprendre comment les visiteurs trouvent le site. Vous pouvez refuser, tout fonctionnera quand même.",
+      "cookie.more": "En savoir plus",
+      "cookie.decline": "Non merci",
+      "service.details": "Voir les détails",
       'cookie.accept': 'Accepter',
 
       'service.moksha.desc': "Traitement myofascial signature toutes mains. MOKSHA signifie « libération » en philosophie du yoga — une libération des tensions et des restrictions. Utilisant une pression douce et ciblée sur le visage, le cou, les épaules et la mâchoire pour libérer les tensions au sein du fascia et restaurer le flux naturel dans tout le corps.",
@@ -479,8 +485,11 @@
       '404.btn.home': 'Bumalik sa simula',
       '404.btn.consult': 'Mag-book ng konsultasyon',
 
-      'cookie.text': 'Gumagamit ang site na ito ng cookies upang maunawaan ang trapiko ng bisita.',
-      'cookie.decline': 'Tanggihan',
+      "cookie.title": "Isang maikling paalala tungkol sa cookies",
+      "cookie.text": "Gusto naming gumamit ng analytics cookies para malaman kung paano nahahanap ng mga bisita ang site. Puwede kang tumanggi at gagana pa rin ang lahat.",
+      "cookie.more": "Alamin pa",
+      "cookie.decline": "Hindi, salamat",
+      "service.details": "Tingnan ang detalye",
       'cookie.accept': 'Tanggapin',
 
       'service.moksha.desc': 'Signature all-hands myofascial release na paggamot. Ang MOKSHA ay nangangahulugang "kalayaan" sa pilosopiya ng yoga — isang palayain mula sa pag-igting at paghihigpit. Gumagamit ng malambot, nakatarget na presyon sa mukha, leeg, balikat at panga upang palayain ang tensyon sa loob ng fascia at ibalik ang natural na daloy sa buong katawan.',

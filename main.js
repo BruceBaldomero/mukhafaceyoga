@@ -133,6 +133,40 @@ if (!reduceMotion) {
   });
 }
 
+// Service details: one panel, filled from the card that opened it.
+// Closes with the X, Esc, a tap outside, or the phone's back gesture.
+(function () {
+  const dialog = document.getElementById('service-dialog');
+  if (!dialog || !dialog.showModal) return;
+  const $ = id => document.getElementById(id);
+  let watcher = null, opener = null;
+  const close = () => { if (dialog.open) dialog.close(); };
+  dialog.addEventListener('close', () => {
+    document.documentElement.style.overflow = '';
+    const w = watcher; watcher = null;
+    if (w) w.done();
+    if (opener) opener.focus({ preventScroll: true });
+  });
+  document.querySelectorAll('.btn-details').forEach(btn => btn.addEventListener('click', () => {
+    const card = btn.closest('.service-card');
+    opener = btn;
+    $('sd-type').textContent = card.querySelector('.service-type')?.textContent || '';
+    $('sd-title').innerHTML = card.querySelector('h3').innerHTML;
+    $('sd-subtitle').textContent = card.querySelector('.service-subtitle')?.textContent || '';
+    $('sd-price').replaceChildren(...[...card.querySelectorAll('.service-price')].map(n => n.cloneNode(true)));
+    $('sd-body').replaceChildren(...[...card.querySelector('.service-more').children].map(n => n.cloneNode(true)));
+    $('sd-benefits').replaceChildren(...[...card.querySelectorAll('.service-benefits li')].map(n => n.cloneNode(true)));
+    const action = card.querySelector('.service-actions .btn-service');
+    $('sd-actions').replaceChildren(action ? action.cloneNode(true) : '');
+    document.documentElement.style.overflow = 'hidden';
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    watcher = watchClose(() => { watcher = null; close(); });
+  }));
+  $('sd-close').addEventListener('click', close);
+  dialog.addEventListener('click', e => { if (e.target === dialog) close(); });
+})();
+
 // Where do you hold it? Picking a feeling shows where Mona would usually begin
 (function () {
   const chips = [...document.querySelectorAll('.finder .chip')];
