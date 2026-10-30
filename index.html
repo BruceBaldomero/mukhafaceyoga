@@ -151,24 +151,25 @@
 
   <!-- HERO — sunlight through a window, leaf shadows swaying on a warm wall -->
   <section class="hero" id="top">
-      <!-- Sunlight on the wall with palm shadows. Pre-rendered layers: phones get one still
-           picture; desktops get the wall plus three shadows that sway on the graphics chip. -->
+      <!-- Sunlight on the wall with palm shadows. Phones get one still picture; desktops draw the
+           window light and three vector shadows sharply at screen resolution, and the shadows sway
+           as whole layers on the graphics chip. -->
       <div class="hero-scene" aria-hidden="true">
         <picture class="hs-base">
-          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-wall.webp" />
-          <img src="images/hero-still.webp" alt="" width="1440" height="900" fetchpriority="high" decoding="async" />
+          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-light.svg" type="image/svg+xml" />
+          <img src="images/hero-still.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" />
         </picture>
         <picture class="hs-frond hs-frond--a">
-          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-frond-a.webp" />
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1120" height="700" decoding="async" />
+          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-frond-a.svg" type="image/svg+xml" />
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1600" height="1000" decoding="async" />
         </picture>
         <picture class="hs-frond hs-frond--b">
-          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-frond-b.webp" />
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1120" height="700" decoding="async" />
+          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-frond-b.svg" type="image/svg+xml" />
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1600" height="1000" decoding="async" />
         </picture>
         <picture class="hs-frond hs-frond--c">
-          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-frond-c.webp" />
-          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1120" height="700" decoding="async" />
+          <source media="(min-width: 901px) and (hover: hover)" srcset="images/hero-frond-c.svg" type="image/svg+xml" />
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1600" height="1000" decoding="async" />
         </picture>
       </div>
       <div class="hero-inner">
