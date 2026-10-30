@@ -79,7 +79,7 @@
       document.head.appendChild(s);
     }
   </script>
-  <meta name="theme-color" content="#F7F3EE" />
+  <meta name="theme-color" content="#2B231D" />
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -150,7 +150,7 @@
   </div>
 
   <!-- HERO — sunlight through a window, leaf shadows swaying on a warm wall -->
-  <section class="hero tone-dark" id="top">
+  <section class="hero" id="top">
       <svg class="hero-scene" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
         <defs>
           <filter id="hs-haze" x="-15%" y="-15%" width="130%" height="130%"><feGaussianBlur stdDeviation="9" /></filter>
@@ -192,11 +192,6 @@
           <a href="#about" class="btn-ghost" data-i18n="hero.cta.meet">Meet your practitioner</a>
         </div>
       </div>
-      <ul class="hero-facts">
-        <li class="hero-fact"><span data-i18n="hero.fact.nurse">Registered Nurse</span></li>
-        <li class="hero-fact"><span class="hero-stars" aria-hidden="true">★★★★★</span> <span data-i18n="hero.fact.reviews">5.0 from 14 reviews</span></li>
-        <li class="hero-fact"><span data-i18n="hero.fact.women">Women only, Surbiton</span></li>
-      </ul>
       <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <path class="hero-wave-back" d="M0,62 C240,22 520,104 820,70 C1080,40 1260,58 1440,40 L1440,120 L0,120 Z" />
         <path class="hero-wave-front" d="M0,88 C300,52 600,118 900,86 C1140,62 1300,92 1440,74 L1440,120 L0,120 Z" />
@@ -206,6 +201,11 @@
   <!-- SERVICES -->
   <section class="services section" id="services">
     <div class="container">
+      <ul class="trust-row">
+        <li><span data-i18n="hero.fact.nurse">Registered Nurse</span></li>
+        <li><span class="trust-stars" aria-hidden="true">★★★★★</span> <span data-i18n="hero.fact.reviews">5.0 from 14 reviews</span></li>
+        <li><span data-i18n="hero.fact.women">Women only, Surbiton</span></li>
+      </ul>
       <div class="section-header">
         <p class="section-label" data-i18n="services.label">Services</p>
         <h2 class="section-title" data-i18n="services.title">Treatments designed<br /><em>to restore &amp; release</em></h2>
@@ -498,12 +498,12 @@
   <!-- DIVIDER -->
   <div class="divider-wave" style="background: var(--cream)" aria-hidden="true">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--dark-bg)" />
+      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--sage)" />
     </svg>
   </div>
 
   <!-- TESTIMONIALS -->
-  <section class="testimonials section tone-dark" id="testimonials">
+  <section class="testimonials section" id="testimonials">
     <div class="container">
       <div class="section-header">
         <p class="section-label" data-i18n="testimonials.label">Reviews</p>
@@ -701,7 +701,7 @@
   </section>
 
   <!-- DIVIDER -->
-  <div class="divider-wave" style="background: var(--dark-bg)" aria-hidden="true">
+  <div class="divider-wave" style="background: var(--sage)" aria-hidden="true">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="var(--white)" />
     </svg>
