@@ -76,35 +76,6 @@ if (hamburger && mobileMenu) {
   byId.forEach((_, id) => spy.observe(document.getElementById(id)));
 })();
 
-// Dark mode: follows the system until the visitor picks, then remembers the choice
-(function () {
-  const root = document.documentElement;
-  const toggles = document.querySelectorAll('[data-theme-toggle]');
-  const system = window.matchMedia('(prefers-color-scheme: dark)');
-  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : system.matches;
-  const sync = () => {
-    const dark = isDark();
-    toggles.forEach(t => {
-      t.setAttribute('aria-pressed', dark);
-      if (!t.classList.contains('theme-toggle--menu')) t.setAttribute('aria-label', dark ? 'Light mode' : 'Dark mode');
-      const label = t.querySelector('[data-i18n]');
-      const tr = key => (window.mukhaT && window.mukhaT(key)) || null;
-      if (label) label.textContent = dark ? (tr('nav.theme.light') || 'Light mode') : (tr('nav.theme') || 'Dark mode');
-    });
-    document.querySelectorAll('meta[name="theme-color"]').forEach(m => {
-      if (root.dataset.theme) { m.content = dark ? '#1C1512' : '#F7F3EE'; m.removeAttribute('media'); }
-    });
-  };
-  toggles.forEach(t => t.addEventListener('click', () => {
-    root.dataset.theme = isDark() ? 'light' : 'dark';
-    try { localStorage.setItem('mukha_theme', root.dataset.theme); } catch (_) {}
-    sync();
-  }));
-  system.addEventListener('change', sync);
-  document.addEventListener('mukha:lang', sync);
-  sync();
-})();
-
 // Fade up on scroll: each part rises as it enters; cards in a row arrive one after another
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

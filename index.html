@@ -79,14 +79,7 @@
       document.head.appendChild(s);
     }
   </script>
-  <meta name="theme-color" content="#F7F3EE" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#1C1512" media="(prefers-color-scheme: dark)" />
-  <!-- Theme: follow the system unless the visitor has picked one (set before paint, no flash) -->
-  <script>
-    (function () {
-      try { var t = localStorage.getItem('mukha_theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
-    })();
-  </script>
+  <meta name="theme-color" content="#F7F3EE" />
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -132,10 +125,6 @@
           <button class="lang-option" data-lang="tl" role="option"><span class="fi fi-ph"></span><span>Filipino</span></button>
         </div>
       </div>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
-        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-      </button>
       <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-nav" data-i18n="nav.book">Book Now</a>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -157,16 +146,11 @@
       <button class="lang-btn-mobile" data-lang="fr"><span class="fi fi-fr"></span> Français</button>
       <button class="lang-btn-mobile" data-lang="tl"><span class="fi fi-ph"></span> Filipino</button>
     </div>
-    <button class="theme-toggle theme-toggle--menu" type="button" data-theme-toggle aria-pressed="false">
-        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-      <span data-i18n="nav.theme">Dark mode</span>
-    </button>
     <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav.book">Book Now</a>
   </div>
 
   <!-- HERO — sunlight through a window, leaf shadows swaying on a warm wall -->
-  <section class="hero" id="top">
+  <section class="hero tone-dark" id="top">
       <svg class="hero-scene" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
         <defs>
           <filter id="hs-haze" x="-15%" y="-15%" width="130%" height="130%"><feGaussianBlur stdDeviation="9" /></filter>
@@ -208,6 +192,11 @@
           <a href="#about" class="btn-ghost" data-i18n="hero.cta.meet">Meet your practitioner</a>
         </div>
       </div>
+      <ul class="hero-facts">
+        <li class="hero-fact"><span data-i18n="hero.fact.nurse">Registered Nurse</span></li>
+        <li class="hero-fact"><span class="hero-stars" aria-hidden="true">★★★★★</span> <span data-i18n="hero.fact.reviews">5.0 from 14 reviews</span></li>
+        <li class="hero-fact"><span data-i18n="hero.fact.women">Women only, Surbiton</span></li>
+      </ul>
       <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <path class="hero-wave-back" d="M0,62 C240,22 520,104 820,70 C1080,40 1260,58 1440,40 L1440,120 L0,120 Z" />
         <path class="hero-wave-front" d="M0,88 C300,52 600,118 900,86 C1140,62 1300,92 1440,74 L1440,120 L0,120 Z" />
@@ -217,11 +206,6 @@
   <!-- SERVICES -->
   <section class="services section" id="services">
     <div class="container">
-      <ul class="trust-row">
-        <li><span data-i18n="hero.fact.nurse">Registered Nurse</span></li>
-        <li><span class="trust-stars" aria-hidden="true">★★★★★</span> <span data-i18n="hero.fact.reviews">5.0 from 14 reviews</span></li>
-        <li><span data-i18n="hero.fact.women">Women only, Surbiton</span></li>
-      </ul>
       <div class="section-header">
         <p class="section-label" data-i18n="services.label">Services</p>
         <h2 class="section-title" data-i18n="services.title">Treatments designed<br /><em>to restore &amp; release</em></h2>
@@ -492,118 +476,6 @@
     </svg>
   </div>
 
-  <!-- HOW BOOKING WORKS — on supporting browsers the section holds while each step takes its turn -->
-  <section class="steps scene-steps" id="booking" aria-labelledby="steps-title">
-    <div class="steps-pin">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-label" data-i18n="steps.label">Booking</p>
-          <h2 class="section-title" id="steps-title" data-i18n="steps.title">Four simple <em>steps</em></h2>
-        </div>
-        <ol class="steps-list">
-          <li class="step">
-            <div class="step-text">
-              <p class="step-num" aria-hidden="true">1</p>
-              <h3 data-i18n="steps.1.t">Choose your treatment</h3>
-              <p data-i18n="steps.1.p">Pick your treatment, date and time on Fresha.</p>
-            </div>
-            <div class="step-card" aria-hidden="true">
-              <div class="sc-row sc-row--on"><span>MOKSHA + ANTAR</span><span>1 hr 30 · <span class="price-val">90</span></span></div>
-              <div class="sc-row"><span>MOKSHA</span><span>1 hr 10 · <span class="price-val">75</span></span></div>
-              <div class="sc-row"><span>SAVASANA</span><span>1 hr 10 · <span class="price-val">75</span></span></div>
-              <div class="sc-chips"><span>Thu</span><span class="on">2:00 pm</span><span>4:30 pm</span></div>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-text">
-              <p class="step-num" aria-hidden="true">2</p>
-              <h3 data-i18n="steps.2.t">Fill in your health form</h3>
-              <p data-i18n="steps.2.p">A short health intake form, completed as part of your Fresha booking.</p>
-            </div>
-            <div class="step-card" aria-hidden="true">
-              <p class="sc-title" data-i18n="steps.2.card">Health intake</p>
-              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c1">Medical conditions</span></div>
-              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c2">Recent treatments or procedures</span></div>
-              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c3">Pregnancy</span></div>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-text">
-              <p class="step-num" aria-hidden="true">3</p>
-              <h3 data-i18n="steps.3.t">Mona confirms</h3>
-              <p data-i18n="steps.3.p">Mona reviews your form and sends a 30 deposit link by WhatsApp or email. It comes off your total on the day.</p>
-            </div>
-            <div class="step-card" aria-hidden="true">
-              <p class="sc-bubble" data-i18n="steps.3.card">Your appointment is suitable and confirmed. Here is your deposit link.</p>
-              <p class="sc-meta"><span class="price-val">30</span> <span data-i18n="steps.3.meta">deposit · deducted on the day</span></p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step-text">
-              <p class="step-num" aria-hidden="true">4</p>
-              <h3 data-i18n="steps.4.t">Arrive and unwind</h3>
-              <p data-i18n="steps.4.p">Come to the studio in Surbiton, settle in and let the tension go. Need to change plans? Give 48 hours' notice.</p>
-            </div>
-            <div class="step-card" aria-hidden="true">
-              <p class="sc-title">Mukha</p>
-              <p>Flat 2, Richleigh Court<br />101 Ewell Road, Surbiton</p>
-              <p class="sc-meta" data-i18n="steps.4.meta">Air-conditioned · women only</p>
-            </div>
-          </li>
-        </ol>
-        <div class="steps-cta">
-          <a class="btn-ghost btn-ghost--dark" href="policies.html" data-i18n="steps.policies">Read the client policies</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIVIDER -->
-  <div class="divider-wave" style="background: var(--cream)" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--white)" />
-    </svg>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="about section" id="about">
-    <div class="leaf-shade" aria-hidden="true"></div>
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-image-wrap">
-          <picture>
-            <source srcset="images/mona.webp" type="image/webp" />
-            <img src="images/mona.jpeg" alt="Mona, founder of Mukha Face Yoga — Registered Nurse and Holistic Facial Therapist in Surbiton, Surrey" class="about-image" />
-          </picture>
-          <div class="about-badge">
-            <span data-i18n="about.badge">Founded by</span>
-            <strong>Mona<br />RN &amp; Holistic<br />Facial Therapist</strong>
-          </div>
-        </div>
-        <div class="about-text">
-          <p class="section-label" data-i18n="about.label">About</p>
-          <h2 class="section-title" data-i18n="about.title">More than a facial —<br /><em>a therapeutic experience</em></h2>
-          <p data-i18n="about.p1">MUKHA is a holistic facial therapy space rooted in intentional touch, nervous system support, and natural restoration.</p>
-          <div class="about-highlight">
-            <p data-i18n="about.highlight">The name <em>Mukha</em> means "face" in both Tagalog — the language of the Philippines, where founder Mona is from — and in Sanskrit, the ancient language from which yoga originates. Reflecting Mona's Filipino heritage and her passion for holistic wellness, MUKHA embodies the connection between outer expression and inner wellbeing.</p>
-          </div>
-          <p data-i18n="about.p2">Blending facial myofascial release, buccal massage, face yoga, and holistic facial rituals, each treatment is designed to release tension held within the face, jaw, and body — while supporting natural sculpting, circulation, and deep relaxation.</p>
-          <p data-i18n="about.p3">Inspired by yoga philosophy and slow wellness practices, MUKHA offers more than a facial. It is a therapeutic experience created to help you slow down, soften, and reconnect with yourself.</p>
-          <p data-i18n="about.p4">Founded by Mona, a Registered Nurse and Holistic Facial Therapist, every treatment is guided by both clinical knowledge and intuitive care — creating a safe, nurturing, and restorative space for each client.</p>
-          <p class="about-closing" data-i18n="about.closing">At MUKHA, beauty and wellness are viewed as deeply interconnected — where relaxation, wellbeing, and facial health exist together in harmony.</p>
-          <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav.book">Book Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIVIDER -->
-  <div class="divider-wave" style="background: var(--white)" aria-hidden="true">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="var(--cream)" />
-    </svg>
-  </div>
-
   <!-- GALLERY PREVIEW -->
   <section class="gallery-preview section" id="gallery">
     <div class="container">
@@ -626,12 +498,12 @@
   <!-- DIVIDER -->
   <div class="divider-wave" style="background: var(--cream)" aria-hidden="true">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,55 C360,0 1080,70 1440,20 L1440,70 L0,70 Z" fill="var(--sage)" />
+      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--dark-bg)" />
     </svg>
   </div>
 
   <!-- TESTIMONIALS -->
-  <section class="testimonials section" id="testimonials">
+  <section class="testimonials section tone-dark" id="testimonials">
     <div class="container">
       <div class="section-header">
         <p class="section-label" data-i18n="testimonials.label">Reviews</p>
@@ -829,9 +701,48 @@
   </section>
 
   <!-- DIVIDER -->
-  <div class="divider-wave" style="background: var(--sage)" aria-hidden="true">
+  <div class="divider-wave" style="background: var(--dark-bg)" aria-hidden="true">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--cream)" />
+      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="var(--white)" />
+    </svg>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="leaf-shade" aria-hidden="true"></div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <picture>
+            <source srcset="images/mona.webp" type="image/webp" />
+            <img src="images/mona.jpeg" alt="Mona, founder of Mukha Face Yoga — Registered Nurse and Holistic Facial Therapist in Surbiton, Surrey" class="about-image" />
+          </picture>
+          <div class="about-badge">
+            <span data-i18n="about.badge">Founded by</span>
+            <strong>Mona<br />RN &amp; Holistic<br />Facial Therapist</strong>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="section-label" data-i18n="about.label">About</p>
+          <h2 class="section-title" data-i18n="about.title">More than a facial —<br /><em>a therapeutic experience</em></h2>
+          <p data-i18n="about.p1">MUKHA is a holistic facial therapy space rooted in intentional touch, nervous system support, and natural restoration.</p>
+          <div class="about-highlight">
+            <p data-i18n="about.highlight">The name <em>Mukha</em> means "face" in both Tagalog — the language of the Philippines, where founder Mona is from — and in Sanskrit, the ancient language from which yoga originates. Reflecting Mona's Filipino heritage and her passion for holistic wellness, MUKHA embodies the connection between outer expression and inner wellbeing.</p>
+          </div>
+          <p data-i18n="about.p2">Blending facial myofascial release, buccal massage, face yoga, and holistic facial rituals, each treatment is designed to release tension held within the face, jaw, and body — while supporting natural sculpting, circulation, and deep relaxation.</p>
+          <p data-i18n="about.p3">Inspired by yoga philosophy and slow wellness practices, MUKHA offers more than a facial. It is a therapeutic experience created to help you slow down, soften, and reconnect with yourself.</p>
+          <p data-i18n="about.p4">Founded by Mona, a Registered Nurse and Holistic Facial Therapist, every treatment is guided by both clinical knowledge and intuitive care — creating a safe, nurturing, and restorative space for each client.</p>
+          <p class="about-closing" data-i18n="about.closing">At MUKHA, beauty and wellness are viewed as deeply interconnected — where relaxation, wellbeing, and facial health exist together in harmony.</p>
+          <a href="https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob?pId=2886400" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav.book">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave" style="background: var(--white)" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,55 C360,0 1080,70 1440,20 L1440,70 L0,70 Z" fill="var(--cream)" />
     </svg>
   </div>
 
@@ -984,6 +895,86 @@
       </div>
     </div>
   </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave" style="background: var(--cream)" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,15 C480,70 960,0 1440,45 L1440,70 L0,70 Z" fill="var(--sage)" />
+    </svg>
+  </div>
+
+  <!-- HOW BOOKING WORKS — on supporting browsers the section holds while each step takes its turn -->
+  <section class="steps scene-steps" id="booking" aria-labelledby="steps-title">
+    <div class="steps-pin">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label" data-i18n="steps.label">Booking</p>
+          <h2 class="section-title" id="steps-title" data-i18n="steps.title">Four simple <em>steps</em></h2>
+        </div>
+        <ol class="steps-list">
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">1</p>
+              <h3 data-i18n="steps.1.t">Choose your treatment</h3>
+              <p data-i18n="steps.1.p">Pick your treatment, date and time on Fresha.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <div class="sc-row sc-row--on"><span>MOKSHA + ANTAR</span><span>1 hr 30 · <span class="price-val">90</span></span></div>
+              <div class="sc-row"><span>MOKSHA</span><span>1 hr 10 · <span class="price-val">75</span></span></div>
+              <div class="sc-row"><span>SAVASANA</span><span>1 hr 10 · <span class="price-val">75</span></span></div>
+              <div class="sc-chips"><span>Thu</span><span class="on">2:00 pm</span><span>4:30 pm</span></div>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">2</p>
+              <h3 data-i18n="steps.2.t">Fill in your health form</h3>
+              <p data-i18n="steps.2.p">A short health intake form, completed as part of your Fresha booking.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <p class="sc-title" data-i18n="steps.2.card">Health intake</p>
+              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c1">Medical conditions</span></div>
+              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c2">Recent treatments or procedures</span></div>
+              <div class="sc-check"><span class="tick"></span><span data-i18n="steps.2.c3">Pregnancy</span></div>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">3</p>
+              <h3 data-i18n="steps.3.t">Mona confirms</h3>
+              <p data-i18n="steps.3.p">Mona reviews your form and sends a 30 deposit link by WhatsApp or email. It comes off your total on the day.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <p class="sc-bubble" data-i18n="steps.3.card">Your appointment is suitable and confirmed. Here is your deposit link.</p>
+              <p class="sc-meta"><span class="price-val">30</span> <span data-i18n="steps.3.meta">deposit · deducted on the day</span></p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-num" aria-hidden="true">4</p>
+              <h3 data-i18n="steps.4.t">Arrive and unwind</h3>
+              <p data-i18n="steps.4.p">Come to the studio in Surbiton, settle in and let the tension go. Need to change plans? Give 48 hours' notice.</p>
+            </div>
+            <div class="step-card" aria-hidden="true">
+              <p class="sc-title">Mukha</p>
+              <p>Flat 2, Richleigh Court<br />101 Ewell Road, Surbiton</p>
+              <p class="sc-meta" data-i18n="steps.4.meta">Air-conditioned · women only</p>
+            </div>
+          </li>
+        </ol>
+        <div class="steps-cta">
+          <a class="btn-ghost btn-ghost--dark" href="policies.html" data-i18n="steps.policies">Read the client policies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave" style="background: var(--sage)" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="var(--cream)" />
+    </svg>
+  </div>
 
   <!-- CONTACT -->
   <section class="contact section" id="contact">
