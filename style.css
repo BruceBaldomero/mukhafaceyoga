@@ -116,7 +116,7 @@ body {
   background: var(--cream);
   color: var(--bark);
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -127,7 +127,7 @@ ul { list-style: none; }
 /* ── TYPOGRAPHY ─────────────────────────────────────────── */
 .section-label {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -147,7 +147,7 @@ ul { list-style: none; }
   color: var(--bark-mid);
 }
 .section-intro {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: var(--bark-mid);
   max-width: 500px;
   margin: 0 auto 3rem;
@@ -238,7 +238,7 @@ ul { list-style: none; }
 }
 .nav-links a {
   position: relative;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -561,7 +561,7 @@ body.lang-non-en .price-val::before {
 }
 .hero-headline em { font-style: italic; color: var(--bark-mid); }
 .hero-sub {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: var(--bark-mid);
   max-width: 480px;
   margin: 0 auto 2.5rem;
@@ -570,48 +570,31 @@ body.lang-non-en .price-val::before {
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: center; }
 .hero .btn-ghost { color: var(--bark); }
 
-/* Two of her own photographs in arch frames, echoing the arched mirror
-   in her room, with fact cards floating over their corners */
-.hero-arch {
-  position: absolute;
-  z-index: 2;
-  margin: 0;
-  width: clamp(190px, 16vw, 270px);
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: 0 34px 60px -30px rgba(61, 46, 34, 0.6);
-  outline: 6px solid color-mix(in srgb, var(--cream) 70%, transparent);
-  animation: float 9s ease-in-out infinite alternate;
-}
-.hero-arch picture, .hero-arch img { display: block; width: 100%; height: 100%; }
-.hero-arch img { object-fit: cover; }
-.hero-arch--left { left: 6vw; top: 27%; }
-.hero-arch--left img { object-position: 55% 30%; }
-.hero-arch--right { right: 6vw; top: 17%; animation-delay: -4s; animation-duration: 10s; }
-
-.hero-facts { list-style: none; position: static; }
-.hero-fact {
-  position: absolute;
-  z-index: 3;
+/* Three plain facts at the top of the treatments */
+.trust-row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0;
+  margin: 0 auto 3.5rem;
+  padding: 0;
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: var(--bark);
-  white-space: nowrap;
-  background: color-mix(in srgb, var(--cream) 88%, transparent);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--line-gold);
-  padding: 0.6rem 1.15rem;
-  border-radius: 14px;
-  box-shadow: 0 16px 30px -16px rgba(61, 46, 34, 0.45);
-  animation: float 6s ease-in-out infinite alternate;
 }
-.hero-fact:nth-child(1) { left: calc(6vw + clamp(120px, 10vw, 175px)); top: calc(27% + clamp(250px, 21vw, 355px)); }
-.hero-fact:nth-child(2) { right: calc(6vw - 18px); top: calc(17% + clamp(275px, 23vw, 390px)); animation-delay: -2s; animation-duration: 7s; }
-.hero-fact:nth-child(3) { right: calc(6vw + clamp(140px, 12vw, 210px)); top: calc(17% - 18px); animation-delay: -4s; animation-duration: 6.5s; }
-@keyframes float { from { transform: translateY(0); } to { transform: translateY(-8px); } }
-.hero-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; margin-right: 0.3rem; }
+.trust-row li { display: inline-flex; align-items: center; }
+.trust-row li + li::before {
+  content: '';
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold);
+  margin: 0 1.1rem;
+}
+.trust-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; margin-right: 0.4rem; }
+@media (max-width: 600px) {
+  .trust-row { flex-direction: column; align-items: center; gap: 0.3rem; font-size: 1.1rem; margin-bottom: 2.5rem; }
+  .trust-row li + li::before { display: none; }
+}
 
 /* the wall settles into the treatments on two soft, layered waves */
 .hero-wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: clamp(60px, 8vw, 120px); z-index: 4; pointer-events: none; }
@@ -619,28 +602,10 @@ body.lang-non-en .price-val::before {
 .hero-wave-front { fill: var(--sage); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hs-sway, .hs-light, .hero-fact, .hero-arch { animation: none; }
-}
-/* narrower screens: the arches step aside and the facts sit in a row */
-@media (max-width: 1100px) {
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "inner inner" "facts facts" "left right";
-    justify-items: center;
-    align-content: center;
-    column-gap: 1rem;
-  }
-  .hero-inner { grid-area: inner; }
-  .hero-facts { grid-area: facts; position: relative; z-index: 3; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin: 2.5rem 0 0; padding: 0; }
-  .hero-fact { position: static; }
-  .hero-arch { position: relative; left: auto; right: auto; top: auto; width: min(36vw, 210px); margin-top: 2.5rem; }
-  .hero-arch--left { grid-area: left; justify-self: end; }
-  .hero-arch--right { grid-area: right; justify-self: start; margin-top: 1.25rem; }
+  .hs-sway, .hs-light { animation: none; }
 }
 @media (max-width: 600px) {
   .hero { padding: 7rem 1.25rem 6rem; }
-  .hero-fact { font-size: 0.95rem; }
 }
 
 /* A faint leaf shadow drifting across calmer sections */
@@ -775,7 +740,7 @@ body.lang-non-en .price-val::before {
 .services-category { margin-bottom: 3.5rem; }
 .services-category-label {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -811,7 +776,7 @@ body.lang-non-en .price-val::before {
 }
 
 .service-type {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -831,7 +796,7 @@ body.lang-non-en .price-val::before {
 .service-card--featured h3 { color: var(--on-deep); }
 
 .service-subtitle {
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--bark-mid);
   margin-bottom: 1rem !important;
@@ -840,7 +805,7 @@ body.lang-non-en .price-val::before {
 .service-card--featured .service-subtitle { color: rgba(247,243,238,0.55); }
 
 .service-card > p {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--bark-mid);
   line-height: 1.75;
   margin-bottom: 0.75rem;
@@ -856,8 +821,10 @@ body.lang-non-en .price-val::before {
 }
 .service-card--featured .service-note { color: rgba(247,243,238,0.6) !important; }
 
+.service-card { text-align: center; align-items: center; }
+.service-price { align-self: center; }
 .service-benefits {
-  margin-top: auto;
+  align-self: stretch;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line-strong);
   display: flex;
@@ -867,19 +834,18 @@ body.lang-non-en .price-val::before {
 }
 .service-card--featured .service-benefits { border-top-color: rgba(247,243,238,0.15); }
 .service-benefits li {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   color: var(--bark-mid);
-  padding-left: 1rem;
   position: relative;
 }
 .service-card--featured .service-benefits li { color: rgba(247,243,238,0.75); }
 .service-benefits li::before {
   content: '✦';
-  position: absolute;
-  left: 0;
+  display: inline-block;
+  vertical-align: 2px;
+  margin-right: 0.45rem;
   font-size: 7px;
-  top: 3px;
   color: var(--gold);
   opacity: 0.8;
 }
@@ -887,7 +853,7 @@ body.lang-non-en .price-val::before {
 .btn-service {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   color: var(--sage-deep);
@@ -918,7 +884,7 @@ body.lang-non-en .price-val::before {
   padding: 0.4rem 0.95rem;
   border-radius: var(--pill);
   margin-bottom: 1rem;
-  align-self: flex-start;
+  align-self: center;
 }
 .service-card--featured .service-price {
   background: rgba(201,169,110,0.25);
@@ -1245,7 +1211,7 @@ body.lang-non-en .price-val::before {
 }
 .testimonial-text {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.12rem;
   font-style: italic;
   color: var(--bark-mid);
   line-height: 1.8;
@@ -1910,14 +1876,16 @@ body.lang-non-en .price-val::before {
 .service-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
 }
 .service-actions .btn-service { margin-top: 0; }
 .btn-details {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   color: var(--bark);
@@ -2283,3 +2251,8 @@ body.lang-non-en .price-val::before {
   pointer-events: none;
 }
 @media (max-width: 600px) { .footer::before { top: -39px; height: 40px; } }
+
+/* phones: the "Most popular" badge sits above the card's label instead of over it */
+@media (max-width: 600px) {
+  .service-badge-pkg { position: static; display: inline-block; margin-bottom: 0.9rem; }
+}

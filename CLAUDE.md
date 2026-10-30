@@ -83,3 +83,15 @@ Repo: `BruceBaldomero/mukhafaceyoga`
 6. Add a lead magnet / email signup
 7. Improve Instagram integration on the site
 8. Add Person + Service schema markup
+
+---
+
+## Open questions for Mona (Fresha vs website, checked 30 Oct 2026)
+Nothing changed yet; waiting for her answers.
+1. Combos on Fresha say "Buccal is £20 as an add-on if selected as a combo", but £75 + £20 = £95 while the combo is £90 (the note dates from the £70 base price).
+2. URDVHA (at-home gua sha video, £40) is on the website but not on Fresha, so its Book Now leads nowhere.
+3. Post-Op Recovery is not on Fresha yet (expected; the button emails her).
+4. Moksha Reset with Antar (£350) is on the website; public Fresha only says "from £290". Check it is bookable.
+5. Name differences: Savasana is "Deep relaxation and lifting massage" on Fresha vs "Deep Rest Facial Ritual" on the site; Antar's category is "Add-on or standalone" on Fresha vs "Add-ons" on the site.
+6. Description differences: Fresha has "(connective tissue)" for Moksha, "(inside-the-mouth)" and "avoid overstimulation" for Antar, "4 or more" sessions for the Reset, "my signature Moksha" for Savasana; the site adds "Best paired with ANTAR" for Moksha and uses one shared combo description.
+7. The 10% weekend premium is on the site but not shown on Fresha.
