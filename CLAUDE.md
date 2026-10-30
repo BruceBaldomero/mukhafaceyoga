@@ -89,9 +89,13 @@ Repo: `BruceBaldomero/mukhafaceyoga`
 ## Open questions for Mona (Fresha vs website, checked 30 Oct 2026)
 Nothing changed yet; waiting for her answers.
 1. Combos on Fresha say "Buccal is £20 as an add-on if selected as a combo", but £75 + £20 = £95 while the combo is £90 (the note dates from the £70 base price).
-2. URDVHA (at-home gua sha video, £40) is on the website but not on Fresha, so its Book Now leads nowhere.
+2. URDVHA: the website lists it as a £40 standalone ("30 min video · 40"). On Fresha it only exists as an add-on inside Moksha/Savasana: "Gua sha tool and video tutorial", 30 mins, +£30. Price and booking route differ.
 3. Post-Op Recovery is not on Fresha yet (expected; the button emails her).
-4. Moksha Reset with Antar (£350) is on the website; public Fresha only says "from £290". Check it is bookable.
+4. Moksha Reset: Fresha has both options (£290, 1 hr 10; With Buccal massage £350, 1 hr 30), matching the website. Fresha's wording says "an additional 20 minutes of Buccal Massage" while the time goes up by 20 min and Antar is otherwise 30 min.
 5. Name differences: Savasana is "Deep relaxation and lifting massage" on Fresha vs "Deep Rest Facial Ritual" on the site; Antar's category is "Add-on or standalone" on Fresha vs "Add-ons" on the site.
 6. Description differences: Fresha has "(connective tissue)" for Moksha, "(inside-the-mouth)" and "avoid overstimulation" for Antar, "4 or more" sessions for the Reset, "my signature Moksha" for Savasana; the site adds "Best paired with ANTAR" for Moksha and uses one shared combo description.
 7. The 10% weekend premium is on the site but not shown on Fresha.
+8. On Fresha, Buccal release is +£20 and the gua sha add-on +£30 when added to Moksha or Savasana ("Add-on discount applies if selected with a base treatment"). So Moksha + buccal via the add-on is £95, but the Combination is £90.
+9. Fresha shows 5.0 from 39 ratings (Moksha + Antar 16, Moksha 13). The website says "5.0 · 14 reviews" (the written reviews in the carousel). Ask whether to show the Fresha rating count too.
+
+Full Fresha menu text (scraped 31 Oct 2026) is in the session notes; ask Claude to re-scrape if needed: https://www.fresha.com/en-GB/a/mukha-face-yoga-surbiton-101-ewell-road-pzogzeob/booking?pId=2886400
